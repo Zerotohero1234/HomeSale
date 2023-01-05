@@ -5,7 +5,7 @@
             <div class="col-md-12 order-md-last">
                 <div class="row">
                     <div class="col-md-6 text-center">
-                        <a class="navbar-brand" href="index.html"><img src="{{ URL::asset('/img/design/JSK-logo.jpeg') }}"
+                        <a class="navbar-brand" href="/"><img src="{{ URL::asset('/img/design/JSK-logo.jpeg') }}"
                                 class="img-fluid" style="max-height: 50px"></a>
                     </div>
                     <div class="col-md-6 d-none d-md-flex justify-content-end mb-md-0 mb-3 align-items-center">
@@ -30,7 +30,7 @@
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav m-auto">
                     <li class="nav-item active">
-                        <a href="/testdesign/home" class="nav-link">Home</a>
+                        <a href="/home" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown04111" data-toggle="dropdown"

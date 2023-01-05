@@ -32,7 +32,9 @@ Route::get('/deleteUser/{id}', [UsersController::class, 'delete'])->middleware('
 Route::get('/access_denied', [UsersController::class, 'access_denied'])->middleware('auth')->name('access_denied');
 
 //test design
-Route::get('/testdesign/home', [TestDesignController::class, 'index'])->name('index');
+Route::get('/', [TestDesignController::class, 'index'])->name('index');
 
-Route::get('/testdesign/detail', [TestDesignController::class, 'detail'])->name('detail');
+Route::get('/home', [TestDesignController::class, 'index'])->name('index');
+
+Route::get('/detail', [TestDesignController::class, 'detail'])->name('detail');
 

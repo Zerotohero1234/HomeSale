@@ -20,10 +20,34 @@ class TestDesignController extends Controller
 
     public function detail(Request $request)
     {
-        return view('testdesign.detail');
+        $floor1 = array(
+            array(
+                "room" => "Volvo",
+                "size" => `11'8" x 10'4"`,
+                "ceiling" => `~ 8'0"`,
+            ),
+            array(
+                "room" => "Volvo",
+                "size" => `11'8" x 10'4"`,
+                "ceiling" => `~ 8'0"`,
+            ),
+            array(
+                "room" => "Volvo",
+                "size" => `11'8" x 10'4"`,
+                "ceiling" => `~ 8'0"`,
+            ),
+            array(
+                "room" => "Volvo",
+                "size" => `11'8" x 10'4"`,
+                "ceiling" => `~ 8'0"`,
+            ),
+        );
+
+        return view('testdesign.detail', compact('floor1'));
     }
 
-    public function access_denied(){
+    public function access_denied()
+    {
         return view('accessDenied');
     }
 }

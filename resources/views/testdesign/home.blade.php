@@ -79,15 +79,15 @@
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <a href="/testdesign/detail"><img src="{{ URL::asset('/img/design/1.jpeg') }}"
+                            <a href="/detail"><img src="{{ URL::asset('/img/design/1.jpeg') }}"
                                     class="d-block w-100" alt="..."></a>
                         </div>
                         <div class="carousel-item">
-                            <a href="/testdesign/detail"><img src="{{ URL::asset('/img/design/2.jpeg') }}"
+                            <a href="/detail"><img src="{{ URL::asset('/img/design/2.jpeg') }}"
                                     class="d-block w-100" alt="..."></a>
                         </div>
                         <div class="carousel-item">
-                            <a href="/testdesign/detail"><img src="{{ URL::asset('/img/design/3.jpeg') }}"
+                            <a href="/detail"><img src="{{ URL::asset('/img/design/3.jpeg') }}"
                                     class="d-block w-100" alt="..."></a>
                         </div>
                     </div>
@@ -113,7 +113,7 @@
                 </p>
             </div>
             <div class="col-12 col-lg-4 col-md-6 pt-3">
-                <a href="/testdesign/detail">
+                <a href="/detail">
                     <div class="card bg-dark card-shadow plan-card">
                         <img class="card-img-top plan-card-image" src="{{ URL::asset('/img/design/1.jpeg') }}"
                             alt="Card image cap">
@@ -129,7 +129,7 @@
                 </a>
             </div>
             <div class="col-12 col-lg-4 col-md-6 pt-3">
-                <a href="/testdesign/detail">
+                <a href="/detail">
                     <div class="card bg-dark card-shadow plan-card">
                         <img class="card-img-top plan-card-image" src="{{ URL::asset('/img/design/1.jpeg') }}"
                             alt="Card image cap">
@@ -145,7 +145,7 @@
                 </a>
             </div>
             <div class="col-12 col-lg-4 col-md-6 pt-3">
-                <a href="/testdesign/detail">
+                <a href="/detail">
                     <div class="card bg-dark card-shadow plan-card">
                         <img class="card-img-top plan-card-image" src="{{ URL::asset('/img/design/1.jpeg') }}"
                             alt="Card image cap">
@@ -161,7 +161,7 @@
                 </a>
             </div>
             <div class="col-12 col-lg-4 col-md-6 pt-4">
-                <a href="/testdesign/detail">
+                <a href="/detail">
                     <div class="card bg-dark card-shadow plan-card">
                         <img class="card-img-top plan-card-image" src="{{ URL::asset('/img/design/1.jpeg') }}"
                             alt="Card image cap">
