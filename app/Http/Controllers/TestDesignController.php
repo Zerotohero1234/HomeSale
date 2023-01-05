@@ -2,13 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Branchs;
-use App\Models\Districts;
-use App\Models\Provinces;
-use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 
 class TestDesignController extends Controller
 {
@@ -21,16 +15,12 @@ class TestDesignController extends Controller
 
     public function index(Request $request)
     {
-        $branchs = Branchs::where('enabled', '1')->get();
-
-        return view('testdesign.home', compact('branchs'));
+        return view('testdesign.home');
     }
 
     public function detail(Request $request)
     {
-        $branchs = Branchs::where('enabled', '1')->get();
-
-        return view('testdesign.detail', compact('branchs'));
+        return view('testdesign.detail');
     }
 
     public function access_denied(){
