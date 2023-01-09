@@ -4,6 +4,7 @@
     <div>
         @include('testdesign.navbar')
         @yield('body')
+        @include('testdesign.footer')
     </div>
     
     <script src="{{ URL::asset('/navbar/js/jquery.min.js') }}"></script>

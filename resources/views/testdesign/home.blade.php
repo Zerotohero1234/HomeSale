@@ -23,8 +23,8 @@
                                         <div class="bg-dark ml-1" id="ftco-nav-1">
                                             <ul class="navbar-nav" id="category-nav">
                                                 <li class="nav-item dropdown dropdown-category-2">
-                                                    <a class="nav-link text-wrap text-break py-3" href="#" id="dropdown041"
-                                                        data-toggle="dropdown" aria-haspopup="true"
+                                                    <a class="nav-link text-wrap text-break py-3" href="#"
+                                                        id="dropdown041" data-toggle="dropdown" aria-haspopup="true"
                                                         aria-expanded="false">home</a>
                                                     <div class="dropdown-menu dropdown-menu-2 dropdown-category-menu rounded-0"
                                                         aria-labelledby="dropdown04">
@@ -41,8 +41,8 @@
                                                     </div>
                                                 </li>
                                                 <li class="nav-item dropdown dropdown-category-2">
-                                                    <a class="nav-link text-wrap text-break py-3" href="#" id="dropdown041"
-                                                        data-toggle="dropdown" aria-haspopup="true"
+                                                    <a class="nav-link text-wrap text-break py-3" href="#"
+                                                        id="dropdown041" data-toggle="dropdown" aria-haspopup="true"
                                                         aria-expanded="false">home</a>
                                                     <div class="dropdown-menu dropdown-menu-2 dropdown-category-menu rounded-0"
                                                         aria-labelledby="dropdown04">
@@ -79,16 +79,16 @@
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <a href="/detail"><img src="{{ URL::asset('/img/design/1.jpeg') }}"
-                                    class="d-block w-100" alt="..."></a>
+                            <a href="/detail"><img src="{{ URL::asset('/img/design/1.jpeg') }}" class="d-block w-100"
+                                    alt="..."></a>
                         </div>
                         <div class="carousel-item">
-                            <a href="/detail"><img src="{{ URL::asset('/img/design/2.jpeg') }}"
-                                    class="d-block w-100" alt="..."></a>
+                            <a href="/detail"><img src="{{ URL::asset('/img/design/2.jpeg') }}" class="d-block w-100"
+                                    alt="..."></a>
                         </div>
                         <div class="carousel-item">
-                            <a href="/detail"><img src="{{ URL::asset('/img/design/3.jpeg') }}"
-                                    class="d-block w-100" alt="..."></a>
+                            <a href="/detail"><img src="{{ URL::asset('/img/design/3.jpeg') }}" class="d-block w-100"
+                                    alt="..."></a>
                         </div>
                     </div>
                     <button class="carousel-control-prev Text-secondary" type="button"
@@ -105,6 +105,54 @@
             </div>
         </div>
 
+        <div class="row pt-5">
+            <div class="col-12">
+                <div class="card bg-dark card-shadow">
+                    <div class="card-header">
+                        <p class="h5 Text-secondary">ຄົ້ນຫາແບບເຮືອນ</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12 col-md-6 col-lg-3 py-2">
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected>ຈຳນວນຊັ້ນ</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-3 py-2">
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected>ຫ້ອງນອນ</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-3 py-2">
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected>ຫ້ອງນ້ຳ</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-3 py-2">
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected>ລາຄາ</option>
+                                    <option value="1">100,000,000-200,000,000</option>
+                                    <option value="1">200,000,000-400,000,000</option>
+                                    <option value="1">400,000,000-700,000,000</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-3 pt-3">
+                                <button type="button" class="btn Btn-outline-secondary px-5">ຄົ້ນຫາ</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="row pt-5">
             <div class="col-12">

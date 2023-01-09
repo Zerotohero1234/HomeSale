@@ -44,3 +44,17 @@
 .plan-card:hover {
     box-shadow: 0px 4px 10px 0px #0A0708;
 }
+
+.Btn-outline-secondary {
+    color: #F0A600;
+    border-color: #F0A600;
+}
+
+.Btn-outline-secondary:hover {
+    color: #fff;
+    background-color: #F0A600;
+}
+
+.Bg-black{
+    background-color: #000;
+}
