@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\PlanController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\UsersController;
@@ -30,13 +31,21 @@ Route::post('/updateUser', [UsersController::class, 'update'])->middleware('auth
 
 Route::get('/deleteUser/{id}', [UsersController::class, 'delete'])->middleware('auth')->name('deleteUser');
 
-Route::get('/categories', [CategoryController::class, 'index'])->middleware('auth')->name('users');
+Route::get('/categories', [CategoryController::class, 'index'])->middleware('auth')->name('categories');
 
 Route::get('/editCategory/{id}', [CategoryController::class, 'edit'])->middleware('auth')->name('editCategory');
 
 Route::post('/updateCategory', [CategoryController::class, 'update'])->middleware('auth')->name('updateCategory');
 
 Route::post('/addCategory', [CategoryController::class, 'insert'])->middleware('auth')->name('addCategory');
+
+Route::get('/plans', [PlanController::class, 'index'])->middleware('auth')->name('plans');
+
+Route::get('/editPlan/{id}', [PlanController::class, 'edit'])->middleware('auth')->name('editPlan');
+
+Route::post('/updatePlan', [PlanController::class, 'update'])->middleware('auth')->name('updatePlan');
+
+Route::post('/addPlan', [PlanController::class, 'insert'])->middleware('auth')->name('addPlan');
 
 Route::get('/access_denied', [UsersController::class, 'access_denied'])->middleware('auth')->name('access_denied');
 

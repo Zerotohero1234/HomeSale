@@ -6,6 +6,10 @@
             <a href="/categories">ໝວດໝູ່</a>
         </li>
         <li
+            class="{{ Request::is('plans') || Request::is('plans/*') || Request::is('editPlan/*') ? 'current-page' : '' }}">
+            <a href="/plans">ແບບເຮືອນ</a>
+        </li>
+        <li
             class="{{ Request::is('users') || Request::is('users/*') || Request::is('editUser/*') ? 'current-page' : '' }}">
             <a href="/users">Users</a>
         </li>
