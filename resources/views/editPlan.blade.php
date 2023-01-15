@@ -79,7 +79,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">ພື້ນທີ່ໃຊ້ສອຍ</label>
-                                            <input type="text" name="leaving_area" value="{{ $plan->leaving }}"
+                                            <input type="text" name="leaving_area" value="{{ $plan->leaving_area }}"
                                                 class="form-control">
                                         </div>
                                     </div>
