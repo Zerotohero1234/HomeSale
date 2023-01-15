@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\UsersController;
@@ -29,6 +30,14 @@ Route::post('/updateUser', [UsersController::class, 'update'])->middleware('auth
 
 Route::get('/deleteUser/{id}', [UsersController::class, 'delete'])->middleware('auth')->name('deleteUser');
 
+Route::get('/categories', [CategoryController::class, 'index'])->middleware('auth')->name('users');
+
+Route::get('/editCategory/{id}', [CategoryController::class, 'edit'])->middleware('auth')->name('editCategory');
+
+Route::post('/updateCategory', [CategoryController::class, 'update'])->middleware('auth')->name('updateCategory');
+
+Route::post('/addCategory', [CategoryController::class, 'insert'])->middleware('auth')->name('addCategory');
+
 Route::get('/access_denied', [UsersController::class, 'access_denied'])->middleware('auth')->name('access_denied');
 
 //test design
@@ -37,4 +46,3 @@ Route::get('/', [TestDesignController::class, 'index'])->name('index');
 Route::get('/home', [TestDesignController::class, 'index'])->name('index');
 
 Route::get('/detail', [TestDesignController::class, 'detail'])->name('detail');
-

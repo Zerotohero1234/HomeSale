@@ -12,7 +12,49 @@
                     </button>
                     <div class="d-inline" id="ftco-cate-nav">
                         <ul class="navbar-nav" id="category-nav">
-                            @for ($i = 0; $i < 5; $i++)
+                            @foreach ($categories_results as $main)
+                                <li class="nav-item dropdown dropdown-category">
+                                    <a class="nav-link text-wrap text-break py-3" href="#" id="dropdown04"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        {{ $main->cate_name }}
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-1 dropdown-category-menu rounded-0"
+                                        aria-labelledby="dropdown04">
+                                        <div class="bg-dark ml-1" id="ftco-nav-1">
+                                            <ul class="navbar-nav" id="category-nav">
+                                                @if (isset($main->child))
+                                                    @foreach ($main->child as $sub)
+                                                        <li class="nav-item dropdown dropdown-category-2">
+                                                            <a class="nav-link text-wrap text-break py-3" href="#"
+                                                                id="dropdown041" data-toggle="dropdown" aria-haspopup="true"
+                                                                aria-expanded="false">
+                                                                {{ $sub->cate_name }}
+                                                            </a>
+                                                            <div class="dropdown-menu dropdown-menu-2 dropdown-category-menu rounded-0"
+                                                                aria-labelledby="dropdown04">
+                                                                <div class="bg-dark ml-1" id="ftco-nav-2">
+                                                                    <ul class="navbar-nav" id="category-nav">
+                                                                        @if (isset($sub->child))
+                                                                            @foreach ($sub->child as $child)
+                                                                                <li
+                                                                                    class="nav-item dropdown dropdown-category-2">
+                                                                                    <a class="nav-link py-3"
+                                                                                        href="#">{{ $child->cate_name }}</a>
+                                                                                </li>
+                                                                            @endforeach
+                                                                        @endif
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    @endforeach
+                                                @endif
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            @endforeach
+                            {{-- @for ($i = 0; $i < 5; $i++)
                                 <li class="nav-item dropdown dropdown-category">
                                     <a class="nav-link text-wrap text-break py-3" href="#" id="dropdown04"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -62,7 +104,7 @@
                                         </div>
                                     </div>
                                 </li>
-                            @endfor
+                            @endfor --}}
                         </ul>
                     </div>
                 </div>

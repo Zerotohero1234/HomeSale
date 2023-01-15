@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Branchs;
-use App\Models\Districts;
-use App\Models\Provinces;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -28,8 +26,7 @@ class UsersController extends Controller
 
         $result = User::query();
 
-        $result->select('users.*', 'branchs.branch_name')
-            ->join('branchs', 'users.branch_id', 'branchs.id');
+        $result->select('users.*');
 
         if ($request->name != '') {
             $result->where('users.name', $request->name);
@@ -41,10 +38,6 @@ class UsersController extends Controller
             } else {
                 $result->where('users.enabled', '<>', '1');
             }
-        }
-
-        if ($request->branch_id != '') {
-            $result->where('branch_id', $request->branch_id);
         }
 
         if ($request->email != '') {
@@ -68,9 +61,7 @@ class UsersController extends Controller
             'all' => sizeof($all_users)
         ];
 
-        $branchs = Branchs::where('enabled', '1')->get();
-
-        return view('users', compact('users', 'pagination', 'branchs'));
+        return view('users', compact('users', 'pagination'));
     }
 
 
