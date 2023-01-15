@@ -202,70 +202,24 @@
                     Recommended
                 </p>
             </div>
-            <div class="col-12 col-lg-4 col-md-6 pt-3">
-                <a href="/detail">
-                    <div class="card bg-dark card-shadow plan-card">
-                        <img class="card-img-top plan-card-image" src="{{ URL::asset('/img/design/1.jpeg') }}"
-                            alt="Card image cap">
-                        <div class="card-body plan-card-body bg-dark">
-                            <p class="text-white font-weight-bolder h5">
-                                Plan name.
-                            </p>
-                            <p class="text-white font-weight-lighter mb-0">
-                                category name.
-                            </p>
+            @foreach ($recommendeds as $recommended)
+                <div class="col-12 col-lg-4 col-md-6 pt-3">
+                    <a href="/detail/{{ $recommended->id }}">
+                        <div class="card bg-dark card-shadow plan-card">
+                            <img class="card-img-top plan-card-image" src="{{ URL::asset('/img/design/1.jpeg') }}"
+                                alt="Card image cap">
+                            <div class="card-body plan-card-body bg-dark">
+                                <p class="text-white font-weight-bolder h5">
+                                    {{ $recommended->plan_name }}
+                                </p>
+                                <p class="text-white font-weight-lighter mb-0">
+                                    {{ $recommended->cate_name }}
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-12 col-lg-4 col-md-6 pt-3">
-                <a href="/detail">
-                    <div class="card bg-dark card-shadow plan-card">
-                        <img class="card-img-top plan-card-image" src="{{ URL::asset('/img/design/1.jpeg') }}"
-                            alt="Card image cap">
-                        <div class="card-body plan-card-body bg-dark">
-                            <p class="text-white font-weight-bolder h5">
-                                Plan name.
-                            </p>
-                            <p class="text-white font-weight-lighter mb-0">
-                                category name.
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-12 col-lg-4 col-md-6 pt-3">
-                <a href="/detail">
-                    <div class="card bg-dark card-shadow plan-card">
-                        <img class="card-img-top plan-card-image" src="{{ URL::asset('/img/design/1.jpeg') }}"
-                            alt="Card image cap">
-                        <div class="card-body plan-card-body bg-dark">
-                            <p class="text-white font-weight-bolder h5">
-                                Plan name.
-                            </p>
-                            <p class="text-white font-weight-lighter mb-0">
-                                category name.
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-12 col-lg-4 col-md-6 pt-4">
-                <a href="/detail">
-                    <div class="card bg-dark card-shadow plan-card">
-                        <img class="card-img-top plan-card-image" src="{{ URL::asset('/img/design/1.jpeg') }}"
-                            alt="Card image cap">
-                        <div class="card-body plan-card-body bg-dark">
-                            <p class="text-white font-weight-bolder h5">
-                                Plan name.
-                            </p>
-                            <p class="text-white font-weight-lighter mb-0">
-                                category name.
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>
+            @endforeach
         </div>
     </div>
 @endsection

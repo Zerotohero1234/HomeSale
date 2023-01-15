@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categories;
+use App\Models\Plans;
+use App\Models\Floors;
+use App\Models\Recommendeds;
+use App\Models\Rooms;
 use Illuminate\Http\Request;
 use PHPUnit\Framework\Constraint\IsEmpty;
 
@@ -18,8 +22,10 @@ class TestDesignController extends Controller
     public function index(Request $request)
     {
         $categories = Categories::all();
-        $categories_results = array();
+        $recommendeds = Plans::join('categories', 'plans.category', 'categories.id')
+            ->join('recommendeds', 'plans.id', 'recommendeds.plan_id')->get();
 
+        $categories_results = array();
         foreach ($categories as $key_main => $category_main) {
             if ($category_main["cate_level"] === "main") {
                 $array_subs = array();
@@ -45,35 +51,43 @@ class TestDesignController extends Controller
                 array_push($categories_results, $array_main);
             }
         }
-        return view('testdesign.home', compact('categories_results'));
+
+
+        return view('testdesign.home', compact('categories_results', 'recommendeds'));
     }
 
-    public function detail(Request $request)
+    public function detail($id)
     {
-        $floor1 = array(
-            array(
-                "room" => "Volvo",
-                "size" => `11'8" x 10'4"`,
-                "ceiling" => `~ 8'0"`,
-            ),
-            array(
-                "room" => "Volvo",
-                "size" => `11'8" x 10'4"`,
-                "ceiling" => `~ 8'0"`,
-            ),
-            array(
-                "room" => "Volvo",
-                "size" => `11'8" x 10'4"`,
-                "ceiling" => `~ 8'0"`,
-            ),
-            array(
-                "room" => "Volvo",
-                "size" => `11'8" x 10'4"`,
-                "ceiling" => `~ 8'0"`,
-            ),
-        );
+        $plan = Plans::where('id', $id)->first();
+        $rooms = Rooms::select('floors.floor_name', 'rooms.*')
+            ->join('floors', 'rooms.floor_id', 'floors.id')
+            ->join('plans', 'floors.plan_id', 'plans.id')
+            ->where('plans.id', $id)
+            ->get();
 
-        return view('testdesign.detail', compact('floor1'));
+        $floors = Floors::select('floors.*')
+            ->join('plans', 'floors.plan_id', 'plans.id')
+            ->where('plans.id', $id)
+            ->get();
+
+        $floor_with_rooms = array();
+
+        foreach ($floors as $key => $floor) {
+            $array_rooms = array();
+            foreach ($rooms as $key => $room) {
+                if ($room->floor_id == $floor->id) {
+                    array_push($array_rooms, $room);
+                }
+            }
+            $array_floor = $floor;
+            $array_floor["rooms"] = $array_rooms;
+            array_push($floor_with_rooms, $array_floor);
+        }
+
+        $recommendeds = Plans::join('categories', 'plans.category', 'categories.id')
+            ->join('recommendeds', 'plans.id', 'recommendeds.plan_id')->get();
+
+        return view('testdesign.detail', compact('plan', 'floor_with_rooms', 'recommendeds'));
     }
 
     public function access_denied()
