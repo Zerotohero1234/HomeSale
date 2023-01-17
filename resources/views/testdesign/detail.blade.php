@@ -6,28 +6,20 @@
             <div class="col-lg-8">
                 <div id="carouselInteriorPlanIndicators" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselInteriorPlanIndicators" data-bs-slide-to="0"
-                            class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselInteriorPlanIndicators" data-bs-slide-to="1"
-                            aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#carouselInteriorPlanIndicators" data-bs-slide-to="2"
-                            aria-label="Slide 3"></button>
-                        <button type="button" data-bs-target="#carouselInteriorPlanIndicators" data-bs-slide-to="3"
-                            aria-label="Slide 4"></button>
+                        @foreach ($planSlideImages as $key => $planSlideImage)
+                            <button type="button" data-bs-target="#carouselInteriorPlanIndicators"
+                                data-bs-slide-to={{ $key }} class="{{ $key == 0 ? 'active' : '' }}"
+                                aria-current="true">
+                            </button>
+                        @endforeach
                     </div>
                     <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="{{ URL::asset('/img/design/detail1_1.jpeg') }}" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="{{ URL::asset('/img/design/detail1_2.jpeg') }}" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="{{ URL::asset('/img/design/detail1_3.jpeg') }}" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="{{ URL::asset('/img/design/detail1_4.jpeg') }}" class="d-block w-100" alt="...">
-                        </div>
+                        @foreach ($planSlideImages as $key => $planSlideImage)
+                            <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                                <img src="/img/design/slide/{{ $planSlideImage->img_src }}" class="d-block w-100"
+                                    alt="...">
+                            </div>
+                        @endforeach
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselInteriorPlanIndicators"
                         data-bs-slide="prev">
@@ -106,20 +98,20 @@
             <div class="col-12">
                 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
-                            class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                            aria-label="Slide 2"></button>
+                        @foreach ($planSlideImages as $key => $planSlideImage)
+                            <button type="button" data-bs-target="#carouselExampleIndicators"
+                                data-bs-slide-to={{ $key }} class="{{ $key == 0 ? 'active' : '' }}"
+                                aria-current="true">
+                            </button>
+                        @endforeach
                     </div>
                     <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="{{ URL::asset('/img/design/detail2_1.jpeg') }}" class="d-block w-100"
-                                alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="{{ URL::asset('/img/design/detail2_2.jpeg') }}" class="d-block w-100"
-                                alt="...">
-                        </div>
+                        @foreach ($planSlideImages as $key => $planSlideImage)
+                            <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                                <img src="/img/design/slide/{{ $planSlideImage->img_src }}" class="d-block w-100"
+                                    alt="...">
+                            </div>
+                        @endforeach
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
                         data-bs-slide="prev">
@@ -235,7 +227,7 @@
                 <div class="col-12 col-lg-4 col-md-6 pt-3">
                     <a href="/detail/{{ $recommended->id }}">
                         <div class="card bg-dark card-shadow plan-card">
-                            <img class="card-img-top plan-card-image" src="{{ URL::asset('/img/design/1.jpeg') }}"
+                            <img class="card-img-top plan-card-image" src="/img/design/{{ $recommended->thumbnail }}"
                                 alt="Card image cap">
                             <div class="card-body plan-card-body bg-dark">
                                 <p class="text-white font-weight-bolder h5">

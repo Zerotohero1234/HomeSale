@@ -214,6 +214,12 @@
                                             ຈຳນວນຊັ້ນ
                                         </th>
                                         <th>
+                                            ຮູບໜ້າປົກ
+                                        </th>
+                                        <th>
+                                            Slide
+                                        </th>
+                                        <th>
 
                                         </th>
                                     </thead>
@@ -243,6 +249,16 @@
                                                 </td>
                                                 <td>
                                                     {{ $plan->floor }}
+                                                </td>
+                                                <td>
+                                                    <a href="/planThumbnail/{{ $plan->id }}">
+                                                        <i class="material-icons">image</i>
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a href="/planSlideImages/{{ $plan->id }}">
+                                                        <i class="material-icons">image</i>
+                                                    </a>
                                                 </td>
                                                 <td>
                                                     <a href="/editPlan/{{ $plan->id }}">

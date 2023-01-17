@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Categories;
 use App\Models\Plans;
 use App\Models\Floors;
+use App\Models\PlanSlideImages;
 use App\Models\Recommendeds;
 use App\Models\Rooms;
 use Illuminate\Http\Request;
@@ -87,7 +88,11 @@ class TestDesignController extends Controller
         $recommendeds = Plans::join('categories', 'plans.category', 'categories.id')
             ->join('recommendeds', 'plans.id', 'recommendeds.plan_id')->get();
 
-        return view('testdesign.detail', compact('plan', 'floor_with_rooms', 'recommendeds'));
+        $planSlideImages = PlanSlideImages::join('plans', 'planSlideImages.plan_id', 'plans.id')
+            ->where('plans.id', $id)
+            ->get();
+
+        return view('testdesign.detail', compact('plan', 'floor_with_rooms', 'recommendeds', 'planSlideImages'));
     }
 
     public function access_denied()

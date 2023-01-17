@@ -121,15 +121,15 @@
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <a href="/detail"><img src="{{ URL::asset('/img/design/1.jpeg') }}" class="d-block w-100"
+                            <a href="/detail/1"><img src="{{ URL::asset('/img/design/1.jpeg') }}" class="d-block w-100"
                                     alt="..."></a>
                         </div>
                         <div class="carousel-item">
-                            <a href="/detail"><img src="{{ URL::asset('/img/design/2.jpeg') }}" class="d-block w-100"
+                            <a href="/detail/1"><img src="{{ URL::asset('/img/design/2.jpeg') }}" class="d-block w-100"
                                     alt="..."></a>
                         </div>
                         <div class="carousel-item">
-                            <a href="/detail"><img src="{{ URL::asset('/img/design/3.jpeg') }}" class="d-block w-100"
+                            <a href="/detail/1"><img src="{{ URL::asset('/img/design/3.jpeg') }}" class="d-block w-100"
                                     alt="..."></a>
                         </div>
                     </div>
@@ -206,7 +206,7 @@
                 <div class="col-12 col-lg-4 col-md-6 pt-3">
                     <a href="/detail/{{ $recommended->id }}">
                         <div class="card bg-dark card-shadow plan-card">
-                            <img class="card-img-top plan-card-image" src="{{ URL::asset('/img/design/1.jpeg') }}"
+                            <img class="card-img-top plan-card-image" src="/img/design/{{ $recommended->thumbnail }}"
                                 alt="Card image cap">
                             <div class="card-body plan-card-body bg-dark">
                                 <p class="text-white font-weight-bolder h5">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Categories;
 use App\Models\Plans;
+use App\Models\PlanSlideImages;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use phpDocumentor\Reflection\Types\Null_;
@@ -121,6 +122,91 @@ class PlanController extends Controller
             return redirect('plans')->with(['error' => 'insert_success']);
         } else {
             return redirect('plans')->with(['error' => 'not_insert']);
+        }
+    }
+
+    public function thumbnail($id)
+    {
+        $plan = Plans::where('id', $id)->first();
+        return view('planThumbnail', compact('plan'));
+    }
+
+    public function updateThumbnail(Request $request)
+    {
+        if ($request->hasFile('thumbnail')) {
+            $image = $request->file('thumbnail');
+            $reImage = time() . '.' . $image->getClientOriginalExtension();
+            $dest = public_path('/img/design');
+            $image->move($dest, $reImage);
+
+            $plan = [
+                'thumbnail' => $reImage,
+            ];
+
+            if (Plans::where('id', $request->id)->update($plan)) {
+                return redirect('planThumbnail/' . $request->id)->with(['error' => 'insert_success']);
+            } else {
+                return redirect('planThumbnail/' . $request->id)->with(['error' => 'not_insert']);
+            }
+        } else {
+            return view('planThumbnail', compact('plan'));
+        }
+    }
+
+    public function addSlideImage(Request $request)
+    {
+        if ($request->hasFile('img_src')) {
+            $image = $request->file('img_src');
+            $reImage = time() . '.' . $image->getClientOriginalExtension();
+            $dest = public_path('/img/design/slide');
+            $image->move($dest, $reImage);
+
+            $planSlideImage = new PlanSlideImages;
+            $planSlideImage->img_src = $reImage;
+            $planSlideImage->plan_id = $request->plan_id;
+
+            if ($planSlideImage->save()) {
+                return redirect('planSlideImages/' . $request->plan_id)->with(['error' => 'insert_success']);
+            } else {
+                return redirect('planSlideImages/' . $request->plan_id)->with(['error' => 'not_insert']);
+            }
+        } else {
+            return redirect('planSlideImages/' . $request->plan_id)->with(['error' => 'not_insert']);
+        }
+    }
+
+    public function slideImages($id)
+    {
+        $planSlideImages = PlanSlideImages::join('plans', 'planSlideImages.plan_id', 'plans.id')
+            ->where('plans.id', $id)->get();
+        return view('planSlideImages', compact('planSlideImages', 'id'));
+    }
+
+    public function slideImage($id)
+    {
+        $planSlideImage = PlanSlideImages::where('id', $id)->first();
+        return view('planSlideImage', compact('planSlideImage'));
+    }
+
+    public function updateSlideImage(Request $request)
+    {
+        if ($request->hasFile('img_src')) {
+            $image = $request->file('img_src');
+            $reImage = time() . '.' . $image->getClientOriginalExtension();
+            $dest = public_path('/img/design/slide');
+            $image->move($dest, $reImage);
+
+            $planSlideImage = [
+                'img_src' => $reImage,
+            ];
+
+            if (PlanSlideImages::where('id', $request->id)->update($planSlideImage)) {
+                return redirect('planSlideImage/' . $request->id)->with(['error' => 'insert_success']);
+            } else {
+                return redirect('planSlideImage/' . $request->id)->with(['error' => 'not_insert']);
+            }
+        } else {
+            return redirect('planSlideImage/' . $request->id)->with(['error' => 'not_insert']);
         }
     }
 

@@ -47,6 +47,18 @@ Route::post('/updatePlan', [PlanController::class, 'update'])->middleware('auth'
 
 Route::post('/addPlan', [PlanController::class, 'insert'])->middleware('auth')->name('addPlan');
 
+Route::get('/planThumbnail/{id}', [PlanController::class, 'thumbnail'])->middleware('auth')->name('planThumbnail');
+
+Route::post('/updatePlanThumbnail', [PlanController::class, 'updateThumbnail'])->middleware('auth')->name('updatePlanThumbnail');
+
+Route::post('/addPlanSlideImage', [PlanController::class, 'addSlideImage'])->middleware('auth')->name('addPlanSlideImage');
+
+Route::get('/planSlideImages/{id}', [PlanController::class, 'slideImages'])->middleware('auth')->name('planSlideImages');
+
+Route::get('/planSlideImage/{id}', [PlanController::class, 'slideImage'])->middleware('auth')->name('planSlideImage');
+
+Route::post('/updatePlanSlideImage', [PlanController::class, 'updateSlideImage'])->middleware('auth')->name('updatePlanSlideImage');
+
 Route::get('/access_denied', [UsersController::class, 'access_denied'])->middleware('auth')->name('access_denied');
 
 //test design
