@@ -7,7 +7,7 @@
             <a href="/categories">ໝວດໝູ່</a>
         </li>
         <li
-            class="{{ Request::is('plans') || Request::is('editPlan/*') || Request::is('planThumbnail/*') || Request::is('planSlideImages/*') ? 'current-page' : '' }}">
+            class="{{ Request::is('plans') || Request::is('editPlan/*') || Request::is('planThumbnail/*') || Request::is('planSlideImages/*') || Request::is('floors/*') || Request::is('editFloor/*') || Request::is('rooms/*') || Request::is('editRoom/*') ? 'current-page' : '' }}">
             <a href="/plans">ແບບເຮືອນ</a>
         </li>
         <li
