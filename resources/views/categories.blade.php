@@ -28,6 +28,14 @@
                     <span>
                         <b> Success - </b>ບັນທຶກຂໍ້ມູນສຳເລັດ</span>
                 </div>
+            @elseif(session()->get('error') == 'edit_success')
+                <div class="alert alert-info">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <i class="material-icons">close</i>
+                    </button>
+                    <span>
+                        <b> Success - </b>ແກ້ໄຂຂໍ້ມູນສຳເລັດ</span>
+                </div>
             @endif
             <div class="clearfix"></div>
 

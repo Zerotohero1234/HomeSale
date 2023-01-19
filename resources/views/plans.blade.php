@@ -28,6 +28,14 @@
                     <span>
                         <b> Success - </b>ບັນທຶກຂໍ້ມູນສຳເລັດ</span>
                 </div>
+            @elseif(session()->get('error') == 'edit_success')
+                <div class="alert alert-info">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <i class="material-icons">close</i>
+                    </button>
+                    <span>
+                        <b> Success - </b>ແກ້ໄຂຂໍ້ມູນສຳເລັດ</span>
+                </div>
             @endif
             <div class="clearfix"></div>
 
@@ -112,7 +120,7 @@
             </div>
 
 
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col">
                     <div class="x_panel">
                         <div>
@@ -120,7 +128,6 @@
                         </div>
                         <div class="x_content">
                             <form method="GET" action="/plans">
-                                {{-- @csrf --}}
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="form-group">
@@ -135,33 +142,15 @@
                                                 <option value="">
                                                     ທັງໝົດ
                                                 </option>
-                                                {{-- @foreach ($branchs as $branch)
+                                                @foreach ($branchs as $branch)
                                                     <option {{ Request::input('branch') == $branch->id ? 'selected' : '' }}
                                                         value="{{ $branch->id }}">
                                                         {{ $branch->branch_name }}
                                                     </option>
-                                                @endforeach --}}
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
-                                    {{-- <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label class="bmd-label-floating">ສະຖານະ</label>
-                                            <select class="form-control" name="enabled">
-                                                <option value="">
-                                                    ທັງໝົດ
-                                                </option>
-                                                <option {{ Request::input('enabled') == '1' ? 'selected' : '' }}
-                                                    value="1">
-                                                    ເປີດໃຊ້ງານ
-                                                </option>
-                                                <option {{ Request::input('enabled') == '0' ? 'selected' : '' }}
-                                                    value="0">
-                                                    ປິດໃຊ້ງານ
-                                                </option>
-                                            </select>
-                                        </div>
-                                    </div> --}}
 
                                     <div class="col-md-3">
                                         <div class="form-group">
@@ -177,7 +166,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <div class="row">
                 <div class="col-md-12">

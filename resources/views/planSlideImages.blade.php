@@ -7,7 +7,12 @@
         <div class="">
             <div class="page-title">
                 <div class="title_left">
-                    <h3>ຕັ້ງຄ່າແບບເຮືອນ</h3>
+                    <a href="/plans">
+                        <i class="material-icons">keyboard_backspace</i>
+                    </a>
+                    <h3 class="d-inline pl-3">
+                        ຕັ້ງຄ່າແບບເຮືອນ
+                    </h3>
                 </div>
             </div>
             <div class="clearfix"></div>
@@ -20,6 +25,14 @@
                     <span>
                         <b> Danger - </b>ເກີດຂໍ້ຜິດພາດ ກະລຸນາລອງໃໝ່</span>
                 </div>
+            @elseif(session()->get('error') == 'delete_success')
+                <div class="alert alert-warning">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <i class="material-icons">close</i>
+                    </button>
+                    <span>
+                        <b> Success - </b>ລົບຂໍ້ມູນສຳເລັດ</span>
+                </div>
             @elseif(session()->get('error') == 'insert_success')
                 <div class="alert alert-success">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -31,7 +44,7 @@
             @endif
             <div class="clearfix"></div>
 
-            <div class="row">
+            <div class="row mt-3">
                 <div class="col-md-12">
                     <div class="x_panel">
                         <div>

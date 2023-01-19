@@ -57,8 +57,6 @@ Route::get('/planSlideImages/{id}', [PlanController::class, 'slideImages'])->mid
 
 Route::get('/deletePlanSlideImage/{id}/plan/{plan_id}', [PlanController::class, 'deleteSlideImage'])->middleware('auth')->name('deletePlanSlideImage');
 
-Route::post('/updatePlanSlideImage', [PlanController::class, 'updateSlideImage'])->middleware('auth')->name('updatePlanSlideImage');
-
 Route::get('/access_denied', [UsersController::class, 'access_denied'])->middleware('auth')->name('access_denied');
 
 //test design

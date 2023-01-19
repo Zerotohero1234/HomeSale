@@ -119,7 +119,7 @@ class PlanController extends Controller
         ];
 
         if (Plans::where('id', $request->id)->update($plan)) {
-            return redirect('plans')->with(['error' => 'insert_success']);
+            return redirect('plans')->with(['error' => 'edit_success']);
         } else {
             return redirect('plans')->with(['error' => 'not_insert']);
         }
@@ -144,12 +144,12 @@ class PlanController extends Controller
             ];
 
             if (Plans::where('id', $request->id)->update($plan)) {
-                return redirect('planThumbnail/' . $request->id)->with(['error' => 'insert_success']);
+                return redirect('planThumbnail/' . $request->id)->with(['error' => 'edit_success']);
             } else {
                 return redirect('planThumbnail/' . $request->id)->with(['error' => 'not_insert']);
             }
         } else {
-            return view('planThumbnail', compact('plan'));
+            return redirect('planThumbnail/' . $request->id)->with(['error' => 'not_insert']);
         }
     }
 
@@ -192,28 +192,6 @@ class PlanController extends Controller
             return redirect('planSlideImages/' . $plan_id)->with(['error' => 'delete_success']);
         } else {
             return redirect('planSlideImages/' . $plan_id)->with(['error' => 'not_insert']);
-        }
-    }
-
-    public function updateSlideImage(Request $request)
-    {
-        if ($request->hasFile('img_src')) {
-            $image = $request->file('img_src');
-            $reImage = time() . '.' . $image->getClientOriginalExtension();
-            $dest = public_path('/img/design/slide');
-            $image->move($dest, $reImage);
-
-            $planSlideImage = [
-                'img_src' => $reImage,
-            ];
-
-            if (PlanSlideImages::where('id', $request->id)->update($planSlideImage)) {
-                return redirect('planSlideImage/' . $request->id)->with(['error' => 'insert_success']);
-            } else {
-                return redirect('planSlideImage/' . $request->id)->with(['error' => 'not_insert']);
-            }
-        } else {
-            return redirect('planSlideImage/' . $request->id)->with(['error' => 'not_insert']);
         }
     }
 

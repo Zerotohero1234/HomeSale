@@ -108,7 +108,7 @@ class CategoryController extends Controller
         ];
 
         if (Categories::where('id', $request->id)->update($category)) {
-            return redirect('categories')->with(['error' => 'insert_success']);
+            return redirect('categories')->with(['error' => 'edit_success']);
         } else {
             return redirect('categories')->with(['error' => 'not_insert']);
         }
