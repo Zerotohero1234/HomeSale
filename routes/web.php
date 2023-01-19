@@ -55,7 +55,7 @@ Route::post('/addPlanSlideImage', [PlanController::class, 'addSlideImage'])->mid
 
 Route::get('/planSlideImages/{id}', [PlanController::class, 'slideImages'])->middleware('auth')->name('planSlideImages');
 
-Route::get('/planSlideImage/{id}', [PlanController::class, 'slideImage'])->middleware('auth')->name('planSlideImage');
+Route::get('/deletePlanSlideImage/{id}/plan/{plan_id}', [PlanController::class, 'deleteSlideImage'])->middleware('auth')->name('deletePlanSlideImage');
 
 Route::post('/updatePlanSlideImage', [PlanController::class, 'updateSlideImage'])->middleware('auth')->name('updatePlanSlideImage');
 

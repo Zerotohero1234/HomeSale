@@ -90,10 +90,8 @@
                                                         alt="..." class="img-fluid img-thumbnail">
                                                 </td>
                                                 <td>
-                                                    <a href="/planSlideImage/{{ $planSlideImage->id }}">
-                                                        <i class="material-icons">create</i>
-                                                    </a>
-                                                    <a class="pl-5" href="/planThumbnail/{{ $planSlideImage->id }}">
+                                                    <a class="pl-5"
+                                                        href="/deletePlanSlideImage/{{ $planSlideImage->id }}/plan/{{ $id }}">
                                                         <i class="material-icons">delete</i>
                                                     </a>
                                                 </td>

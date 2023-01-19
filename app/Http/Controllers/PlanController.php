@@ -177,15 +177,22 @@ class PlanController extends Controller
 
     public function slideImages($id)
     {
-        $planSlideImages = PlanSlideImages::join('plans', 'planSlideImages.plan_id', 'plans.id')
+        $planSlideImages = PlanSlideImages::select('planSlideImages.*')
+            ->join('plans', 'planSlideImages.plan_id', 'plans.id')
             ->where('plans.id', $id)->get();
         return view('planSlideImages', compact('planSlideImages', 'id'));
     }
 
-    public function slideImage($id)
+    public function deleteSlideImage($id, $plan_id)
     {
         $planSlideImage = PlanSlideImages::where('id', $id)->first();
-        return view('planSlideImage', compact('planSlideImage'));
+        $file_path = public_path() . '/img/design/slide/' . $planSlideImage->img_src;
+        unlink($file_path);
+        if (PlanSlideImages::where('id', $id)->delete()) {
+            return redirect('planSlideImages/' . $plan_id)->with(['error' => 'delete_success']);
+        } else {
+            return redirect('planSlideImages/' . $plan_id)->with(['error' => 'not_insert']);
+        }
     }
 
     public function updateSlideImage(Request $request)
