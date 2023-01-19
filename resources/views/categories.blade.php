@@ -106,7 +106,7 @@
                 </div>
             </div>
 
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col">
                     <div class="x_panel">
                         <div>
@@ -114,7 +114,6 @@
                         </div>
                         <div class="x_content">
                             <form method="GET" action="/categories">
-                                {{-- @csrf --}}
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="form-group">
@@ -141,24 +140,6 @@
                                             </select>
                                         </div>
                                     </div>
-                                    {{-- <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label class="bmd-label-floating">ສະຖານະ</label>
-                                            <select class="form-control" name="enabled">
-                                                <option value="">
-                                                    ທັງໝົດ
-                                                </option>
-                                                <option {{ Request::input('enabled') == '1' ? 'selected' : '' }}
-                                                    value="1">
-                                                    ເປີດໃຊ້ງານ
-                                                </option>
-                                                <option {{ Request::input('enabled') == '0' ? 'selected' : '' }}
-                                                    value="0">
-                                                    ປິດໃຊ້ງານ
-                                                </option>
-                                            </select>
-                                        </div>
-                                    </div> --}}
                                 </div>
                                 <button type="submit" class="btn btn-primary pull-right px-5">ຄົ້ນຫາ</button>
                                 <div class="clearfix"></div>
@@ -166,7 +147,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <div class="row">
                 <div class="col-md-12">
