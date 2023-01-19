@@ -1,7 +1,7 @@
 <div class="col-md-3 left_col">
     <div class="left_col scroll-view">
         <div class="navbar nav_title" style="border: 0;">
-            <a href="/" class="site_title"><span>Bee Connect</span></a>
+            <a href="/" class="site_title text-center"><span>JSK Group</span></a>
         </div>
 
         <div class="clearfix"></div>
@@ -13,7 +13,7 @@
             <div class="menu_section">
                 {{-- <h3>General</h3> --}}
                 <ul class="nav side-menu">
-                        @include('layouts.superAdminMenu')
+                    @include('layouts.superAdminMenu')
                 </ul>
             </div>
 

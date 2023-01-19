@@ -57,6 +57,22 @@ Route::get('/planSlideImages/{id}', [PlanController::class, 'slideImages'])->mid
 
 Route::get('/deletePlanSlideImage/{id}/plan/{plan_id}', [PlanController::class, 'deleteSlideImage'])->middleware('auth')->name('deletePlanSlideImage');
 
+Route::get('/floors/{id}', [PlanController::class, 'floors'])->middleware('auth')->name('floors');
+
+Route::post('/addFloor', [PlanController::class, 'addFloor'])->middleware('auth')->name('addFloor');
+
+Route::get('/editFloor/{id}', [PlanController::class, 'editFloor'])->middleware('auth')->name('editFloor');
+
+Route::post('/updateFloor', [PlanController::class, 'updateFloor'])->middleware('auth')->name('updateFloor');
+
+Route::get('/rooms/{id}', [PlanController::class, 'rooms'])->middleware('auth')->name('floors');
+
+Route::post('/addRoom', [PlanController::class, 'addRoom'])->middleware('auth')->name('addRoom');
+
+Route::get('/editRoom/{id}', [PlanController::class, 'editRoom'])->middleware('auth')->name('editRoom');
+
+Route::post('/updateRoom', [PlanController::class, 'updateRoom'])->middleware('auth')->name('updateRoom');
+
 Route::get('/access_denied', [UsersController::class, 'access_denied'])->middleware('auth')->name('access_denied');
 
 //test design

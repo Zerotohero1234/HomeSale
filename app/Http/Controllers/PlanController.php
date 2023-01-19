@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categories;
+use App\Models\Floors;
 use App\Models\Plans;
 use App\Models\PlanSlideImages;
+use App\Models\Rooms;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use phpDocumentor\Reflection\Types\Null_;
@@ -194,6 +196,93 @@ class PlanController extends Controller
             return redirect('planSlideImages/' . $plan_id)->with(['error' => 'not_insert']);
         }
     }
+
+    public function floors($id)
+    {
+        $floors = Floors::select('floors.*')
+            ->join('plans', 'floors.plan_id', 'plans.id')
+            ->where('plans.id', $id)->get();
+        return view('floors', compact('floors', 'id'));
+    }
+
+    public function addFloor(Request $request)
+    {
+        $floor = new Floors;
+        $floor->floor_name = $request->floor_name;
+        $floor->plan_id = $request->plan_id;
+
+        if ($floor->save()) {
+            return redirect('floors/' . $request->plan_id)->with(['error' => 'insert_success']);
+        } else {
+            return redirect('floors/' . $request->plan_id)->with(['error' => 'not_insert']);
+        }
+    }
+
+    public function editFloor($id)
+    {
+        $floor = Floors::where('id', $id)->first();
+
+        return view('editFloor', compact('floor'));
+    }
+
+    public function updateFloor(Request $request)
+    {
+        $floor = [
+            'floor_name' => $request->floor_name,
+        ];
+
+        if (Floors::where('id', $request->id)->update($floor)) {
+            return redirect('floors/' . $request->id)->with(['error' => 'edit_success']);
+        } else {
+            return redirect('floors/' . $request->id)->with(['error' => 'not_insert']);
+        }
+    }
+
+    public function rooms($id)
+    {
+        $rooms = Rooms::select('rooms.*')
+            ->join('floors', 'rooms.floor_id', 'floors.id')
+            ->where('floors.id', $id)->get();
+        return view('rooms', compact('rooms', 'id'));
+    }
+
+    public function addRoom(Request $request)
+    {
+        $room = new rooms;
+        $room->room_name = $request->room_name;
+        $room->size = $request->size;
+        $room->ceiling = $request->ceiling;
+        $room->floor_id = $request->floor_id;
+
+        if ($room->save()) {
+            return redirect('rooms/' . $request->floor_id)->with(['error' => 'insert_success']);
+        } else {
+            return redirect('rooms/' . $request->floor_id)->with(['error' => 'not_insert']);
+        }
+    }
+
+    public function editRoom($id)
+    {
+        $room = Rooms::where('id', $id)->first();
+
+        return view('editRoom', compact('room'));
+    }
+
+    public function updateRoom(Request $request)
+    {
+        $room = [
+            'room_name' => $request->room_name,
+            'size' => $request->size,
+            'ceiling' => $request->ceiling,
+        ];
+
+        if (Rooms::where('id', $request->id)->update($room)) {
+            return redirect('rooms/' . $request->id)->with(['error' => 'edit_success']);
+        } else {
+            return redirect('rooms/' . $request->id)->with(['error' => 'not_insert']);
+        }
+    }
+
 
     public function delete($id)
     {
