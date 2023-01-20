@@ -57,10 +57,21 @@ class TestDesignController extends Controller
         //     }
         // }
 
+        $category_plans = array();
+        foreach ($categories as $category) {
+            $category_plan = array();
+            $category_plan['cate_name'] = $category->cate_name;
+            $category_plan['plans'] = Plans::where('category', $category->id)
+            ->orderBy('plans.id', 'desc')
+            ->limit(3)
+            ->get();
+            array_push($category_plans, $category_plan);
+        }
+
         $planSlideImages = PlanSlideImages::join('plans', 'planSlideImages.plan_id', 'plans.id')
             ->get();
 
-        return view('testdesign.home', compact('categories', 'recommendeds', 'planSlideImages'));
+        return view('testdesign.home', compact('categories', 'recommendeds', 'planSlideImages', 'category_plans'));
     }
 
     public function detail($id)
