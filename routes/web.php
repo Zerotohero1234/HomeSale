@@ -81,3 +81,6 @@ Route::get('/', [TestDesignController::class, 'index'])->name('index');
 Route::get('/home', [TestDesignController::class, 'index'])->name('index');
 
 Route::get('/detail/{id}', [TestDesignController::class, 'detail'])->name('detail');
+
+
+Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);

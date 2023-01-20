@@ -9,13 +9,20 @@
                                 class="img-fluid" style="max-height: 50px"></a>
                     </div>
                     <div class="col-md-6 d-none d-md-flex justify-content-end mb-md-0 mb-3 align-items-center">
-                        <form action="#" class="searchform order-lg-last">
-                            <div class="form-group d-flex">
-                                <input type="text" class="form-control pl-3" placeholder="Search">
-                                <button type="submit" placeholder="" class="form-control search"><span
-                                        class="fa fa-search"></span></button>
+                        <div class="dropdown">
+                            <a class="nav-link dropdown-toggle Text-secondary" href="#" id="navbarDropdownMenuLink"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{ Config::get('languages')[App::getLocale()] }}
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                @foreach (Config::get('languages') as $lang => $language)
+                                    @if ($lang != App::getLocale())
+                                        <a class="dropdown-item" href="{{ route('lang.switch', $lang) }}">
+                                            {{ $language }}</a>
+                                    @endif
+                                @endforeach
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -30,7 +37,7 @@
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav m-auto">
                     <li class="nav-item active">
-                        <a href="/home" class="nav-link">Home</a>
+                        <a href="/home" class="nav-link">{{ __('home.home') }}</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown04111" data-toggle="dropdown"
@@ -50,8 +57,9 @@
     <div id="social-float-div" class="card card-body p-2 bg-dark rounded-0">
         <div class="social-media mb-2">
             <p class="mb-0 d-flex">
-                <a href="https://www.facebook.com/Jskgroup.lao" target="_blank" class="d-flex align-items-center justify-content-center"><span
-                        class="fa fa-facebook"><i class="sr-only">Facebook</i></span></a>
+                <a href="https://www.facebook.com/Jskgroup.lao" target="_blank"
+                    class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"><i
+                            class="sr-only">Facebook</i></span></a>
             </p>
         </div>
         <div class="social-media mb-2">
