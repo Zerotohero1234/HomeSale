@@ -61,10 +61,11 @@ class TestDesignController extends Controller
         foreach ($categories as $category) {
             $category_plan = array();
             $category_plan['cate_name'] = $category->cate_name;
+            $category_plan['id'] = $category->id;
             $category_plan['plans'] = Plans::where('category', $category->id)
-            ->orderBy('plans.id', 'desc')
-            ->limit(3)
-            ->get();
+                ->orderBy('plans.id', 'desc')
+                ->limit(3)
+                ->get();
             array_push($category_plans, $category_plan);
         }
 
@@ -72,6 +73,69 @@ class TestDesignController extends Controller
             ->get();
 
         return view('testdesign.home', compact('categories', 'recommendeds', 'planSlideImages', 'category_plans'));
+    }
+
+    public function search(Request $request)
+    {
+        $pagination = [
+            'offsets' => ceil(sizeof(Plans::select('plans.*')
+                ->join('categories', 'plans.category', 'categories.id')
+                ->get()) / 10),
+            'offset' => 1,
+            'all' => sizeof(Plans::select('plans.*')
+                ->join('categories', 'plans.category', 'categories.id')
+                    // ->where()
+                ->get())
+        ];
+
+        $plans = Plans::select('plans.*', 'categories.cate_name')
+            ->join('categories', 'plans.category', 'categories.id')
+            ->orderBy('plans.id', 'asc')
+            ->limit(10)
+            ->get();
+
+        $all_plans = Plans::select('plans.*', 'categories.cate_name')
+            ->join('categories', 'plans.category', 'categories.id')
+            ->orderBy('plans.id', 'asc')
+            ->get();
+
+        $categories = Categories::all();
+
+        return view('testdesign.search', compact('plans', 'categories', 'all_plans', 'pagination'));
+    }
+
+    public function plansByCategory($id)
+    {
+        $pagination = [
+            'offsets' => ceil(sizeof(Plans::select('plans.*')
+                ->join('categories', 'plans.category', 'categories.id')
+                ->where('categories.id', $id)
+                ->get()) / 10),
+            'offset' => 1,
+            'all' => sizeof(Plans::select('plans.*')
+                ->join('categories', 'plans.category', 'categories.id')
+                ->where('categories.id', $id)
+                ->get())
+        ];
+
+        $plans = Plans::select('plans.*', 'categories.cate_name')
+            ->join('categories', 'plans.category', 'categories.id')
+            ->where('categories.id', $id)
+            ->orderBy('plans.id', 'asc')
+            ->limit(10)
+            ->get();
+
+        $all_plans = Plans::select('plans.*', 'categories.cate_name')
+            ->join('categories', 'plans.category', 'categories.id')
+            ->where('categories.id', $id)
+            ->orderBy('plans.id', 'asc')
+            ->get();
+
+        $categories = Categories::all();
+
+        $category = Categories::where('id', $id)->first();
+
+        return view('testdesign.plansByCategory', compact('plans', 'category', 'categories', 'all_plans', 'pagination'));
     }
 
     public function detail($id)

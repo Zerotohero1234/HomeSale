@@ -80,6 +80,10 @@ Route::get('/', [TestDesignController::class, 'index'])->name('index');
 
 Route::get('/home', [TestDesignController::class, 'index'])->name('index');
 
+Route::get('/search', [TestDesignController::class, 'search'])->name('search');
+
+Route::get('/plansByCategory/{id}', [TestDesignController::class, 'plansByCategory'])->name('plansByCategory');
+
 Route::get('/detail/{id}', [TestDesignController::class, 'detail'])->name('detail');
 
 

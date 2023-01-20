@@ -3,16 +3,16 @@
 @section('body')
     <div class="container">
         <div class="row pt-5">
-            <div class="col-lg-3 col-12">
-                <div class="col-12">
-                    <div class="card bg-dark card-shadow">
-                        <div class="card-header">
-                            <p class="h5 Text-secondary">ຄົ້ນຫາແບບເຮືອນ</p>
-                        </div>
+            <div class="col-lg-3 col-12 order-2 order-lg-1 mt-lg-0 mt-3">
+                <div class="card bg-dark card-shadow">
+                    <div class="card-header">
+                        <p class="h5 Text-secondary">ຄົ້ນຫາແບບເຮືອນ</p>
+                    </div>
+                    <form method="GET" action="search">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12 py-2">
-                                    <select class="form-select" aria-label="Default select example">
+                                    <select class="form-select" name="floor" aria-label="Default select example">
                                         <option selected>ຈຳນວນຊັ້ນ</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -20,7 +20,7 @@
                                     </select>
                                 </div>
                                 <div class="col-12 py-2">
-                                    <select class="form-select" aria-label="Default select example">
+                                    <select class="form-select" name="bedroom" aria-label="Default select example">
                                         <option selected>ຫ້ອງນອນ</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -28,7 +28,7 @@
                                     </select>
                                 </div>
                                 <div class="col-12 py-2">
-                                    <select class="form-select" aria-label="Default select example">
+                                    <select class="form-select" name="bath" aria-label="Default select example">
                                         <option selected>ຫ້ອງນ້ຳ</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -36,14 +36,14 @@
                                     </select>
                                 </div>
                                 <div class="col-12 col-md-6 col-lg-3 pt-3">
-                                    <button type="button" class="btn Btn-outline-secondary px-5">ຄົ້ນຫາ</button>
+                                    <button type="submit" class="btn Btn-outline-secondary px-5">ຄົ້ນຫາ</button>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
-            <div class="col-lg-9 col-12">
+            <div class="col-lg-9 col-12 order-1 order-lg-2">
                 <div id="carouselBanner" class="carousel slide carousel-fade" data-bs-ride="carousel">
                     <div class="carousel-indicators">
                         @foreach ($planSlideImages as $key => $planSlideImage)
@@ -115,10 +115,17 @@
         @foreach ($category_plans as $category_plan)
             @if (sizeof($category_plan['plans']) > 0)
                 <div class="row pt-5">
-                    <div class="col-12">
+                    <div class="col-9">
                         <p class="h4 font-weight-bolder text-uppercase headertext-symbol Text-secondary">
                             {{ $category_plan['cate_name'] }}
                         </p>
+                    </div>
+                    <div class="col-3">
+                        <a href="/plansByCategory/{{ $category_plan['id'] }}">
+                            <p class="h5 font-weight-bolder text-right text-uppercase Text-secondary mb-0">
+                                ສະແດງທັງໝົດ >>
+                            </p>
+                        </a>
                     </div>
                     @foreach ($category_plan['plans'] as $plan)
                         <div class="col-12 col-lg-4 col-md-6 pt-3">
