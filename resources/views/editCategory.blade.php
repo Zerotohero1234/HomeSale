@@ -27,7 +27,7 @@
                                         <div class="form-group">
                                             <label class="bmd-label-floating">ຊື່</label>
                                             <input type="text" value="{{ $category->cate_name }}" name="name"
-                                                class="form-control">
+                                                class="form-control" required>
                                         </div>
                                     </div>
                                     <div class="col-md-3">

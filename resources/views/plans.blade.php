@@ -49,13 +49,33 @@
                             <form method="POST" action="/addPlan">
                                 @csrf
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">ຊື່</label>
-                                            <input type="text" name="plan_name" class="form-control">
+                                            <input type="text" name="plan_name" class="form-control" required>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">ຊື່ພາສາອັງກິດ</label>
+                                            <input type="text" name="cate_en_name" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">ຊື່ພາສາຈີນ</label>
+                                            <input type="text" name="cate_cn_name" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">ຊື່ພາສາໄທ</label>
+                                            <input type="text" name="cate_th_name" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">ໝວດໝູ່</label>
                                             <select class="form-control" name="category" required>
@@ -70,21 +90,19 @@
                                             </select>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">ກວ້າງ</label>
                                             <input type="text" name="width" class="form-control">
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">ຍາວ</label>
                                             <input type="text" name="depth" class="form-control">
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">ພື້ນທີ່ໃຊ້ສອຍ</label>
                                             <input type="text" name="leaving_area" class="form-control">
@@ -92,19 +110,19 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">ຫ້ອງນອນ</label>
                                             <input type="text" name="bedroom" class="form-control">
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">ຫ້ອງນ້ຳ</label>
                                             <input type="text" name="bath" class="form-control">
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">ຈຳນວນຊັ້ນ</label>
                                             <input type="text" name="floor" class="form-control">

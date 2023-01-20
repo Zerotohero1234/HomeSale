@@ -63,10 +63,28 @@
                                 @csrf
                                 <input type="hidden" name="plan_id" value="{{ $id }}">
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">ຊື່</label>
-                                            <input class="form-control" type="text" name="floor_name">
+                                            <input class="form-control" type="text" name="floor_name" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">ຊື່ພາສາອັງກິດ</label>
+                                            <input type="text" name="floor_en_name" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">ຊື່ພາສາຈີນ</label>
+                                            <input type="text" name="floor_cn_name" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">ຊື່ພາສາໄທ</label>
+                                            <input type="text" name="floor_th_name" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -92,6 +110,15 @@
                                             ຊື່
                                         </th>
                                         <th>
+                                            ຊື່ພາສາອັງກິດ
+                                        </th>
+                                        <th>
+                                            ຊື່ພາສາຈີນ
+                                        </th>
+                                        <th>
+                                            ຊື່ພາສາໄທ
+                                        </th>
+                                        <th>
                                             ຫ້ອງ
                                         </th>
                                         <th>
@@ -103,6 +130,15 @@
                                             <tr>
                                                 <td class="w-50">
                                                     {{ $floor->floor_name }}
+                                                </td>
+                                                <td>
+                                                    {{ $floor->floor_en_name }}
+                                                </td>
+                                                <td>
+                                                    {{ $floor->floor_cn_name }}
+                                                </td>
+                                                <td>
+                                                    {{ $floor->floor_th_name }}
                                                 </td>
                                                 <td>
                                                     <a href="/rooms/{{ $floor->id }}">

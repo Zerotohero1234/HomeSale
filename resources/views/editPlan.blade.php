@@ -41,14 +41,37 @@
                                 @csrf
                                 <input type="hidden" name="id" value="{{ $plan->id }}">
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">ຊື່</label>
                                             <input type="text" name="plan_name" value="{{ $plan->plan_name }}"
+                                                class="form-control" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">ຊື່ພາສາອັງກິດ</label>
+                                            <input type="text" name="cate_en_name" value="{{ $plan->plan_en_name }}"
                                                 class="form-control">
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">ຊື່ພາສາຈີນ</label>
+                                            <input type="text" name="cate_cn_name" value="{{ $plan->plan_cn_name }}"
+                                                class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">ຊື່ພາສາໄທ</label>
+                                            <input type="text" name="cate_th_name" value="{{ $plan->plan_th_name }}"
+                                                class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">ໝວດໝູ່</label>
                                             <select class="form-control" name="category" required>
@@ -60,23 +83,21 @@
                                             </select>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">ກວ້າງ</label>
                                             <input type="text" name="width" value="{{ $plan->width }}"
                                                 class="form-control">
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">ຍາວ</label>
                                             <input type="text" name="depth" value="{{ $plan->depth }}"
                                                 class="form-control">
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">ພື້ນທີ່ໃຊ້ສອຍ</label>
                                             <input type="text" name="leaving_area" value="{{ $plan->leaving_area }}"
@@ -85,21 +106,21 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">ຫ້ອງນອນ</label>
                                             <input type="text" name="bedroom" value="{{ $plan->bedroom }}"
                                                 class="form-control">
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">ຫ້ອງນ້ຳ</label>
                                             <input type="text" name="bath" value="{{ $plan->bath }}"
                                                 class="form-control">
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">ຈຳນວນຊັ້ນ</label>
                                             <input type="text" name="floor" value="{{ $plan->floor }}"

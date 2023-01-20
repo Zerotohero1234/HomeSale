@@ -63,19 +63,37 @@
                                 @csrf
                                 <input type="hidden" name="floor_id" value="{{ $id }}">
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">ຊື່</label>
-                                            <input class="form-control" type="text" name="room_name">
+                                            <input class="form-control" type="text" name="room_name" required>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">ຊື່ພາສາອັງກິດ</label>
+                                            <input type="text" name="room_en_name" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">ຊື່ພາສາຈີນ</label>
+                                            <input type="text" name="room_cn_name" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">ຊື່ພາສາໄທ</label>
+                                            <input type="text" name="room_th_name" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">ຂະໜາດ</label>
                                             <input class="form-control" type="text" name="size">
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">ເພດານ</label>
                                             <input class="form-control" type="text" name="ceiling">
@@ -104,6 +122,15 @@
                                             ຊື່
                                         </th>
                                         <th>
+                                            ຊື່ພາສາອັງກິດ
+                                        </th>
+                                        <th>
+                                            ຊື່ພາສາຈີນ
+                                        </th>
+                                        <th>
+                                            ຊື່ພາສາໄທ
+                                        </th>
+                                        <th>
                                             ຂະໜາດ
                                         </th>
                                         <th>
@@ -118,6 +145,15 @@
                                             <tr>
                                                 <td class="w-50">
                                                     {{ $room->room_name }}
+                                                </td>
+                                                <td>
+                                                    {{ $room->room_en_name }}
+                                                </td>
+                                                <td>
+                                                    {{ $room->room_cn_name }}
+                                                </td>
+                                                <td>
+                                                    {{ $room->room_th_name }}
                                                 </td>
                                                 <td class="w-50">
                                                     {{ $room->size }}

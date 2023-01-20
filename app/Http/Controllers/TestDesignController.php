@@ -20,6 +20,10 @@ class TestDesignController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+    function __construct()
+    {
+    }
+
     public function index(Request $request)
     {
         $categories = Categories::all();
@@ -53,11 +57,16 @@ class TestDesignController extends Controller
         //     }
         // }
 
-        return view('testdesign.home', compact('categories', 'recommendeds'));
+        $planSlideImages = PlanSlideImages::join('plans', 'planSlideImages.plan_id', 'plans.id')
+            ->get();
+
+        return view('testdesign.home', compact('categories', 'recommendeds', 'planSlideImages'));
     }
 
     public function detail($id)
     {
+        $categories = Categories::all();
+
         $plan = Plans::where('id', $id)->first();
         $rooms = Rooms::select('floors.floor_name', 'rooms.*')
             ->join('floors', 'rooms.floor_id', 'floors.id')
@@ -91,7 +100,7 @@ class TestDesignController extends Controller
             ->where('plans.id', $id)
             ->get();
 
-        return view('testdesign.detail', compact('plan', 'floor_with_rooms', 'recommendeds', 'planSlideImages'));
+        return view('testdesign.detail', compact('plan', 'floor_with_rooms', 'recommendeds', 'planSlideImages', 'categories'));
     }
 
     public function access_denied()

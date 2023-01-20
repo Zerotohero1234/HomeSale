@@ -28,11 +28,32 @@
                                 @csrf
                                 <input type="hidden" name="id" value="{{ $floor->id }}">
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">ຊື່</label>
                                             <input class="form-control" type="text" value="{{ $floor->floor_name }}"
-                                                name="floor_name">
+                                                name="floor_name" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">ຊື່ພາສາອັງກິດ</label>
+                                            <input type="text" name="floor_en_name" value="{{ $floor->floor_en_name }}"
+                                                class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">ຊື່ພາສາຈີນ</label>
+                                            <input type="text" name="floor_cn_name" value="{{ $floor->floor_cn_name }}"
+                                                class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">ຊື່ພາສາໄທ</label>
+                                            <input type="text" name="floor_th_name" value="{{ $floor->floor_th_name }}"
+                                                class="form-control">
                                         </div>
                                     </div>
                                 </div>
