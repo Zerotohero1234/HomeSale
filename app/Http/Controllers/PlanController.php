@@ -138,7 +138,7 @@ class PlanController extends Controller
         if ($request->hasFile('thumbnail')) {
             $image = $request->file('thumbnail');
             $reImage = time() . '.' . $image->getClientOriginalExtension();
-            $dest = public_path('/img/design');
+            $dest = '/img/design';
             $image->move($dest, $reImage);
 
             $plan = [
@@ -160,7 +160,7 @@ class PlanController extends Controller
         if ($request->hasFile('img_src')) {
             $image = $request->file('img_src');
             $reImage = time() . '.' . $image->getClientOriginalExtension();
-            $dest = public_path('/img/design/slide');
+            $dest = '/img/design/slide';
             $image->move($dest, $reImage);
 
             $planSlideImage = new PlanSlideImages;
@@ -188,7 +188,7 @@ class PlanController extends Controller
     public function deleteSlideImage($id, $plan_id)
     {
         $planSlideImage = PlanSlideImages::where('id', $id)->first();
-        $file_path = public_path() . '/img/design/slide/' . $planSlideImage->img_src;
+        $file_path = '/img/design/slide/' . $planSlideImage->img_src;
         unlink($file_path);
         if (PlanSlideImages::where('id', $id)->delete()) {
             return redirect('planSlideImages/' . $plan_id)->with(['error' => 'delete_success']);
