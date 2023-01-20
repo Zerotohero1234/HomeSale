@@ -26,35 +26,34 @@ class TestDesignController extends Controller
         $recommendeds = Plans::join('categories', 'plans.category', 'categories.id')
             ->join('recommendeds', 'plans.id', 'recommendeds.plan_id')->get();
 
-        $categories_results = array();
-        foreach ($categories as $key_main => $category_main) {
-            if ($category_main["cate_level"] === "main") {
-                $array_subs = array();
-                foreach ($categories as $key_sub => $category_sub) {
-                    if ($category_sub["cate_level"] == "sub") {
-                        if ($category_sub["parent"] == $category_main["id"]) {
-                            $array_childs = array();
-                            foreach ($categories as $key_child => $category_child) {
-                                if ($category_child["cate_level"] == "child") {
-                                    if ($category_child["parent"] == $category_sub["id"]) {
-                                        array_push($array_childs, $category_child);
-                                    }
-                                }
-                            }
-                            $array_sub = $category_sub;
-                            $array_sub["child"] = $array_childs;
-                            array_push($array_subs, $array_sub);
-                        }
-                    }
-                }
-                $array_main = $category_main;
-                $array_main["child"] = $array_subs;
-                array_push($categories_results, $array_main);
-            }
-        }
+        // $categories_results = array();
+        // foreach ($categories as $key_main => $category_main) {
+        //     if ($category_main["cate_level"] === "main") {
+        //         $array_subs = array();
+        //         foreach ($categories as $key_sub => $category_sub) {
+        //             if ($category_sub["cate_level"] == "sub") {
+        //                 if ($category_sub["parent"] == $category_main["id"]) {
+        //                     $array_childs = array();
+        //                     foreach ($categories as $key_child => $category_child) {
+        //                         if ($category_child["cate_level"] == "child") {
+        //                             if ($category_child["parent"] == $category_sub["id"]) {
+        //                                 array_push($array_childs, $category_child);
+        //                             }
+        //                         }
+        //                     }
+        //                     $array_sub = $category_sub;
+        //                     $array_sub["child"] = $array_childs;
+        //                     array_push($array_subs, $array_sub);
+        //                 }
+        //             }
+        //         }
+        //         $array_main = $category_main;
+        //         $array_main["child"] = $array_subs;
+        //         array_push($categories_results, $array_main);
+        //     }
+        // }
 
-
-        return view('testdesign.home', compact('categories_results', 'recommendeds'));
+        return view('testdesign.home', compact('categories', 'recommendeds'));
     }
 
     public function detail($id)

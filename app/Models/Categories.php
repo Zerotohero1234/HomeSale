@@ -19,7 +19,9 @@ class Categories extends Model
     protected $fillable = [
         'id',
         'cate_name',
-        'parent'
+        'cate_en_name',
+        'cate_cn_name',
+        'cate_th_name',
     ];
 
     /**

@@ -10,8 +10,9 @@
                     </div>
                     <div class="col-md-6 d-none d-md-flex justify-content-end mb-md-0 mb-3 align-items-center">
                         <div class="dropdown">
-                            <a class="nav-link dropdown-toggle Text-secondary" href="#" id="navbarDropdownMenuLink"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle Text-secondary" href="#"
+                                id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
                                 {{ Config::get('languages')[App::getLocale()] }}
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -41,11 +42,12 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown04111" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">Page</a>
+                            aria-haspopup="true" aria-expanded="false">{{ __('home.categories') }}</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown04111">
-                            <a class="dropdown-item" href="#">Page 1</a>
-                            <a class="dropdown-item" href="#">Page 2</a>
-                            <a class="dropdown-item" href="#">Page 3</a>
+                            @foreach ($categories as $category)
+                                <a class="dropdown-item"
+                                    href="/planByCategory/{{ $category->id }}">{{ $category->cate_name }}</a>
+                            @endforeach
                         </div>
                     </li>
                     <li class="nav-item"><a href="#" class="nav-link">Work</a></li>

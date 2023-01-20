@@ -10,7 +10,7 @@
                         aria-controls="ftco-cate-nav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="fa fa-bars text-white"></span>
                     </button>
-                    <div class="d-inline" id="ftco-cate-nav">
+                    {{-- <div class="d-inline" id="ftco-cate-nav">
                         <ul class="navbar-nav" id="category-nav">
                             @foreach ($categories_results as $main)
                                 <li class="nav-item dropdown dropdown-category">
@@ -54,59 +54,8 @@
                                     </div>
                                 </li>
                             @endforeach
-                            {{-- @for ($i = 0; $i < 5; $i++)
-                                <li class="nav-item dropdown dropdown-category">
-                                    <a class="nav-link text-wrap text-break py-3" href="#" id="dropdown04"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        House-{{ $i + 1 }}
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-1 dropdown-category-menu rounded-0"
-                                        aria-labelledby="dropdown04">
-                                        <div class="bg-dark ml-1" id="ftco-nav-1">
-                                            <ul class="navbar-nav" id="category-nav">
-                                                <li class="nav-item dropdown dropdown-category-2">
-                                                    <a class="nav-link text-wrap text-break py-3" href="#"
-                                                        id="dropdown041" data-toggle="dropdown" aria-haspopup="true"
-                                                        aria-expanded="false">home</a>
-                                                    <div class="dropdown-menu dropdown-menu-2 dropdown-category-menu rounded-0"
-                                                        aria-labelledby="dropdown04">
-                                                        <div class="bg-dark ml-1" id="ftco-nav-2">
-                                                            <ul class="navbar-nav" id="category-nav">
-                                                                <li class="nav-item dropdown dropdown-category-2">
-                                                                    <a class="nav-link py-3" href="#">Cate3</a>
-                                                                </li>
-                                                                <li class="nav-item dropdown dropdown-category-2">
-                                                                    <a class="nav-link" href="#">Cate3</a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li class="nav-item dropdown dropdown-category-2">
-                                                    <a class="nav-link text-wrap text-break py-3" href="#"
-                                                        id="dropdown041" data-toggle="dropdown" aria-haspopup="true"
-                                                        aria-expanded="false">home</a>
-                                                    <div class="dropdown-menu dropdown-menu-2 dropdown-category-menu rounded-0"
-                                                        aria-labelledby="dropdown04">
-                                                        <div class="bg-dark ml-1" id="ftco-nav-2">
-                                                            <ul class="navbar-nav" id="category-nav">
-                                                                <li class="nav-item dropdown dropdown-category-2">
-                                                                    <a class="nav-link py-3" href="#">Cate3</a>
-                                                                </li>
-                                                                <li class="nav-item dropdown dropdown-category-2">
-                                                                    <a class="nav-link" href="#">Cate3</a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li>
-                            @endfor --}}
                         </ul>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
             <div class="col-lg-9 col-12">

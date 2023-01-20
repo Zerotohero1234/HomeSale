@@ -49,52 +49,28 @@
                             <form method="POST" action="/addCategory">
                                 @csrf
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">ຊື່</label>
-                                            <input type="text" name="name" class="form-control">
+                                            <input type="text" name="name" class="form-control" required>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
-                                            <label class="bmd-label-floating">ລະດັບ</label>
-                                            <select class="form-control" id="level" name="cate_level" required>
-                                                <option value="main">
-                                                    ໝວດໝູ່ຫຼັກ
-                                                </option>
-                                                <option value="sub">
-                                                    ໝວດໝູ່ຮອງ
-                                                </option>
-                                                <option value="child">
-                                                    ໝວດໝູ່ຍ່ອຍ
-                                                </option>
-                                            </select>
+                                            <label class="bmd-label-floating">ຊື່ພາສາອັງກິດ</label>
+                                            <input type="text" name="cate_en_name" class="form-control">
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group d-none" id="cate-main-select">
-                                            <label class="bmd-label-floating">ຢູ່ໃນໝວດໝູ່</label>
-                                            <select class="form-control" id="select_parent" name="parent1">
-                                                @foreach ($all_categories as $category)
-                                                    @if ($category->cate_level == 'main')
-                                                        <option value="{{ $category->id }}">
-                                                            {{ $category->cate_name }}
-                                                        </option>
-                                                    @endif
-                                                @endforeach
-                                            </select>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">ຊື່ພາສາຈີນ</label>
+                                            <input type="text" name="cate_cn_name" class="form-control">
                                         </div>
-                                        <div class="form-group d-none" id="cate-sub-select">
-                                            <label class="bmd-label-floating">ຢູ່ໃນໝວດໝູ່</label>
-                                            <select class="form-control" id="select_parent" name="parent2">
-                                                @foreach ($all_categories as $category)
-                                                    @if ($category->cate_level == 'sub')
-                                                        <option value="{{ $category->id }}">
-                                                            {{ $category->cate_name }}
-                                                        </option>
-                                                    @endif
-                                                @endforeach
-                                            </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">ຊື່ພາສາໄທ</label>
+                                            <input type="text" name="cate_th_name" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -105,49 +81,6 @@
                     </div>
                 </div>
             </div>
-
-            {{-- <div class="row">
-                <div class="col">
-                    <div class="x_panel">
-                        <div>
-                            <h2>ຄົ້ນຫາ</h2>
-                        </div>
-                        <div class="x_content">
-                            <form method="GET" action="/categories">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label class="bmd-label-floating">ຊື່</label>
-                                            <input class="form-control" value="{{ Request::input('name') }}" name="name">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label class="bmd-label-floating">ລະດັບ</label>
-                                            <select class="form-control" id="level-search" name="cate_level" required>
-                                                <option value="">
-                                                    ເລືອກ
-                                                </option>
-                                                <option value="main">
-                                                    ໝວດໝູ່ຫຼັກ
-                                                </option>
-                                                <option value="sub">
-                                                    ໝວດໝູ່ຮອງ
-                                                </option>
-                                                <option value="child">
-                                                    ໝວດໝູ່ຍ່ອຍ
-                                                </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn btn-primary pull-right px-5">ຄົ້ນຫາ</button>
-                                <div class="clearfix"></div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
 
             <div class="row">
                 <div class="col-md-12">
@@ -166,13 +99,14 @@
                                             ຊື່
                                         </th>
                                         <th>
-                                            ລະດັບ
+                                            ຊື່ພາສາອັງກິດ
                                         </th>
                                         <th>
-                                            ຢູ່ໃນໝວດໝູ່
+                                            ຊື່ພາສາຈີນ
                                         </th>
                                         <th>
-
+                                            ຊື່ພາສາໄທ
+                                        </th>
                                         </th>
                                     </thead>
                                     <tbody>
@@ -185,22 +119,19 @@
                                                     {{ $cate->cate_name }}
                                                 </td>
                                                 <td>
-                                                    ໝວດໝູ່
-                                                    {{ $cate->cate_level == 'main' ? 'ຫຼັກ' : ($cate->cate_level == 'sub' ? 'ຮອງ' : 'ຍ່ອຍ') }}
+                                                    {{ $cate->cate_en_name }}
                                                 </td>
                                                 <td>
-                                                    {{ $cate->parent_name }}
+                                                    {{ $cate->cate_cn_name }}
+                                                </td>
+                                                <td>
+                                                    {{ $cate->cate_th_name }}
                                                 </td>
                                                 <td>
                                                     <a href="/editCategory/{{ $cate->id }}">
                                                         <i class="material-icons">create</i>
                                                     </a>
                                                 </td>
-                                                {{-- <td>
-                                                    <a href="/deleteUser/{{ $cate->id }}">
-                                                        {{ $cate->enabled == '1' ? 'ປິດໃຊ້ງານ' : 'ເປີດໃຊ້ງານ' }}
-                                                    </a>
-                                                </td> --}}
                                             </tr>
                                         @endforeach
                                     </tbody>

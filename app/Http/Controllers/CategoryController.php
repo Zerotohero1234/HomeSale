@@ -25,21 +25,17 @@ class CategoryController extends Controller
 
         $pagination = [
             'offsets' => ceil(sizeof(Categories::select('categories.*')
-                ->rightJoin('categories As b', 'b.parent', 'categories.id')
                 ->get()) / 10),
             'offset' => 1,
             'all' => sizeof(Categories::select('categories.*')
-                ->rightJoin('categories As b', 'b.parent', 'categories.id')
                 ->get())
         ];
-        $categories = Categories::select('categories.cate_name As parent_name', 'b.*')
-            ->rightJoin('categories As b', 'b.parent', 'categories.id')
+        $categories = Categories::select('categories.*')
             ->orderBy('categories.id', 'asc')
             ->limit(10)
             ->get();
 
-        $all_categories = Categories::select('categories.cate_name As parent_name', 'b.*')
-            ->rightJoin('categories As b', 'b.parent', 'categories.id')
+        $all_categories = Categories::select('categories.*')
             ->orderBy('categories.id', 'asc')
             ->get();
 
@@ -78,9 +74,9 @@ class CategoryController extends Controller
     {
         $category = new Categories;
         $category->cate_name = $request->name;
-        $category->cate_level = $request->cate_level;
-        $category->parent = $request->cate_level == "main" ? NULL : ($request->cate_level == "sub" ? $request->parent1 : $request->parent2);
-
+        $category->cate_en_name = $request->cate_en_name;
+        $category->cate_cn_name = $request->cate_cn_name;
+        $category->cate_th_name = $request->cate_th_name;
         if ($category->save()) {
             return redirect('categories')->with(['error' => 'insert_success']);
         } else {
@@ -91,8 +87,7 @@ class CategoryController extends Controller
     public function edit($id)
     {
         $category = Categories::where('id', $id)->first();
-        $all_categories = Categories::select('categories.cate_name As parent_name', 'b.*')
-            ->rightJoin('categories As b', 'b.parent', 'categories.id')
+        $all_categories = Categories::select('categories.*')
             ->orderBy('categories.id', 'asc')
             ->get();
 
@@ -103,8 +98,9 @@ class CategoryController extends Controller
     {
         $category = [
             'cate_name' => $request->name,
-            'cate_level' => $request->cate_level,
-            'parent' => $request->cate_level == "main" ? NULL : ($request->cate_level == "sub" ? $request->parent1 : $request->parent2)
+            'cate_en_name' => $request->cate_en_name,
+            'cate_cn_name' => $request->cate_cn_name,
+            'cate_th_name' => $request->cate_th_name,
         ];
 
         if (Categories::where('id', $request->id)->update($category)) {

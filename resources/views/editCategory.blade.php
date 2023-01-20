@@ -23,60 +23,32 @@
                                 <input type="hidden" name="id" value="{{ $category->id }}">
                                 @csrf
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">ຊື່</label>
                                             <input type="text" value="{{ $category->cate_name }}" name="name"
                                                 class="form-control">
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
-                                            <label class="bmd-label-floating">ລະດັບ</label>
-                                            <select class="form-control" id="level" name="cate_level" required>
-                                                <option value="main"
-                                                    {{ $category->cate_level == 'main' ? 'selected' : '' }}>
-                                                    ໝວດໝູ່ຫຼັກ
-                                                </option>
-                                                <option value="sub"
-                                                    {{ $category->cate_level == 'sub' ? 'selected' : '' }}>
-                                                    ໝວດໝູ່ຮອງ
-                                                </option>
-                                                <option value="child"
-                                                    {{ $category->cate_level == 'child' ? 'selected' : '' }}>
-                                                    ໝວດໝູ່ຍ່ອຍ
-                                                </option>
-                                            </select>
+                                            <label class="bmd-label-floating">ຊື່ພາສາອັງກິດ</label>
+                                            <input type="text" name="cate_en_name" value="{{ $category->cate_en_name }}"
+                                                class="form-control">
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group {{ $category->cate_level == 'sub' ? '' : 'd-none' }}"
-                                            id="cate-main-select">
-                                            <label class="bmd-label-floating">ຢູ່ໃນໝວດໝູ່</label>
-                                            <select class="form-control" id="select_parent" name="parent">
-                                                @foreach ($all_categories as $cate)
-                                                    @if ($cate->cate_level == 'main')
-                                                        <option value="{{ $cate->id }}"
-                                                            {{ $category->id == $cate->parent ? 'selected' : '' }}>
-                                                            {{ $cate->cate_name }}
-                                                        </option>
-                                                    @endif
-                                                @endforeach
-                                            </select>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">ຊື່ພາສາຈີນ</label>
+                                            <input type="text" name="cate_cn_name" value="{{ $category->cate_cn_name }}"
+                                                class="form-control">
                                         </div>
-                                        <div class="form-group {{ $category->cate_level == 'child' ? '' : 'd-none' }}"
-                                            id="cate-sub-select">
-                                            <label class="bmd-label-floating">ຢູ່ໃນໝວດໝູ່</label>
-                                            <select class="form-control" id="select_parent" name="parent">
-                                                @foreach ($all_categories as $cate)
-                                                    @if ($cate->cate_level == 'sub')
-                                                        <option value="{{ $cate->id }}"
-                                                            {{ $category->id == $cate->parent ? 'selected' : '' }}>
-                                                            {{ $cate->cate_name }}
-                                                        </option>
-                                                    @endif
-                                                @endforeach
-                                            </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">ຊື່ພາສາໄທ</label>
+                                            <input type="text" name="cate_th_name" value="{{ $category->cate_th_name }}"
+                                                class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -89,20 +61,4 @@
             </div>
         </div>
     </div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script>
-        $("#level").change(function() {
-            if ($(this).val() == "main") {
-                $("#cate-main-select").addClass("d-none")
-                $("#cate-sub-select").addClass("d-none")
-            } else if ($(this).val() == "sub") {
-                $("#cate-main-select").removeClass("d-none")
-                $("#cate-sub-select").addClass("d-none")
-            } else {
-                $("#cate-main-select").addClass("d-none")
-                $("#cate-sub-select").removeClass("d-none")
-            }
-        });
-    </script>
 @endsection
