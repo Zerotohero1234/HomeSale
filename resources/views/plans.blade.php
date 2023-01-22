@@ -129,6 +129,12 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label class="bmd-label-floating">ລາຍລະອຽດ</label>
+                                        <textarea name="description" id="myeditorinstance"></textarea>
+                                    </div>
+                                </div>
                                 <button type="submit" class="btn btn-primary px-5">ເພີ່ມ</button>
                                 <div class="clearfix"></div>
                             </form>
@@ -353,4 +359,15 @@
             </nav>
         </div>
     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!-- TinyMCE -->
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea#myeditorinstance', // Replace this CSS selector to match the placeholder element for TinyMCE
+            plugins: 'powerpaste advcode table lists checklist',
+            toolbar: 'undo redo | blocks| bold italic | bullist numlist checklist | code | table'
+        });
+    </script>
 @endsection

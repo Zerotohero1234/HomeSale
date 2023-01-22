@@ -2,6 +2,10 @@
     color: #F0A600;
 }
 
+body {
+    color: #fff !important;
+}
+
 a.Text-secondary:hover {
     color: #fff;
 }

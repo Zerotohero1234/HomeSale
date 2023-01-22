@@ -211,7 +211,7 @@
             <div class="col-12">
                 <div class="card bg-dark card-shadow"card-shadow>
                     <div class="card-body">
-                        {{ $plan->description }}
+                        <?php echo html_entity_decode($plan->description) ?>
                     </div>
                 </div>
             </div>

@@ -91,6 +91,7 @@ class PlanController extends Controller
         $plan->bedroom = $request->bedroom;
         $plan->bath = $request->bath;
         $plan->floor = $request->floor;
+        $plan->description = htmlentities($request->description);
 
         if ($plan->save()) {
             return redirect('plans')->with(['error' => 'insert_success']);
@@ -118,6 +119,7 @@ class PlanController extends Controller
             'bedroom' => $request->bedroom,
             'bath' => $request->bath,
             'floor' => $request->floor,
+            'description' => htmlentities($request->description),
         ];
 
         if (Plans::where('id', $request->id)->update($plan)) {
