@@ -48,34 +48,6 @@ class PlanController extends Controller
         return view('plans', compact('plans', 'categories', 'pagination'));
     }
 
-    // public function pagination($offset)
-    // {
-    //     $provinces = Provinces::all();
-    //     $districts = Districts::all();
-    //     $pagination = [
-    //         'offsets' => ceil(sizeof(Plans::select('branchs.*')
-    //             ->join('districts', 'branchs.district_id', 'districts.id')
-    //             ->join('provinces', 'districts.prov_id', 'provinces.id')
-    //             ->where('branchs.enabled', '1')
-    //             ->get()) / 10),
-    //         'offset' => $offset,
-    //         'all' => sizeof(Plans::select('branchs.*')
-    //             ->join('districts', 'branchs.district_id', 'districts.id')
-    //             ->join('provinces', 'districts.prov_id', 'provinces.id')
-    //             ->where('branchs.enabled', '1')
-    //             ->get())
-    //     ];
-    //     $branchs = Plans::select('branchs.*')
-    //         ->join('districts', 'branchs.district_id', 'districts.id')
-    //         ->join('provinces', 'districts.prov_id', 'provinces.id')
-    //         ->where('branchs.enabled', '1')
-    //         ->orderBy('branchs.id', 'desc')
-    //         ->offset(($offset - 1) * 10)
-    //         ->limit(10)
-    //         ->get();
-    //     return view('branch', compact('provinces', 'districts', 'branchs', 'pagination'));
-    // }
-
     public function insert(Request $request)
     {
         $plan = new Plans;
