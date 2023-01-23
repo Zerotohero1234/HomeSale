@@ -46,17 +46,19 @@
             <div class="col-lg-9 col-12 order-1 order-lg-2">
                 <div id="carouselBanner" class="carousel slide carousel-fade" data-bs-ride="carousel">
                     <div class="carousel-indicators">
-                        @foreach ($planSlideImages as $key => $planSlideImage)
+                        @foreach ($homeSlideImages as $key => $homeSlideImage)
                             <button type="button" data-bs-target="#carouselBanner" data-bs-slide-to={{ $key }}
                                 class="{{ $key == 0 ? 'active' : '' }}" aria-current="true">
                             </button>
                         @endforeach
                     </div>
                     <div class="carousel-inner">
-                        @foreach ($planSlideImages as $key => $planSlideImage)
+                        @foreach ($homeSlideImages as $key => $homeSlideImage)
                             <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
-                                <img src="/img/design/slide/{{ $planSlideImage->img_src }}" class="d-block w-100"
-                                    alt="...">
+                                <a href="{{ $homeSlideImage->link }}">
+                                    <img src="/img/design/slide/{{ $homeSlideImage->img_src }}" class="d-block w-100"
+                                        alt="...">
+                                </a>
                             </div>
                         @endforeach
                     </div>
@@ -83,7 +85,7 @@
             <div class="col-12">
                 <div id="carouselRecommended" class="carousel slide carousel-fade" data-bs-ride="carousel">
                     <div class="carousel-indicators">
-                        @foreach ($planSlideImages as $key => $planSlideImage)
+                        @foreach ($topSellingSlideImages as $key => $topSellingSlideImage)
                             <button type="button" data-bs-target="#carouselRecommended"
                                 data-bs-slide-to={{ $key }} class="{{ $key == 0 ? 'active' : '' }}"
                                 aria-current="true">
@@ -91,10 +93,12 @@
                         @endforeach
                     </div>
                     <div class="carousel-inner">
-                        @foreach ($planSlideImages as $key => $planSlideImage)
+                        @foreach ($topSellingSlideImages as $key => $topSellingSlideImage)
                             <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
-                                <img src="/img/design/slide/{{ $planSlideImage->img_src }}" class="d-block w-100"
-                                    alt="...">
+                                <a href="{{ $topSellingSlideImage->link }}">
+                                    <img src="/img/design/slide/{{ $topSellingSlideImage->img_src }}" class="d-block w-100"
+                                        alt="...">
+                                </a>
                             </div>
                         @endforeach
                     </div>

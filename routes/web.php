@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\HomeSlideImagesController;
 use App\Http\Controllers\PlanController;
+use App\Http\Controllers\TopSellingSlideImagesController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\UsersController;
@@ -80,6 +82,18 @@ Route::get('/editRoom/{id}', [PlanController::class, 'editRoom'])->middleware('a
 Route::post('/updateRoom', [PlanController::class, 'updateRoom'])->middleware('auth')->name('updateRoom');
 
 Route::get('/access_denied', [UsersController::class, 'access_denied'])->middleware('auth')->name('access_denied');
+
+Route::post('/addHomeSlideImage', [HomeSlideImagesController::class, 'addHomeSlideImage'])->middleware('auth')->name('addHomeSlideImage');
+
+Route::get('/homeSlideImages', [HomeSlideImagesController::class, 'homeSlideImages'])->middleware('auth')->name('homeSlideImages');
+
+Route::get('/deleteHomeSlideImage/{id}', [HomeSlideImagesController::class, 'deleteHomeSlideImage'])->middleware('auth')->name('deleteHomeSlideImage');
+
+Route::post('/addTopSellingSlideImage', [TopSellingSlideImagesController::class, 'addTopSellingSlideImage'])->middleware('auth')->name('addTopSellingSlideImage');
+
+Route::get('/topSellingSlideImages', [TopSellingSlideImagesController::class, 'topSellingSlideImages'])->middleware('auth')->name('topSellingSlideImages');
+
+Route::get('/deleteTopSellingSlideImage/{id}', [TopSellingSlideImagesController::class, 'deleteTopSellingSlideImage'])->middleware('auth')->name('deleteTopSellingSlideImage');
 
 //test design
 Route::get('/', [TestDesignController::class, 'index'])->name('index');

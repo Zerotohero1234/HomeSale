@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Categories;
 use App\Models\FloorPlanSlideImages;
+use App\Models\HomeSlideImages;
 use App\Models\Plans;
 use App\Models\Floors;
 use App\Models\PlanSlideImages;
-use App\Models\Recommendeds;
 use App\Models\Rooms;
+use App\Models\TopSellingSlideImages;
 use Illuminate\Http\Request;
-use PHPUnit\Framework\Constraint\IsEmpty;
 
 class TestDesignController extends Controller
 {
@@ -28,6 +28,8 @@ class TestDesignController extends Controller
     public function index(Request $request)
     {
         $categories = Categories::all();
+        $homeSlideImages = HomeSlideImages::all();
+        $topSellingSlideImages = TopSellingSlideImages::all();
         $recommendeds = Plans::join('categories', 'plans.category', 'categories.id')
             ->join('recommendeds', 'plans.id', 'recommendeds.plan_id')->get();
 
@@ -73,7 +75,7 @@ class TestDesignController extends Controller
         $planSlideImages = PlanSlideImages::join('plans', 'planSlideImages.plan_id', 'plans.id')
             ->get();
 
-        return view('testdesign.home', compact('categories', 'recommendeds', 'planSlideImages', 'category_plans'));
+        return view('testdesign.home', compact('categories', 'recommendeds', 'planSlideImages', 'category_plans', 'homeSlideImages', 'topSellingSlideImages'));
     }
 
     public function search(Request $request)

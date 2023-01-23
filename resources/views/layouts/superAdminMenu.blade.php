@@ -10,6 +10,12 @@
             class="{{ Request::is('plans') || Request::is('editPlan/*') || Request::is('planThumbnail/*') || Request::is('planSlideImages/*') || Request::is('floors/*') || Request::is('editFloor/*') || Request::is('rooms/*') || Request::is('editRoom/*') ? 'current-page' : '' }}">
             <a href="/plans">ແບບເຮືອນ</a>
         </li>
+        <li class="{{ Request::is('homeSlideImages') ? 'current-page' : '' }}">
+            <a href="/homeSlideImages">Home Slide</a>
+        </li>
+        <li class="{{ Request::is('topSellingSlideImages') ? 'current-page' : '' }}">
+            <a href="/topSellingSlideImages">Top Selling Slide</a>
+        </li>
         <li
             class="{{ Request::is('users') || Request::is('users/*') || Request::is('editUser/*') ? 'current-page' : '' }}">
             <a href="/users">Users</a>
