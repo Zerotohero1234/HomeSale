@@ -1,6 +1,6 @@
 <!-- top navigation -->
 <section class="ftco-section">
-    <div class="container-fluid">
+    <div class="container-fluid fixed-top">
         <div class="row justify-content-between" style="background-color: black">
             <div class="col-md-12 order-md-last">
                 <div class="row">
@@ -29,7 +29,7 @@
             </div>
         </div>
     </div>
-    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light mt-0 mt-lg-5 pt-lg-2" id="ftco-navbar">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
                 aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">

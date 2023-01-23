@@ -2,7 +2,7 @@
 
 @section('body')
     <div class="container">
-        <div class="row pt-5">
+        <div class="row pt-5 mt-3 mt-lg-1">
             <div class="col-lg-3 col-12 order-2 order-lg-1 mt-lg-0 mt-3">
                 <div class="card bg-dark card-shadow">
                     <div class="card-header">
@@ -76,7 +76,7 @@
             </div>
         </div>
 
-        <div class="row pt-5 mt-5">
+        <div class="row pt-3 mt-5">
             <div class="col-12 text-center">
                 <p class="h4 font-weight-bolder text-uppercase Text-secondary">
                     Top Selling
@@ -119,15 +119,15 @@
         @foreach ($category_plans as $category_plan)
             @if (sizeof($category_plan['plans']) > 0)
                 <div class="row pt-5">
-                    <div class="col-9">
-                        <p class="h4 font-weight-bolder text-uppercase headertext-symbol Text-secondary">
+                    <div class="col-lg-9 col-7">
+                        <p class="h5 font-weight-bolder text-uppercase headertext-symbol Text-secondary mb-0">
                             {{ $category_plan['cate_name'] }}
                         </p>
                     </div>
-                    <div class="col-3">
+                    <div class="col-lg-3 col-5" style="align-self: center">
                         <a href="/plansByCategory/{{ $category_plan['id'] }}">
-                            <p class="h5 font-weight-bolder text-right text-uppercase Text-secondary mb-0">
-                                ສະແດງທັງໝົດ >>
+                            <p class="h6 font-weight-bolder text-right text-uppercase Text-secondary mb-0">
+                                ສະແດງທັງໝົດ >
                             </p>
                         </a>
                     </div>

@@ -2,7 +2,7 @@
 
 @section('body')
     <div class="container">
-        <div class="row pt-5">
+        <div class="row pt-5 mt-3 mt-lg-1">
             <div class="col-lg-8">
                 <div id="carouselInteriorPlanIndicators" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-indicators">
