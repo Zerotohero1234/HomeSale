@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categories;
+use App\Models\FloorPlanSlideImages;
 use App\Models\Plans;
 use App\Models\Floors;
 use App\Models\PlanSlideImages;
@@ -175,7 +176,11 @@ class TestDesignController extends Controller
             ->where('plans.id', $id)
             ->get();
 
-        return view('testdesign.detail', compact('plan', 'floor_with_rooms', 'recommendeds', 'planSlideImages', 'categories'));
+        $floorPlanSlideImages = FloorPlanSlideImages::join('plans', 'floorPlanSlideImages.plan_id', 'plans.id')
+            ->where('plans.id', $id)
+            ->get();
+
+        return view('testdesign.detail', compact('plan', 'floor_with_rooms', 'recommendeds', 'planSlideImages', 'floorPlanSlideImages', 'categories'));
     }
 
     public function access_denied()

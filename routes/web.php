@@ -57,6 +57,12 @@ Route::get('/planSlideImages/{id}', [PlanController::class, 'slideImages'])->mid
 
 Route::get('/deletePlanSlideImage/{id}/plan/{plan_id}', [PlanController::class, 'deleteSlideImage'])->middleware('auth')->name('deletePlanSlideImage');
 
+Route::post('/addFloorPlanSlideImage', [PlanController::class, 'addFloorPlanSlideImage'])->middleware('auth')->name('addFloorPlanSlideImage');
+
+Route::get('/floorPlanSlideImages/{id}', [PlanController::class, 'floorPlanSlideImages'])->middleware('auth')->name('floorPlanSlideImages');
+
+Route::get('/deleteFloorPlanSlideImage/{id}/plan/{plan_id}', [PlanController::class, 'deleteFloorPlanSlideImage'])->middleware('auth')->name('deleteFloorPlanSlideImage');
+
 Route::get('/floors/{id}', [PlanController::class, 'floors'])->middleware('auth')->name('floors');
 
 Route::post('/addFloor', [PlanController::class, 'addFloor'])->middleware('auth')->name('addFloor');

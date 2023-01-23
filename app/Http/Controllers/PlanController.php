@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categories;
+use App\Models\FloorPlanSlideImages;
 use App\Models\Floors;
 use App\Models\Plans;
 use App\Models\PlanSlideImages;
@@ -38,47 +39,42 @@ class PlanController extends Controller
         ];
         $plans = Plans::select('plans.*', 'categories.cate_name')
             ->join('categories', 'plans.category', 'categories.id')
-            ->orderBy('plans.id', 'asc')
             ->limit(10)
-            ->get();
-
-        $all_plans = Plans::select('plans.*', 'categories.cate_name')
-            ->join('categories', 'plans.category', 'categories.id')
-            ->orderBy('plans.id', 'asc')
+            ->orderBy('plans.id', 'desc')
             ->get();
 
         $categories = Categories::all();
 
-        return view('plans', compact('plans', 'categories', 'all_plans', 'pagination'));
+        return view('plans', compact('plans', 'categories', 'pagination'));
     }
 
-    public function pagination($offset)
-    {
-        $provinces = Provinces::all();
-        $districts = Districts::all();
-        $pagination = [
-            'offsets' => ceil(sizeof(Plans::select('branchs.*')
-                ->join('districts', 'branchs.district_id', 'districts.id')
-                ->join('provinces', 'districts.prov_id', 'provinces.id')
-                ->where('branchs.enabled', '1')
-                ->get()) / 10),
-            'offset' => $offset,
-            'all' => sizeof(Plans::select('branchs.*')
-                ->join('districts', 'branchs.district_id', 'districts.id')
-                ->join('provinces', 'districts.prov_id', 'provinces.id')
-                ->where('branchs.enabled', '1')
-                ->get())
-        ];
-        $branchs = Plans::select('branchs.*')
-            ->join('districts', 'branchs.district_id', 'districts.id')
-            ->join('provinces', 'districts.prov_id', 'provinces.id')
-            ->where('branchs.enabled', '1')
-            ->orderBy('branchs.id', 'desc')
-            ->offset(($offset - 1) * 10)
-            ->limit(10)
-            ->get();
-        return view('branch', compact('provinces', 'districts', 'branchs', 'pagination'));
-    }
+    // public function pagination($offset)
+    // {
+    //     $provinces = Provinces::all();
+    //     $districts = Districts::all();
+    //     $pagination = [
+    //         'offsets' => ceil(sizeof(Plans::select('branchs.*')
+    //             ->join('districts', 'branchs.district_id', 'districts.id')
+    //             ->join('provinces', 'districts.prov_id', 'provinces.id')
+    //             ->where('branchs.enabled', '1')
+    //             ->get()) / 10),
+    //         'offset' => $offset,
+    //         'all' => sizeof(Plans::select('branchs.*')
+    //             ->join('districts', 'branchs.district_id', 'districts.id')
+    //             ->join('provinces', 'districts.prov_id', 'provinces.id')
+    //             ->where('branchs.enabled', '1')
+    //             ->get())
+    //     ];
+    //     $branchs = Plans::select('branchs.*')
+    //         ->join('districts', 'branchs.district_id', 'districts.id')
+    //         ->join('provinces', 'districts.prov_id', 'provinces.id')
+    //         ->where('branchs.enabled', '1')
+    //         ->orderBy('branchs.id', 'desc')
+    //         ->offset(($offset - 1) * 10)
+    //         ->limit(10)
+    //         ->get();
+    //     return view('branch', compact('provinces', 'districts', 'branchs', 'pagination'));
+    // }
 
     public function insert(Request $request)
     {
@@ -140,7 +136,7 @@ class PlanController extends Controller
         if ($request->hasFile('thumbnail')) {
             $image = $request->file('thumbnail');
             $reImage = time() . '.' . $image->getClientOriginalExtension();
-            $dest = '/img/design';
+            $dest = './img/design';
             $image->move($dest, $reImage);
 
             $plan = [
@@ -162,7 +158,7 @@ class PlanController extends Controller
         if ($request->hasFile('img_src')) {
             $image = $request->file('img_src');
             $reImage = time() . '.' . $image->getClientOriginalExtension();
-            $dest = '/img/design/slide';
+            $dest = './img/design/slide';
             $image->move($dest, $reImage);
 
             $planSlideImage = new PlanSlideImages;
@@ -183,14 +179,16 @@ class PlanController extends Controller
     {
         $planSlideImages = PlanSlideImages::select('planSlideImages.*')
             ->join('plans', 'planSlideImages.plan_id', 'plans.id')
-            ->where('plans.id', $id)->get();
+            ->where('plans.id', $id)
+            ->orderBy('planSlideImages.id', 'desc')
+            ->get();
         return view('planSlideImages', compact('planSlideImages', 'id'));
     }
 
     public function deleteSlideImage($id, $plan_id)
     {
         $planSlideImage = PlanSlideImages::where('id', $id)->first();
-        $file_path = '/img/design/slide/' . $planSlideImage->img_src;
+        $file_path = './img/design/slide/' . $planSlideImage->img_src;
         unlink($file_path);
         if (PlanSlideImages::where('id', $id)->delete()) {
             return redirect('planSlideImages/' . $plan_id)->with(['error' => 'delete_success']);
@@ -199,11 +197,57 @@ class PlanController extends Controller
         }
     }
 
+    public function addFloorPlanSlideImage(Request $request)
+    {
+        if ($request->hasFile('img_src')) {
+            $image = $request->file('img_src');
+            $reImage = time() . '.' . $image->getClientOriginalExtension();
+            $dest = './img/design/slide';
+            $image->move($dest, $reImage);
+
+            $floorPlanSlideImage = new FloorPlanSlideImages;
+            $floorPlanSlideImage->img_src = $reImage;
+            $floorPlanSlideImage->plan_id = $request->plan_id;
+
+            if ($floorPlanSlideImage->save()) {
+                return redirect('floorPlanSlideImages/' . $request->plan_id)->with(['error' => 'insert_success']);
+            } else {
+                return redirect('floorPlanSlideImages/' . $request->plan_id)->with(['error' => 'not_insert']);
+            }
+        } else {
+            return redirect('floorPlanSlideImages/' . $request->plan_id)->with(['error' => 'not_insert']);
+        }
+    }
+
+    public function floorPlanSlideImages($id)
+    {
+        $floorPlanSlideImages = FloorPlanSlideImages::select('floorPlanSlideImages.*')
+            ->join('plans', 'floorPlanSlideImages.plan_id', 'plans.id')
+            ->where('plans.id', $id)
+            ->orderBy('floorPlanSlideImages.id', 'desc')
+            ->get();
+        return view('floorPlanSlideImages', compact('floorPlanSlideImages', 'id'));
+    }
+
+    public function deleteFloorPlanSlideImage($id, $plan_id)
+    {
+        $floorPlanSlideImage = FloorPlanSlideImages::where('id', $id)->first();
+        $file_path = './img/design/slide/' . $floorPlanSlideImage->img_src;
+        unlink($file_path);
+        if (FloorPlanSlideImages::where('id', $id)->delete()) {
+            return redirect('floorPlanSlideImages/' . $plan_id)->with(['error' => 'delete_success']);
+        } else {
+            return redirect('floorPlanSlideImages/' . $plan_id)->with(['error' => 'not_insert']);
+        }
+    }
+
     public function floors($id)
     {
         $floors = Floors::select('floors.*')
             ->join('plans', 'floors.plan_id', 'plans.id')
-            ->where('plans.id', $id)->get();
+            ->where('plans.id', $id)
+            ->orderBy('floors.id', 'desc')
+            ->get();
         return view('floors', compact('floors', 'id'));
     }
 
@@ -244,7 +288,9 @@ class PlanController extends Controller
     {
         $rooms = Rooms::select('rooms.*')
             ->join('floors', 'rooms.floor_id', 'floors.id')
-            ->where('floors.id', $id)->get();
+            ->where('floors.id', $id)
+            ->orderBy('rooms.id', 'desc')
+            ->get();
         return view('rooms', compact('rooms', 'id'));
     }
 

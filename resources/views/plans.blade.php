@@ -233,7 +233,7 @@
                                             Slide
                                         </th>
                                         <th>
-                                            ຊັ້ນ
+                                            ຜັງ
                                         </th>
                                         <th>
 
@@ -273,6 +273,11 @@
                                                 </td>
                                                 <td>
                                                     <a href="/planSlideImages/{{ $plan->id }}">
+                                                        <i class="material-icons">image</i>
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a href="/floorPlanSlideImages/{{ $plan->id }}">
                                                         <i class="material-icons">image</i>
                                                     </a>
                                                 </td>
