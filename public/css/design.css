@@ -37,7 +37,7 @@ a p.Text-secondary:hover {
 }
 
 .plan-card-body {
-    z-index: 1000;
+    z-index: 0;
 }
 
 .plan-card-image {
