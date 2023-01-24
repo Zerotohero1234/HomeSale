@@ -130,88 +130,93 @@
         <div class="mt-2">
         </div>
 
-        @foreach ($floor_with_rooms as $floor_with_room)
-            <div class="row pt-3">
-                <div class="col-12">
-                    <p class="h5 font-weight-bolder Text-secondary">
-                        {{ $floor_with_room->floor_name }}
-                    </p>
-                </div>
-                <div class="col-12">
-                    <div class="card bg-dark card-shadow"card-shadow>
-                        <div class="card-body d-lg-block d-none">
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <p class="text-white mb-0 h5 font-weight-bolder">ຫ້ອງ</p>
+        <div class="row mt-5">
+            <div class="col-12 col-lg-8">
+                @foreach ($floor_with_rooms as $floor_with_room)
+                    <div class="row mt-3">
+                        <div class="col-12">
+                            <p class="h5 font-weight-bolder Text-secondary">
+                                {{ $floor_with_room->floor_name }}
+                            </p>
+                        </div>
+                        <div class="col-12">
+                            <div class="card bg-dark card-shadow"card-shadow>
+                                <div class="card-body d-lg-block d-none">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <p class="text-white mb-0 h5 font-weight-bolder">ຫ້ອງ</p>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <p class="text-white mb-0 h5 font-weight-bolder">SIZES</p>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <p class="text-white mb-0 h5 font-weight-bolder">CEILING</p>
+                                        </div>
+                                    </div>
+                                    <hr class="my-2">
+                                    @foreach ($floor_with_room->rooms as $room)
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <p class="text-white font-weight-lighter mb-0 ">{{ $room->room_name }}</p>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <p class="text-white font-weight-lighter mb-0 ">{{ $room->size }}</p>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <p class="text-white font-weight-lighter mb-0 ">{{ $room->ceiling }}</p>
+                                            </div>
+                                        </div>
+                                        <hr class="my-2">
+                                    @endforeach
                                 </div>
-                                <div class="col-lg-4">
-                                    <p class="text-white mb-0 h5 font-weight-bolder">SIZES</p>
-                                </div>
-                                <div class="col-lg-4">
-                                    <p class="text-white mb-0 h5 font-weight-bolder">CEILING</p>
+
+                                <div class="card-body d-lg-none">
+                                    @foreach ($floor_with_room->rooms as $room)
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <p class="text-white mb-0 font-weight-bolder">ຫ້ອງ</p>
+                                            </div>
+                                            <div class="col-6">
+                                                <p class="text-white font-weight-lighter mb-0 ">Kitchen</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <p class="text-white mb-0 font-weight-bolder">SIZES</p>
+                                            </div>
+                                            <div class="col-6">
+                                                <p class="text-white font-weight-lighter mb-0 ">{{ $room->size }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <p class="text-white mb-0 font-weight-bolder">CEILING</p>
+                                            </div>
+                                            <div class="col-6">
+                                                <p class="text-white font-weight-lighter mb-0 ">{{ $room->ceiling }}</p>
+                                            </div>
+                                        </div>
+                                        <hr class="my-2">
+                                    @endforeach
                                 </div>
                             </div>
-                            <hr class="my-2">
-                            @foreach ($floor_with_room->rooms as $room)
-                                <div class="row">
-                                    <div class="col-lg-4">
-                                        <p class="text-white font-weight-lighter mb-0 ">{{ $room->room_name }}</p>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <p class="text-white font-weight-lighter mb-0 ">{{ $room->size }}</p>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <p class="text-white font-weight-lighter mb-0 ">{{ $room->ceiling }}</p>
-                                    </div>
-                                </div>
-                                <hr class="my-2">
-                            @endforeach
-                        </div>
-
-                        <div class="card-body d-lg-none">
-                            @foreach ($floor_with_room->rooms as $room)
-                                <div class="row">
-                                    <div class="col-6">
-                                        <p class="text-white mb-0 font-weight-bolder">ຫ້ອງ</p>
-                                    </div>
-                                    <div class="col-6">
-                                        <p class="text-white font-weight-lighter mb-0 ">Kitchen</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <p class="text-white mb-0 font-weight-bolder">SIZES</p>
-                                    </div>
-                                    <div class="col-6">
-                                        <p class="text-white font-weight-lighter mb-0 ">{{ $room->size }}</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <p class="text-white mb-0 font-weight-bolder">CEILING</p>
-                                    </div>
-                                    <div class="col-6">
-                                        <p class="text-white font-weight-lighter mb-0 ">{{ $room->ceiling }}</p>
-                                    </div>
-                                </div>
-                                <hr class="my-2">
-                            @endforeach
                         </div>
                     </div>
-                </div>
+                @endforeach
             </div>
-        @endforeach
-
-        <div class="row pt-5">
-            <div class="col-12">
-                <p class="h4 font-weight-bolder text-uppercase headertext-symbol Text-secondary">
-                    Description
-                </p>
-            </div>
-            <div class="col-12">
-                <div class="card bg-dark card-shadow"card-shadow>
-                    <div class="card-body">
-                        <?php echo html_entity_decode($plan->description) ?>
+            <div class="col-12 col-lg-4">
+                <div class="row">
+                    <div class="col-12">
+                        <p class="h4 font-weight-bolder text-uppercase headertext-symbol Text-secondary">
+                            Description
+                        </p>
+                    </div>
+                    <div class="col-12">
+                        <div class="card bg-dark card-shadow"card-shadow>
+                            <div class="card-body">
+                                <?php echo html_entity_decode($plan->description); ?>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

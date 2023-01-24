@@ -80,65 +80,73 @@ class TestDesignController extends Controller
 
     public function search(Request $request)
     {
+        $plansQuery = Plans::select('plans.*', 'categories.cate_name')
+            ->join('categories', 'plans.category', 'categories.id')
+            ->orderBy('plans.id', 'asc');
+
+        if ($request->floor != '') {
+            $plansQuery->where('floor', $request->floor);
+        }
+
+        if ($request->bedroom != '') {
+            $plansQuery->where('bedroom', $request->bedroom);
+        }
+
+        if ($request->bath != '') {
+            $plansQuery->where('bath', $request->bath);
+        }
+
+        $all_plans = $plansQuery->orderBy('plans.id', 'desc')
+            ->count();
+
+        if ($request->page) {
+            $plansQuery->offset(($request->page - 1) * 24);
+        }
+
+        $plans = $plansQuery->limit(24)
+            ->get();
+
         $pagination = [
-            'offsets' => ceil(sizeof(Plans::select('plans.*')
-                ->join('categories', 'plans.category', 'categories.id')
-                ->get()) / 10),
-            'offset' => 1,
-            'all' => sizeof(Plans::select('plans.*')
-                ->join('categories', 'plans.category', 'categories.id')
-                    // ->where()
-                ->get())
+            'offsets' => ceil($all_plans / 24),
+            'offset' => $request->page ? $request->page : 1,
+            'all' => $all_plans
         ];
-
-        $plans = Plans::select('plans.*', 'categories.cate_name')
-            ->join('categories', 'plans.category', 'categories.id')
-            ->orderBy('plans.id', 'asc')
-            ->limit(10)
-            ->get();
-
-        $all_plans = Plans::select('plans.*', 'categories.cate_name')
-            ->join('categories', 'plans.category', 'categories.id')
-            ->orderBy('plans.id', 'asc')
-            ->get();
 
         $categories = Categories::all();
 
-        return view('testdesign.search', compact('plans', 'categories', 'all_plans', 'pagination'));
+        return view('testdesign.search', compact('plans', 'categories', 'pagination'));
     }
 
-    public function plansByCategory($id)
+    public function plansByCategory($id, Request $request)
     {
+        $plansQuery = Plans::select('plans.*', 'categories.cate_name')
+            ->join('categories', 'plans.category', 'categories.id')
+            ->where('categories.id', $id)
+            ->orderBy('plans.id', 'asc');
+
+        $all_plans = $plansQuery->orderBy('plans.id', 'desc')
+            ->count();
+
+        if ($request->page) {
+            $plansQuery->offset(($request->page - 1) * 24);
+        }
+
+        $plans = $plansQuery->limit(24)
+            ->get();
+
         $pagination = [
-            'offsets' => ceil(sizeof(Plans::select('plans.*')
-                ->join('categories', 'plans.category', 'categories.id')
-                ->where('categories.id', $id)
-                ->get()) / 10),
-            'offset' => 1,
-            'all' => sizeof(Plans::select('plans.*')
-                ->join('categories', 'plans.category', 'categories.id')
-                ->where('categories.id', $id)
-                ->get())
+            'offsets' => ceil($all_plans / 24),
+            'offset' => $request->page ? $request->page : 1,
+            'all' => $all_plans
         ];
 
-        $plans = Plans::select('plans.*', 'categories.cate_name')
-            ->join('categories', 'plans.category', 'categories.id')
-            ->where('categories.id', $id)
-            ->orderBy('plans.id', 'asc')
-            ->limit(10)
-            ->get();
-
-        $all_plans = Plans::select('plans.*', 'categories.cate_name')
-            ->join('categories', 'plans.category', 'categories.id')
-            ->where('categories.id', $id)
-            ->orderBy('plans.id', 'asc')
-            ->get();
-
         $categories = Categories::all();
+
+        $category_id = $id;
 
         $category = Categories::where('id', $id)->first();
 
-        return view('testdesign.plansByCategory', compact('plans', 'category', 'categories', 'all_plans', 'pagination'));
+        return view('testdesign.plansByCategory', compact('plans', 'category', 'categories', 'pagination', 'category_id'));
     }
 
     public function detail($id)

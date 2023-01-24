@@ -70,3 +70,14 @@ a p.Text-secondary:hover {
 .Bg-black {
     background-color: #000;
 }
+
+.page-item.active .Text-secondary.page-link {
+    z-index: 1;
+    color: #fff;
+    background-color: #F0A600 !important;
+    border-color: #F0A600 !important;
+}
+
+.bg-dark.page-link {
+    border-color: #252525 !important;
+}

@@ -13,26 +13,42 @@
                             <div class="row">
                                 <div class="col-12 py-2">
                                     <select class="form-select" name="floor" aria-label="Default select example">
-                                        <option selected>ຈຳນວນຊັ້ນ</option>
+                                        <option selected value="">ຈຳນວນຊັ້ນ</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
                                     </select>
                                 </div>
                                 <div class="col-12 py-2">
                                     <select class="form-select" name="bedroom" aria-label="Default select example">
-                                        <option selected>ຫ້ອງນອນ</option>
+                                        <option selected value="">ຫ້ອງນອນ</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
                                     </select>
                                 </div>
                                 <div class="col-12 py-2">
                                     <select class="form-select" name="bath" aria-label="Default select example">
-                                        <option selected>ຫ້ອງນ້ຳ</option>
+                                        <option selected value="">ຫ້ອງນ້ຳ</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
                                     </select>
                                 </div>
                                 <div class="col-12 col-md-6 col-lg-3 pt-3">
