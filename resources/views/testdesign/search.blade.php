@@ -2,7 +2,7 @@
 
 @section('body')
     <div class="container">
-        <div class="row pt-5">
+        <div class="row pt-5 mt-5 mt-lg-1">
             <div class="col-12">
                 <p class="h4 font-weight-bolder text-uppercase headertext-symbol Text-secondary">
                     Search Result :

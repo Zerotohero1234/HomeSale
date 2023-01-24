@@ -2,7 +2,7 @@
 
 @section('body')
     <div class="container">
-        <div class="row pt-5 mt-3 mt-lg-1">
+        <div class="row pt-5 mt-5 mt-lg-1">
             <div class="col-lg-3 col-12 order-2 order-lg-1 mt-lg-0 mt-3">
                 <div class="card bg-dark card-shadow">
                     <div class="card-header">
@@ -142,8 +142,13 @@
                     </div>
                     <div class="col-lg-3 col-5" style="align-self: center">
                         <a href="/plansByCategory/{{ $category_plan['id'] }}">
-                            <p class="h6 font-weight-bolder text-right text-uppercase Text-secondary mb-0">
+                            <p
+                                class="h6 font-weight-bolder text-right text-uppercase Text-secondary mb-0 d-none d-md-block d-lg-block">
                                 ສະແດງທັງໝົດ >
+                            </p>
+                            <p
+                                class="h6 font-weight-bolder text-right text-uppercase Text-secondary mb-0 d-block d-md-none d-lg-none">
+                                >>
                             </p>
                         </a>
                     </div>

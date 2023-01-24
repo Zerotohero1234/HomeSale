@@ -1,7 +1,7 @@
-<div class="footer Bg-black mt-5 p-5">
+<div class="footer Bg-black mt-5 py-5">
     <div class="container">
         <div class="row">
-            <div class="col-6">
+            <div class="col-12 col-md-6 col-lg-6">
                 <p class="Text-secondary text-uppercase">
                     Address :
                 </p>
@@ -16,14 +16,14 @@
                     width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
-            <div class="col-3">
+            <div class="col-12 col-md-3 col-lg-3">
                 <a href="/">
                     <p class="Text-secondary text-uppercase">
                         work
                     </p>
                 </a>
             </div>
-            <div class="col-3">
+            <div class="col-12 col-md-3 col-lg-3">
                 <a href="/">
                     <p class="Text-secondary text-uppercase">
                         Contact

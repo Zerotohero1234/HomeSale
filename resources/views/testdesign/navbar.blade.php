@@ -29,7 +29,8 @@
             </div>
         </div>
     </div>
-    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light mt-0 mt-lg-5 pt-lg-2" id="ftco-navbar">
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light mt-0 mt-lg-5 pt-lg-2"
+        id="ftco-navbar">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
                 aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,8 +67,9 @@
         </div>
         <div class="social-media mb-2">
             <p class="mb-0 d-flex">
-                <a href="#" class="d-flex align-items-center justify-content-center"><span
-                        class="fa fa-facebook"><i class="sr-only">Facebook</i></span></a>
+                <a href="https://wa.me/8562097899656" target="_blank"
+                    class="d-flex align-items-center justify-content-center"><span class="fa fa-whatsapp"><i
+                            class="sr-only">Whatsapp</i></span></a>
             </p>
         </div>
     </div>
