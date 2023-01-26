@@ -114,7 +114,10 @@
                                             ຊື່ພາສາໄທ
                                         </th>
                                         <th>
-
+                                            ຮູບໜ້າປົກ
+                                        </th>
+                                        <th>
+                                            ຮູບ
                                         </th>
                                         <th>
 
@@ -137,6 +140,11 @@
                                                 </td>
                                                 <td>
                                                     {{ $pastWork->th_name }}
+                                                </td>
+                                                <td>
+                                                    <a href="/pastWorkThumbnail/{{ $pastWork->id }}">
+                                                        <i class="material-icons">image</i>
+                                                    </a>
                                                 </td>
                                                 <td>
                                                     <a href="/pastWorkImages/{{ $pastWork->id }}">

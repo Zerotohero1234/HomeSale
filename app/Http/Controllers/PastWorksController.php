@@ -90,6 +90,34 @@ class PastWorksController extends Controller
         }
     }
 
+    public function thumbnail($id)
+    {
+        $pastWork = PastWorks::where('id', $id)->first();
+        return view('pastWorkThumbnail', compact('pastWork'));
+    }
+
+    public function updateThumbnail(Request $request)
+    {
+        if ($request->hasFile('thumbnail')) {
+            $image = $request->file('thumbnail');
+            $reImage = time() . '.' . $image->getClientOriginalExtension();
+            $dest = './img/design';
+            $image->move($dest, $reImage);
+
+            $pastWork = [
+                'thumbnail' => $reImage,
+            ];
+
+            if (PastWorks::where('id', $request->id)->update($pastWork)) {
+                return redirect('pastWorkThumbnail/' . $request->id)->with(['error' => 'edit_success']);
+            } else {
+                return redirect('pastWorkThumbnail/' . $request->id)->with(['error' => 'not_insert']);
+            }
+        } else {
+            return redirect('pastWorkThumbnail/' . $request->id)->with(['error' => 'not_insert']);
+        }
+    }
+
     public function pastWorkImages($id)
     {
         $pastWorkImages = PastWorkImages::select('pastWorkImages.*')

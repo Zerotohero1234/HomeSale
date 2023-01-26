@@ -23,6 +23,7 @@ class PastWorks extends Model
         'cn_name',
         'th_name',
         'description',
+        'thumbnail',
         'created_at',
         'updated_at',
     ];

@@ -5,7 +5,7 @@
         <div class="row pt-5 mt-5 mt-lg-1">
             <div class="col-12">
                 <p class="h4 font-weight-bolder text-uppercase headertext-symbol Text-secondary">
-                    {{-- {{ $category->cate_name }} : --}}
+                    ຜົນງານທີ່ຜ່ານມາ :
                 </p>
             </div>
             @foreach ($pastWorks as $pastWorks)
