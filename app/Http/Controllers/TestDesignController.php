@@ -105,14 +105,14 @@ class TestDesignController extends Controller
             ->count();
 
         if ($request->page) {
-            $plansQuery->offset(($request->page - 1) * 24);
+            $plansQuery->offset(($request->page - 1) * 15);
         }
 
-        $plans = $plansQuery->limit(24)
+        $plans = $plansQuery->limit(15)
             ->get();
 
         $pagination = [
-            'offsets' => ceil($all_plans / 24),
+            'offsets' => ceil($all_plans / 15),
             'offset' => $request->page ? $request->page : 1,
             'all' => $all_plans
         ];
@@ -133,14 +133,14 @@ class TestDesignController extends Controller
             ->count();
 
         if ($request->page) {
-            $plansQuery->offset(($request->page - 1) * 24);
+            $plansQuery->offset(($request->page - 1) * 15);
         }
 
-        $plans = $plansQuery->limit(24)
+        $plans = $plansQuery->limit(15)
             ->get();
 
         $pagination = [
-            'offsets' => ceil($all_plans / 24),
+            'offsets' => ceil($all_plans / 15),
             'offset' => $request->page ? $request->page : 1,
             'all' => $all_plans
         ];

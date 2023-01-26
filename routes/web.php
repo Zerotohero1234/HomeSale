@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeSlideImagesController;
+use App\Http\Controllers\PastWorksController;
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\TopSellingSlideImagesController;
 use Illuminate\Support\Facades\Route;
@@ -94,6 +95,21 @@ Route::post('/addTopSellingSlideImage', [TopSellingSlideImagesController::class,
 Route::get('/topSellingSlideImages', [TopSellingSlideImagesController::class, 'topSellingSlideImages'])->middleware('auth')->name('topSellingSlideImages');
 
 Route::get('/deleteTopSellingSlideImage/{id}', [TopSellingSlideImagesController::class, 'deleteTopSellingSlideImage'])->middleware('auth')->name('deleteTopSellingSlideImage');
+
+Route::get('/pastWorks', [PastWorksController::class, 'index'])->middleware('auth')->name('pastWorks');
+
+Route::post('/addPastWork', [PastWorksController::class, 'insert'])->middleware('auth')->name('addPastWork');
+
+Route::get('/editPastWork/{id}', [PastWorksController::class, 'edit'])->middleware('auth')->name('editPastWork');
+
+Route::post('/updatePastWork', [PastWorksController::class, 'update'])->middleware('auth')->name('updatePastWork');
+
+Route::get('/pastWorkImages/{id}', [PastWorksController::class, 'pastWorkImages'])->middleware('auth')->name('pastWorkImages');
+
+Route::post('/addPastWorkImage', [PastWorksController::class, 'addPastWorkImage'])->middleware('auth')->name('addPastWorkImage');
+
+Route::get('/deletePastWorkImage/{id}/pastwork_id/{pastwork_id}', [PastWorksController::class, 'deletePastWorkImage'])->middleware('auth')->name('deletePastWorkImage');
+
 
 //test design
 Route::get('/', [TestDesignController::class, 'index'])->name('index');

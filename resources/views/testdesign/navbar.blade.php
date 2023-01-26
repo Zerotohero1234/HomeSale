@@ -52,8 +52,22 @@
                             @endforeach
                         </div>
                     </li>
-                    <li class="nav-item"><a href="#" class="nav-link">Work</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">ໂຄງການ</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown04111" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">{{ __('home.work') }}</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown04111">
+                            <a class="dropdown-item" href="/pastWorks">
+                                ຜົນງານທີ່ຜ່ານມາ
+                            </a>
+                            <a class="dropdown-item" href="/presentWorks">
+                                ຜົນງານປະຈຸບັນ
+                            </a>
+                            <a class="dropdown-item" href="/futureWorks">
+                                ອະນາຄົດ
+                            </a>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>

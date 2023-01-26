@@ -17,6 +17,10 @@
             <a href="/topSellingSlideImages">Top Selling Slide</a>
         </li>
         <li
+            class="{{ Request::is('pastWorks') || Request::is('editPastWork/*') || Request::is('pastWorksImages/*') ? 'current-page' : '' }}">
+            <a href="/pastWorks">ຜົນງານທີ່ຜ່ານມາ</a>
+        </li>
+        <li
             class="{{ Request::is('users') || Request::is('users/*') || Request::is('editUser/*') ? 'current-page' : '' }}">
             <a href="/users">Users</a>
         </li>
