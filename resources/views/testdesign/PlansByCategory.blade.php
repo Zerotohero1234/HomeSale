@@ -16,10 +16,10 @@
                                 alt="Card image cap">
                             <div class="card-body plan-card-body bg-dark">
                                 <p class="text-white font-weight-bolder h5">
-                                    {{ $plan->plan_name }}
+                                    {{ App::getLocale() == 'la' ? $plan->plan_name : (App::getLocale() == 'en' ? ($plan->plan_en_name ? $plan->plan_en_name : $plan->plan_name) : ($plan->plan_cn_name ? $plan->plan_cn_name : $plan->plan_name)) }}
                                 </p>
                                 <p class="text-white font-weight-lighter mb-0">
-                                    {{ $plan->cate_name }}
+                                    {{ App::getLocale() == 'la' ? $plan->cate_name : (App::getLocale() == 'en' ? ($plan->cate_en_name ? $plan->cate_en_name : $plan->cate_name) : ($plan->cate_cn_name ? $plan->cate_cn_name : $plan->cate_name)) }}
                                 </p>
                             </div>
                         </div>
@@ -39,7 +39,8 @@
                             </a>
                         </li>
                         <li class="page-item {{ $pagination['offset'] == '1' ? 'active' : '' }}">
-                            <a class="Text-secondary bg-dark page-link" href="/plansByCategory/{{ $category_id }}?page=1">1</a>
+                            <a class="Text-secondary bg-dark page-link"
+                                href="/plansByCategory/{{ $category_id }}?page=1">1</a>
                         </li>
                         @for ($j = $pagination['offset'] - 25; $j < $pagination['offset'] - 10; $j++)
                             @if ($j % 10 == 0 && $j > 1)
