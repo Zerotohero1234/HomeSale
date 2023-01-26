@@ -22,24 +22,30 @@ class PastWorksController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function index()
+    public function index(Request $request)
     {
 
         if (Auth::user()->is_admin != 1) {
             return redirect('access_denied');
         }
 
-        $pagination = [
-            'offsets' => ceil(sizeof(PastWorks::select('pastWorks.*')
-                ->get()) / 10),
-            'offset' => 1,
-            'all' => sizeof(PastWorks::select('pastWorks.*')
-                ->get())
-        ];
-        $pastWorks = PastWorks::select('pastWorks.*')
-            ->limit(10)
-            ->orderBy('pastWorks.id', 'desc')
+        $pastWorksQuery = PastWorks::select('pastWorks.*')
+            ->orderBy('pastWorks.id', 'desc');
+
+        $allPastWorks = $pastWorksQuery->count();
+
+        if ($request->page) {
+            $pastWorksQuery->offset(($request->page - 1) * 10);
+        }
+
+        $pastWorks = $pastWorksQuery->limit(10)
             ->get();
+
+        $pagination = [
+            'offsets' => ceil($allPastWorks / 10),
+            'offset' => $request->page ? $request->page : 1,
+            'all' => $allPastWorks
+        ];
 
         return view('pastWorks', compact('pastWorks', 'pagination'));
     }

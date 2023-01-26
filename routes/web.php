@@ -110,6 +110,9 @@ Route::post('/addPastWorkImage', [PastWorksController::class, 'addPastWorkImage'
 
 Route::get('/deletePastWorkImage/{id}/pastwork_id/{pastwork_id}', [PastWorksController::class, 'deletePastWorkImage'])->middleware('auth')->name('deletePastWorkImage');
 
+Route::get('/pastWorkThumbnail/{id}', [PastWorksController::class, 'thumbnail'])->middleware('auth')->name('pastWorkThumbnail');
+
+Route::post('/updatePastWorkThumbnail', [PastWorksController::class, 'updateThumbnail'])->middleware('auth')->name('updatePastWorkThumbnail');
 
 //test design
 Route::get('/', [TestDesignController::class, 'index'])->name('index');
@@ -118,9 +121,10 @@ Route::get('/home', [TestDesignController::class, 'index'])->name('index');
 
 Route::get('/search', [TestDesignController::class, 'search'])->name('search');
 
+Route::get('/showPastWorks', [TestDesignController::class, 'showPastWorks'])->name('showPastWorks');
+
 Route::get('/plansByCategory/{id}', [TestDesignController::class, 'plansByCategory'])->name('plansByCategory');
 
 Route::get('/detail/{id}', [TestDesignController::class, 'detail'])->name('detail');
-
 
 Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);

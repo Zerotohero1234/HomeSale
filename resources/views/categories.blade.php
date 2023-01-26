@@ -115,7 +115,7 @@
                                         @foreach ($categories as $key => $cate)
                                             <tr>
                                                 <td>
-                                                    {{ $key + 1 }}
+                                                    {{ ($pagination['offset'] - 1) * 10 + $key + 1 }}
                                                 </td>
                                                 <td>
                                                     {{ $cate->cate_name }}

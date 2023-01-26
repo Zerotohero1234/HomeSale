@@ -21,27 +21,31 @@ class PlanController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function index()
+    public function index(Request $request)
     {
 
         if (Auth::user()->is_admin != 1) {
             return redirect('access_denied');
         }
 
-        $pagination = [
-            'offsets' => ceil(sizeof(Plans::select('plans.*')
-                ->join('categories', 'plans.category', 'categories.id')
-                ->get()) / 10),
-            'offset' => 1,
-            'all' => sizeof(Plans::select('plans.*')
-                ->join('categories', 'plans.category', 'categories.id')
-                ->get())
-        ];
-        $plans = Plans::select('plans.*', 'categories.cate_name')
+        $plansQuery = Plans::select('plans.*', 'categories.cate_name')
             ->join('categories', 'plans.category', 'categories.id')
-            ->limit(10)
-            ->orderBy('plans.id', 'desc')
+            ->orderBy('plans.id', 'desc');
+
+        $all_plans = $plansQuery->count();
+
+        if ($request->page) {
+            $plansQuery->offset(($request->page - 1) * 10);
+        }
+
+        $plans = $plansQuery->limit(10)
             ->get();
+
+        $pagination = [
+            'offsets' => ceil($all_plans / 10),
+            'offset' => $request->page ? $request->page : 1,
+            'all' => $all_plans
+        ];
 
         $categories = Categories::all();
 

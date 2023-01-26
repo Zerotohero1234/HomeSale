@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Categories;
 use App\Models\FloorPlanSlideImages;
 use App\Models\HomeSlideImages;
+use App\Models\PastWorks;
 use App\Models\Plans;
 use App\Models\Floors;
 use App\Models\PlanSlideImages;
@@ -87,7 +88,7 @@ class TestDesignController extends Controller
     {
         $plansQuery = Plans::select('plans.*', 'categories.cate_name')
             ->join('categories', 'plans.category', 'categories.id')
-            ->orderBy('plans.id', 'asc');
+            ->orderBy('plans.id', 'desc');
 
         if ($request->floor != '') {
             $plansQuery->where('floor', $request->floor);
@@ -101,8 +102,7 @@ class TestDesignController extends Controller
             $plansQuery->where('bath', $request->bath);
         }
 
-        $all_plans = $plansQuery->orderBy('plans.id', 'desc')
-            ->count();
+        $all_plans = $plansQuery->count();
 
         if ($request->page) {
             $plansQuery->offset(($request->page - 1) * 15);
@@ -127,10 +127,9 @@ class TestDesignController extends Controller
         $plansQuery = Plans::select('plans.*', 'categories.cate_name')
             ->join('categories', 'plans.category', 'categories.id')
             ->where('categories.id', $id)
-            ->orderBy('plans.id', 'asc');
+            ->orderBy('plans.id', 'desc');
 
-        $all_plans = $plansQuery->orderBy('plans.id', 'desc')
-            ->count();
+        $all_plans = $plansQuery->count();
 
         if ($request->page) {
             $plansQuery->offset(($request->page - 1) * 15);
@@ -152,6 +151,31 @@ class TestDesignController extends Controller
         $category = Categories::where('id', $id)->first();
 
         return view('testdesign.plansByCategory', compact('plans', 'category', 'categories', 'pagination', 'category_id'));
+    }
+
+    public function showPastWorks(Request $request)
+    {
+        $pastWorksQuery = PastWorks::select('pastWorks.*')
+            ->orderBy('pastWorks.id', 'desc');
+
+        $allPastWorks = $pastWorksQuery->count();
+
+        if ($request->page) {
+            $pastWorksQuery->offset(($request->page - 1) * 15);
+        }
+
+        $pastWorks = $pastWorksQuery->limit(15)
+            ->get();
+
+        $pagination = [
+            'offsets' => ceil($allPastWorks / 15),
+            'offset' => $request->page ? $request->page : 1,
+            'all' => $allPastWorks
+        ];
+
+        $categories = Categories::all();
+
+        return view('testdesign.pastWorks', compact('pastWorks', 'categories', 'pagination'));
     }
 
     public function detail($id)

@@ -16,24 +16,30 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function index()
+    public function index(Request $request)
     {
 
         if (Auth::user()->is_admin != 1) {
             return redirect('access_denied');
         }
 
-        $pagination = [
-            'offsets' => ceil(sizeof(Categories::select('categories.*')
-                ->get()) / 10),
-            'offset' => 1,
-            'all' => sizeof(Categories::select('categories.*')
-                ->get())
-        ];
-        $categories = Categories::select('categories.*')
-            ->orderBy('categories.id', 'desc')
-            ->limit(10)
+        $categoriesQuery = Categories::select('categories.*')
+            ->orderBy('categories.id', 'desc');
+
+        $all_categories = $categoriesQuery->count();
+
+        if ($request->page) {
+            $categoriesQuery->offset(($request->page - 1) * 10);
+        }
+
+        $categories = $categoriesQuery->limit(10)
             ->get();
+
+        $pagination = [
+            'offsets' => ceil($all_categories / 10),
+            'offset' => $request->page ? $request->page : 1,
+            'all' => $all_categories
+        ];
 
         return view('categories', compact('categories', 'pagination'));
     }

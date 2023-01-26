@@ -203,6 +203,9 @@
                                 <table class="table">
                                     <thead class=" text-primary">
                                         <th>
+                                            #
+                                        </th>
+                                        <th>
                                             ຊື່
                                         </th>
                                         <th>
@@ -243,8 +246,11 @@
                                         </th>
                                     </thead>
                                     <tbody>
-                                        @foreach ($plans as $plan)
+                                        @foreach ($plans as $key => $plan)
                                             <tr>
+                                                <td>
+                                                    {{ ($pagination['offset'] - 1) * 10 + $key + 1 }}
+                                                </td>
                                                 <td>
                                                     {{ $plan->plan_name }}
                                                 </td>

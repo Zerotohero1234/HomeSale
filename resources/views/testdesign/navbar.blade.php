@@ -57,7 +57,7 @@
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown04111" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">{{ __('home.work') }}</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown04111">
-                            <a class="dropdown-item" href="/pastWorks">
+                            <a class="dropdown-item" href="/showPastWorks">
                                 ຜົນງານທີ່ຜ່ານມາ
                             </a>
                             <a class="dropdown-item" href="/presentWorks">
