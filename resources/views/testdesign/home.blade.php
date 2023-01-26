@@ -6,14 +6,14 @@
             <div class="col-lg-3 col-12 order-2 order-lg-1 mt-lg-0 mt-3">
                 <div class="card bg-dark card-shadow">
                     <div class="card-header">
-                        <p class="h5 Text-secondary">ຄົ້ນຫາແບບເຮືອນ</p>
+                        <p class="h5 Text-secondary">{{ __('home.search_plans') }}</p>
                     </div>
                     <form method="GET" action="search">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12 py-2">
                                     <select class="form-select" name="floor" aria-label="Default select example">
-                                        <option selected value="">ຈຳນວນຊັ້ນ</option>
+                                        <option selected value="">{{ __('home.floor') }}</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -23,7 +23,7 @@
                                 </div>
                                 <div class="col-12 py-2">
                                     <select class="form-select" name="bedroom" aria-label="Default select example">
-                                        <option selected value="">ຫ້ອງນອນ</option>
+                                        <option selected value="">{{ __('home.bedroom') }}</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -38,7 +38,7 @@
                                 </div>
                                 <div class="col-12 py-2">
                                     <select class="form-select" name="bath" aria-label="Default select example">
-                                        <option selected value="">ຫ້ອງນ້ຳ</option>
+                                        <option selected value="">{{ __('home.bath') }}</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -52,7 +52,8 @@
                                     </select>
                                 </div>
                                 <div class="col-12 col-md-6 col-lg-3 pt-3">
-                                    <button type="submit" class="btn Btn-outline-secondary px-5">ຄົ້ນຫາ</button>
+                                    <button type="submit"
+                                        class="btn Btn-outline-secondary px-5">{{ __('home.search') }}</button>
                                 </div>
                             </div>
                         </div>
@@ -143,11 +144,11 @@
                     <div class="col-lg-3 col-5" style="align-self: center">
                         <a href="/plansByCategory/{{ $category_plan['id'] }}">
                             <p
-                                class="h6 font-weight-bolder text-right text-uppercase Text-secondary mb-0 d-none d-md-block d-lg-block">
-                                ສະແດງທັງໝົດ >
+                                class="h6 font-weight-bolder text-right Text-secondary mb-0 d-none d-md-block d-lg-block">
+                                {{ __('home.show_all') }} >
                             </p>
                             <p
-                                class="h6 font-weight-bolder text-right text-uppercase Text-secondary mb-0 d-block d-md-none d-lg-none">
+                                class="h6 font-weight-bolder text-right Text-secondary mb-0 d-block d-md-none d-lg-none">
                                 >>
                             </p>
                         </a>
@@ -160,10 +161,10 @@
                                         alt="Card image cap">
                                     <div class="card-body plan-card-body bg-dark">
                                         <p class="text-white font-weight-bolder h5">
-                                            {{ $plan->plan_name }}
+                                            {{ App::getLocale() == 'la' ? $plan->plan_name : (App::getLocale() == 'en' ? ($plan->plan_en_name ? $plan->plan_en_name : $plan->plan_name) : ($plan->plan_cn_name ? $plan->plan_cn_name : $plan->plan_name)) }}
                                         </p>
                                         <p class="text-white font-weight-lighter mb-0">
-                                            {{ $plan->cate_name }}
+                                            {{ App::getLocale() == 'la' ? $plan->cate_name : (App::getLocale() == 'en' ? ($plan->cate_en_name ? $plan->cate_en_name : $plan->cate_name) : ($plan->cate_cn_name ? $plan->cate_cn_name : $plan->cate_name)) }}
                                         </p>
                                     </div>
                                 </div>

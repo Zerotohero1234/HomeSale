@@ -11,6 +11,7 @@ use App\Models\PlanSlideImages;
 use App\Models\Rooms;
 use App\Models\TopSellingSlideImages;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class TestDesignController extends Controller
 {
@@ -59,13 +60,16 @@ class TestDesignController extends Controller
         //         array_push($categories_results, $array_main);
         //     }
         // }
-
+        // echo App::getLocale();
+        // exit;
         $category_plans = array();
         foreach ($categories as $category) {
             $category_plan = array();
-            $category_plan['cate_name'] = $category->cate_name;
+            $category_plan['cate_name'] = App::getLocale() == 'la' ? $category->cate_name : (App::getLocale() == 'en' ? $category->cate_en_name : $category->cate_cn_name);
+
             $category_plan['id'] = $category->id;
-            $category_plan['plans'] = Plans::where('category', $category->id)
+            $category_plan['plans'] = Plans::join('categories', 'plans.category', 'categories.id')
+                ->where('category', $category->id)
                 ->orderBy('plans.id', 'desc')
                 ->limit(3)
                 ->get();

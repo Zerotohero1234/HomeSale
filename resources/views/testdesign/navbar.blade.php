@@ -46,8 +46,9 @@
                             aria-haspopup="true" aria-expanded="false">{{ __('home.categories') }}</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown04111">
                             @foreach ($categories as $category)
-                                <a class="dropdown-item"
-                                    href="/plansByCategory/{{ $category->id }}">{{ $category->cate_name }}</a>
+                                <a class="dropdown-item" href="/plansByCategory/{{ $category->id }}">
+                                    {{ App::getLocale() == 'la' ? $category->cate_name : (App::getLocale() == 'en' ? ($category->cate_en_name ? $category->cate_en_name : $category->cate_name) : ($category->cate_cn_name ? $category->cate_cn_name : $category->cate_name)) }}
+                                </a>
                             @endforeach
                         </div>
                     </li>

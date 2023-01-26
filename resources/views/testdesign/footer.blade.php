@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-12 col-md-6 col-lg-6">
                 <p class="Text-secondary text-uppercase">
-                    Address :
+                    {{ __('home.address') }} :
                 </p>
                 <p>
                     ບ້ານ ໄຊສະຫວ່າງ ເມືອງໄຊທານີ ນະຄອນຫຼວງວຽງຈັນ,ແຄມທາງໃຫຍ່ເລກທີ 13 ໃຕ້.
