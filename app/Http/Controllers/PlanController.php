@@ -56,6 +56,9 @@ class PlanController extends Controller
     {
         $plan = new Plans;
         $plan->plan_name = $request->plan_name;
+        $plan->plan_en_name = $request->plan_en_name;
+        $plan->plan_cn_name = $request->plan_cn_name;
+        $plan->plan_th_name = $request->plan_th_name;
         $plan->category = $request->category;
         $plan->width = $request->width;
         $plan->depth = $request->depth;
@@ -84,6 +87,9 @@ class PlanController extends Controller
     {
         $plan = [
             'plan_name' => $request->plan_name,
+            'plan_en_name' => $request->plan_en_name,
+            'plan_cn_name' => $request->plan_cn_name,
+            'plan_th_name' => $request->plan_th_name,
             'category' => $request->category,
             'width' => $request->width,
             'depth' => $request->depth,

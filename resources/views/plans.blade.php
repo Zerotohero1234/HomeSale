@@ -58,19 +58,19 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">ຊື່ພາສາອັງກິດ</label>
-                                            <input type="text" name="cate_en_name" class="form-control">
+                                            <input type="text" name="plan_en_name" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">ຊື່ພາສາຈີນ</label>
-                                            <input type="text" name="cate_cn_name" class="form-control">
+                                            <input type="text" name="plan_cn_name" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">ຊື່ພາສາໄທ</label>
-                                            <input type="text" name="cate_th_name" class="form-control">
+                                            <input type="text" name="plan_th_name" class="form-control">
                                         </div>
                                     </div>
                                 </div>
