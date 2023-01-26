@@ -68,7 +68,8 @@ class TestDesignController extends Controller
             $category_plan['cate_name'] = App::getLocale() == 'la' ? $category->cate_name : (App::getLocale() == 'en' ? $category->cate_en_name : $category->cate_cn_name);
 
             $category_plan['id'] = $category->id;
-            $category_plan['plans'] = Plans::join('categories', 'plans.category', 'categories.id')
+            $category_plan['plans'] = Plans::select('plans.*')
+                ->join('categories', 'plans.category', 'categories.id')
                 ->where('category', $category->id)
                 ->orderBy('plans.id', 'desc')
                 ->limit(3)
