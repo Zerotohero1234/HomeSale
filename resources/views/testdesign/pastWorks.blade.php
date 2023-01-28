@@ -7,7 +7,7 @@
                 <div class="col-12 col-lg-6">
                     <img src="/img/design/not_found.jpg" class="img-fluid d-block" style="margin-inline: auto">
                     <p class="Text-secondary text-center font-weight-bolder h4 mt-5">
-                        ບໍ່ພົບຜົນການຄົ້ນຫາ!!!
+                        {{ __('home.no_result') }}
                     </p>
                 </div>
             </div>
@@ -27,7 +27,7 @@
                                     alt="Card image cap">
                                 <div class="card-body plan-card-body bg-dark">
                                     <p class="text-white font-weight-bolder h5">
-                                        {{ $pastWork->name }}
+                                        {{ App::getLocale() == 'la' ? $pastWork->name : (App::getLocale() == 'en' ? ($pastWork->en_name ? $pastWork->en_name : $pastWork->name) : ($pastWork->cn_name ? $pastWork->cn_name : $pastWork->name)) }}
                                     </p>
                                 </div>
                             </div>

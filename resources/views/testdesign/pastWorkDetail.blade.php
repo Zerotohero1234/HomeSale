@@ -16,7 +16,7 @@
                 <div class="row">
                     <div class="col-12">
                         <p class="h4 font-weight-bolder text-uppercase headertext-symbol Text-secondary">
-                            Description
+                            {{ __('home.description') }}
                         </p>
                     </div>
                     <div class="col-12">

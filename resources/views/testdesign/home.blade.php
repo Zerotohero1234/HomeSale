@@ -96,7 +96,7 @@
         <div class="row pt-3 mt-5">
             <div class="col-12 text-center">
                 <p class="h4 font-weight-bolder text-uppercase Text-secondary">
-                    Top Selling
+                    {{ __('home.top_selling') }}
                 </p>
             </div>
             <div class="col-12">

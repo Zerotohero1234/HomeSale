@@ -7,7 +7,7 @@
                 <div class="col-12 col-lg-6">
                     <img src="/img/design/not_found.jpg" class="img-fluid d-block" style="margin-inline: auto">
                     <p class="Text-secondary text-center font-weight-bolder h4 mt-5">
-                        ບໍ່ພົບຜົນການຄົ້ນຫາ!!!
+                        {{ __('home.no_result') }}
                     </p>
                 </div>
             </div>
@@ -15,7 +15,7 @@
             <div class="row pt-5 mt-5 mt-lg-1">
                 <div class="col-12">
                     <p class="h4 font-weight-bolder text-uppercase headertext-symbol Text-secondary">
-                        Search Result :
+                        {{ __('home.search_result') }} :
                     </p>
                 </div>
                 @foreach ($plans as $plan)

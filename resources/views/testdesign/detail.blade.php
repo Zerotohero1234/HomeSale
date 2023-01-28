@@ -38,7 +38,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-lg-6 col-6">
-                                <p class="text-white mb-0">WIDTH</p>
+                                <p class="text-white mb-0 text-uppercase">{{ __('home.width') }}</p>
                             </div>
                             <div class="col-lg-6 col-6">
                                 <p class="text-white mb-0">{{ $plan->width }}</p>
@@ -47,7 +47,7 @@
                         <hr class="my-2">
                         <div class="row">
                             <div class="col-lg-6 col-6">
-                                <p class="text-white mb-0">DEPTH</p>
+                                <p class="text-white mb-0 text-uppercase">{{ __('home.depth') }}</p>
                             </div>
                             <div class="col-lg-6 col-6">
                                 <p class="text-white mb-0">{{ $plan->depth }}</p>
@@ -56,7 +56,7 @@
                         <hr class="my-2">
                         <div class="row">
                             <div class="col-lg-6 col-6">
-                                <p class="text-white mb-0">LIVING AREA</p>
+                                <p class="text-white mb-0 text-uppercase">{{ __('home.leaving_area') }}</p>
                             </div>
                             <div class="col-lg-6 col-6">
                                 <p class="text-white mb-0">{{ $plan->leaving_area }}</p>
@@ -65,7 +65,7 @@
                         <hr class="my-2">
                         <div class="row">
                             <div class="col-lg-6 col-6">
-                                <p class="text-white mb-0">BEDROOM(S)</p>
+                                <p class="text-white mb-0 text-uppercase">{{ __('home.bedroom') }}</p>
                             </div>
                             <div class="col-lg-6 col-6">
                                 <p class="text-white mb-0">{{ $plan->bedroom }}</p>
@@ -74,7 +74,7 @@
                         <hr class="my-2">
                         <div class="row">
                             <div class="col-lg-6 col-6">
-                                <p class="text-white mb-0">BATHS</p>
+                                <p class="text-white mb-0 text-uppercase">{{ __('home.bath') }}</p>
                             </div>
                             <div class="col-lg-6 col-6">
                                 <p class="text-white mb-0">{{ $plan->bath }}</p>
@@ -83,7 +83,7 @@
                         <hr class="my-2">
                         <div class="row">
                             <div class="col-lg-6 col-6">
-                                <p class="text-white mb-0">FLOOR</p>
+                                <p class="text-white mb-0 text-uppercase">{{ __('home.floor') }}</p>
                             </div>
                             <div class="col-lg-6 col-6">
                                 <p class="text-white mb-0">{{ $plan->floor }}</p>
@@ -136,7 +136,7 @@
                     <div class="row mt-3">
                         <div class="col-12">
                             <p class="h5 font-weight-bolder Text-secondary">
-                                {{ $floor_with_room->floor_name }}
+                                {{ App::getLocale() == 'la' ? $floor_with_room->floor_name : (App::getLocale() == 'en' ? ($floor_with_room->floor_en_name ? $floor_with_room->floor_en_name : $floor_with_room->floor_name) : ($floor_with_room->floor_cn_name ? $floor_with_room->floor_cn_name : $floor_with_room->floor_name)) }}
                             </p>
                         </div>
                         <div class="col-12">
@@ -144,20 +144,22 @@
                                 <div class="card-body d-lg-block d-none">
                                     <div class="row">
                                         <div class="col-lg-4">
-                                            <p class="text-white mb-0 h5 font-weight-bolder">ຫ້ອງ</p>
+                                            <p class="text-white mb-0 h5 font-weight-bolder">{{ __('home.room') }}</p>
                                         </div>
                                         <div class="col-lg-4">
-                                            <p class="text-white mb-0 h5 font-weight-bolder">SIZES</p>
+                                            <p class="text-white mb-0 h5 font-weight-bolder">{{ __('home.size') }}</p>
                                         </div>
                                         <div class="col-lg-4">
-                                            <p class="text-white mb-0 h5 font-weight-bolder">CEILING</p>
+                                            <p class="text-white mb-0 h5 font-weight-bolder">{{ __('home.ceiling') }}</p>
                                         </div>
                                     </div>
                                     <hr class="my-2">
                                     @foreach ($floor_with_room->rooms as $room)
                                         <div class="row">
                                             <div class="col-lg-4">
-                                                <p class="text-white font-weight-lighter mb-0 ">{{ $room->room_name }}</p>
+                                                <p class="text-white font-weight-lighter mb-0 ">
+                                                    {{ App::getLocale() == 'la' ? $room->room_name : (App::getLocale() == 'en' ? ($room->room_en_name ? $room->room_en_name : $room->room_name) : ($room->room_cn_name ? $room->room_cn_name : $room->room_name)) }}
+                                                </p>
                                             </div>
                                             <div class="col-lg-4">
                                                 <p class="text-white font-weight-lighter mb-0 ">{{ $room->size }}</p>
@@ -174,15 +176,17 @@
                                     @foreach ($floor_with_room->rooms as $room)
                                         <div class="row">
                                             <div class="col-6">
-                                                <p class="text-white mb-0 font-weight-bolder">ຫ້ອງ</p>
+                                                <p class="text-white mb-0 font-weight-bolder">{{ __('home.room') }}</p>
                                             </div>
                                             <div class="col-6">
-                                                <p class="text-white font-weight-lighter mb-0 ">Kitchen</p>
+                                                <p class="text-white font-weight-lighter mb-0 ">
+                                                    {{ App::getLocale() == 'la' ? $room->room_name : (App::getLocale() == 'en' ? ($room->room_en_name ? $room->room_en_name : $room->room_name) : ($room->room_cn_name ? $room->room_cn_name : $room->room_name)) }}
+                                                </p>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-6">
-                                                <p class="text-white mb-0 font-weight-bolder">SIZES</p>
+                                                <p class="text-white mb-0 font-weight-bolder">{{ __('home.size') }}</p>
                                             </div>
                                             <div class="col-6">
                                                 <p class="text-white font-weight-lighter mb-0 ">{{ $room->size }}</p>
@@ -190,7 +194,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-6">
-                                                <p class="text-white mb-0 font-weight-bolder">CEILING</p>
+                                                <p class="text-white mb-0 font-weight-bolder">{{ __('home.ceiling') }}</p>
                                             </div>
                                             <div class="col-6">
                                                 <p class="text-white font-weight-lighter mb-0 ">{{ $room->ceiling }}</p>
@@ -208,7 +212,7 @@
                 <div class="row">
                     <div class="col-12">
                         <p class="h4 font-weight-bolder text-uppercase headertext-symbol Text-secondary">
-                            Description
+                            {{ __('home.description') }}
                         </p>
                     </div>
                     <div class="col-12">
@@ -225,7 +229,7 @@
         <div class="row pt-5">
             <div class="col-12">
                 <p class="h4 font-weight-bolder text-uppercase headertext-symbol Text-secondary">
-                    Recommended
+                    {{ __('home.recommended') }}
                 </p>
             </div>
             @foreach ($recommendeds as $recommended)
@@ -237,10 +241,10 @@
                                 alt="Card image cap">
                             <div class="card-body plan-card-body bg-dark">
                                 <p class="text-white font-weight-bolder h5">
-                                    {{ $recommended->plan_name }}
+                                    {{ App::getLocale() == 'la' ? $recommended->plan_name : (App::getLocale() == 'en' ? ($recommended->plan_en_name ? $recommended->plan_en_name : $recommended->plan_name) : ($recommended->plan_cn_name ? $recommended->plan_cn_name : $recommended->plan_name)) }}
                                 </p>
                                 <p class="text-white font-weight-lighter mb-0">
-                                    {{ $recommended->cate_name }}
+                                    {{ App::getLocale() == 'la' ? $recommended->cate_name : (App::getLocale() == 'en' ? ($recommended->cate_en_name ? $recommended->cate_en_name : $recommended->cate_name) : ($recommended->cate_cn_name ? $recommended->cate_cn_name : $recommended->cate_name)) }}
                                 </p>
                             </div>
                         </div>

@@ -10,5 +10,16 @@ return [
     'show_all' => 'ສະແດງທັງໝົດ',
     'address' => 'ທີ່ຢູ່',
     'search' => 'ຄົ້ນຫາ',
-    'project' => 'ໂຄງການ'
+    'project' => 'ໂຄງການ',
+    'no_result' => 'ບໍ່ພົບຜົນການຄົ້ນຫາ!!!',
+    'search_result' => 'ຜົນການຄົ້ນຫາ',
+    'top_selling' => 'ແບບບ້ານຍອດນິຍົມ',
+    'description' => 'ລາຍລະອຽດ',
+    'recommended' => 'ແບບບ້ານແນະນຳ',
+    'size' => 'ຂະໜາດ',
+    'width' => 'ກວ້າງ',
+    'depth' => 'ເລິກ',
+    'ceiling' => 'ເພດານ',
+    'leaving_area' => 'ພື້ນທີ່ໃຊ້ສອຍ',
+    'room' => 'ຫ້ອງ',
 ];
