@@ -8,15 +8,16 @@
                     ຜົນງານທີ່ຜ່ານມາ :
                 </p>
             </div>
-            @foreach ($pastWorks as $pastWorks)
+            @foreach ($pastWorks as $pastWork)
                 <div class="col-12 col-lg-4 col-md-6 pt-3">
-                    <a href="/pastWorkDetail/{{ $pastWorks->id }}">
+                    <a href="/pastWorkDetail/{{ $pastWork->id }}">
                         <div class="card bg-dark card-shadow plan-card">
-                            <img class="card-img-top plan-card-image" src="/img/design/{{ $pastWorks->thumbnail }}"
+                            <img class="card-img-top plan-card-image"
+                                src="/img/design/{{ $pastWork->thumbnail ? $pastWork->thumbnail : 'no_image.jpeg' }}"
                                 alt="Card image cap">
                             <div class="card-body plan-card-body bg-dark">
                                 <p class="text-white font-weight-bolder h5">
-                                    {{ $pastWorks->name }}
+                                    {{ $pastWork->name }}
                                 </p>
                             </div>
                         </div>
