@@ -87,6 +87,10 @@ a p.Text-secondary:hover {
     width: auto;
 }
 
+#nav-logo {
+    text-align: center;
+}
+
 @media (min-width: 375px) {
     .img-gallery {
         height: 100px;
@@ -112,6 +116,10 @@ a p.Text-secondary:hover {
     .img-gallery {
         height: 250px;
         width: auto;
+    }
+
+    #nav-logo {
+        text-align: left;
     }
 }
 

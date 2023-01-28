@@ -1,10 +1,10 @@
 <!-- top navigation -->
 <section class="ftco-section">
-    <div class="container-fluid fixed-top">
-        <div class="row justify-content-between" style="background-color: black">
-            <div class="col-md-12 order-md-last">
+    <div class="container-fluid fixed-top px-0">
+        <div class="justify-content-between" style="background-color: black">
+            <div class="container order-md-last">
                 <div class="row">
-                    <div class="col-md-6 text-center">
+                    <div class="col-md-6" id="nav-logo">
                         <a class="navbar-brand" href="/"><img src="{{ URL::asset('/img/design/JSK-logo.jpeg') }}"
                                 class="img-fluid" style="max-height: 50px"></a>
                     </div>
