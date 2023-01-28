@@ -143,12 +143,10 @@
                     </div>
                     <div class="col-lg-3 col-5" style="align-self: center">
                         <a href="/plansByCategory/{{ $category_plan['id'] }}">
-                            <p
-                                class="h6 font-weight-bolder text-right Text-secondary mb-0 d-none d-md-block d-lg-block">
+                            <p class="h6 font-weight-bolder text-right Text-secondary mb-0 d-none d-md-block d-lg-block">
                                 {{ __('home.show_all') }} >
                             </p>
-                            <p
-                                class="h6 font-weight-bolder text-right Text-secondary mb-0 d-block d-md-none d-lg-none">
+                            <p class="h6 font-weight-bolder text-right Text-secondary mb-0 d-block d-md-none d-lg-none">
                                 >>
                             </p>
                         </a>
@@ -157,7 +155,8 @@
                         <div class="col-12 col-lg-4 col-md-6 pt-3">
                             <a href="/detail/{{ $plan->id }}">
                                 <div class="card bg-dark card-shadow plan-card">
-                                    <img class="card-img-top plan-card-image" src="/img/design/{{ $plan->thumbnail }}"
+                                    <img class="card-img-top plan-card-image"
+                                        src="/img/design/{{ $plan->thumbnail ? $plan->thumbnail : 'no_image.jpeg' }}"
                                         alt="Card image cap">
                                     <div class="card-body plan-card-body bg-dark">
                                         <p class="text-white font-weight-bolder h5">

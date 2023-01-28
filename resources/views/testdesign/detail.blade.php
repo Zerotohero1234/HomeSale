@@ -232,7 +232,8 @@
                 <div class="col-12 col-lg-4 col-md-6 pt-3">
                     <a href="/detail/{{ $recommended->id }}">
                         <div class="card bg-dark card-shadow plan-card">
-                            <img class="card-img-top plan-card-image" src="/img/design/{{ $recommended->thumbnail }}"
+                            <img class="card-img-top plan-card-image"
+                                src="/img/design/{{ $recommended->thumbnail ? $recommended->thumbnail : 'no_image.jpeg' }}"
                                 alt="Card image cap">
                             <div class="card-body plan-card-body bg-dark">
                                 <p class="text-white font-weight-bolder h5">

@@ -10,5 +10,5 @@ return [
     'show_all' => 'ສະແດງທັງໝົດ',
     'address' => 'ທີ່ຢູ່',
     'search' => 'ຄົ້ນຫາ',
-    'ຳproject' => 'ໂຄງການ'
+    'project' => 'ໂຄງການ'
 ];
