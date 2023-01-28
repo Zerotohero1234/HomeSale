@@ -22,4 +22,7 @@ return [
     'ceiling' => 'ເພດານ',
     'leaving_area' => 'ພື້ນທີ່ໃຊ້ສອຍ',
     'room' => 'ຫ້ອງ',
+    'past_project' => 'ຜົນງານທີ່ຜ່ານມາ',
+    'present_project' => 'ຜົນງານປະຈຸບັນ',
+    'future_project' => 'ຜົນງານໃນອະນາຄົດ',
 ];

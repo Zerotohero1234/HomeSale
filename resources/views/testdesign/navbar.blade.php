@@ -57,13 +57,13 @@
                             aria-haspopup="true" aria-expanded="false">{{ __('home.project') }}</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown04111">
                             <a class="dropdown-item" href="/showPastWorks">
-                                ຜົນງານທີ່ຜ່ານມາ
+                                {{ __('home.past_project') }}
                             </a>
                             <a class="dropdown-item" href="/showPresentWorks">
-                                ຜົນງານປະຈຸບັນ
+                                {{ __('home.present_project') }}
                             </a>
                             <a class="dropdown-item" href="/showFutureWorks">
-                                ຜົນງານໃນອະນາຄົດ
+                                {{ __('home.future_project') }}
                             </a>
                         </div>
                     </li>

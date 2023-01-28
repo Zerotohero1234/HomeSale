@@ -129,7 +129,7 @@ Route::get('/presentWorkImages/{id}', [PresentWorksController::class, 'presentWo
 
 Route::post('/addPresentWorkImage', [PresentWorksController::class, 'addPresentWorkImage'])->middleware('auth')->name('addPresentWorkImage');
 
-Route::get('/deletePresentWorkImage/{id}/pastwork_id/{pastwork_id}', [PresentWorksController::class, 'deletePresentWorkImage'])->middleware('auth')->name('deletePresentWorkImage');
+Route::get('/deletePresentWorkImage/{id}/presentwork_id/{presentwork_id}', [PresentWorksController::class, 'deletePresentWorkImage'])->middleware('auth')->name('deletePresentWorkImage');
 
 Route::get('/presentWorkThumbnail/{id}', [PresentWorksController::class, 'thumbnail'])->middleware('auth')->name('presentWorkThumbnail');
 

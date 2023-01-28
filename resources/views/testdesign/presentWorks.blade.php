@@ -15,7 +15,7 @@
             <div class="row pt-5 mt-5 mt-lg-1">
                 <div class="col-12">
                     <p class="h4 font-weight-bolder text-uppercase headertext-symbol Text-secondary">
-                        ຜົນງານປະຈຸບັນ :
+                        {{ __('home.present_project') }} :
                     </p>
                 </div>
                 @foreach ($presentWorks as $presentWork)

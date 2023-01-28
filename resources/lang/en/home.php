@@ -22,4 +22,7 @@ return [
     'ceiling' => 'Ceiling',
     'leaving_area' => 'Leaving Area',
     'room' => 'Room',
+    'past_project' => 'Past Project',
+    'present_project' => 'Present Project',
+    'future_project' => 'Future Project',
 ];
