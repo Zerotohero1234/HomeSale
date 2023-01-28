@@ -81,7 +81,7 @@
         </div>
         <div class="social-media mb-2">
             <p class="mb-0 d-flex">
-                <a href="https://wa.me/8562097899656" target="_blank"
+                <a href="https://wa.me/8562055966596" target="_blank"
                     class="d-flex align-items-center justify-content-center"><span class="fa fa-whatsapp"><i
                             class="sr-only">Whatsapp</i></span></a>
             </p>

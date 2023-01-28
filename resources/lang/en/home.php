@@ -25,4 +25,5 @@ return [
     'past_project' => 'Past Project',
     'present_project' => 'Present Project',
     'future_project' => 'Future Project',
+    'contact' => 'Contact',
 ];

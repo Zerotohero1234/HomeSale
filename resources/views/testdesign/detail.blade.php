@@ -136,6 +136,31 @@
                                 <p class="text-white mb-0">{{ number_format(10000000) }} ກີບ</p>
                             </div>
                         </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-lg-6 col-6">
+                                <p class="text-white mb-0 text-uppercase">10 Copy Set :</p>
+                            </div>
+                            <div class="col-lg-6 col-6">
+                                <p class="text-white mb-0">{{ number_format(20000000) }} ກີບ</p>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-12">
+                                <p class="Text-secondary mb-0 text-uppercase">
+                                    {{ __('home.contact') }} :
+                                </p>
+                            </div>
+                            <div class="col-12">
+                                <a href="https://wa.me/8562055966596" target="_blank">
+                                    <p class="Text-secondary mb-0 text-uppercase">
+                                        <span class="fa fa-whatsapp"><i class="sr-only">Whatsapp</i></span> +856 20
+                                        55 966 596
+                                    </p>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

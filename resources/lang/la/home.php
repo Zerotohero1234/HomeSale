@@ -25,4 +25,5 @@ return [
     'past_project' => 'ຜົນງານທີ່ຜ່ານມາ',
     'present_project' => 'ຜົນງານປະຈຸບັນ',
     'future_project' => 'ຜົນງານໃນອະນາຄົດ',
+    'contact' => 'ສົນໃຈຕິດຕໍ່',
 ];
