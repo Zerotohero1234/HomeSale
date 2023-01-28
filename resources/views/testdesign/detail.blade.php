@@ -95,7 +95,7 @@
         </div>
 
         <div class="row pt-5">
-            <div class="col-12">
+            <div class="col-lg-8">
                 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-indicators">
                         @foreach ($floorPlanSlideImages as $key => $floorPlanSlideImage)
@@ -123,6 +123,20 @@
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
+                </div>
+            </div>
+            <div class="col-lg-4 mt-5 mt-lg-1">
+                <div class="card bg-dark card-shadow"card-shadow>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-6">
+                                <p class="text-white mb-0 text-uppercase">5 Copy Set :</p>
+                            </div>
+                            <div class="col-lg-6 col-6">
+                                <p class="text-white mb-0">{{ number_format(10000000) }} ກີບ</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
