@@ -63,7 +63,7 @@
                                 ຜົນງານປະຈຸບັນ
                             </a>
                             <a class="dropdown-item" href="/showFutureWorks">
-                                ອະນາຄົດ
+                                ຜົນງານໃນອະນາຄົດ
                             </a>
                         </div>
                     </li>

@@ -14,7 +14,7 @@
             <a href="/homeSlideImages">Home Slide</a>
         </li>
         <li class="{{ Request::is('topSellingSlideImages') ? 'current-page' : '' }}">
-            <a href="/topSellingSlideImages">Top Selling Slide</a>
+            <a href="/topSellingSlideImages">ແບບບ້ານຍອດນິຍົມ</a>
         </li>
         <li
             class="{{ Request::is('pastWorks') || Request::is('editPastWork/*') || Request::is('pastWorksImages/*') ? 'current-page' : '' }}">

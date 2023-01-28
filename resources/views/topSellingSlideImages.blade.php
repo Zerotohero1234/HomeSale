@@ -11,7 +11,7 @@
                         <i class="material-icons">keyboard_backspace</i>
                     </a> --}}
                     <h3 class="d-inline pl-3">
-                        ຕັ້ງຄ່າແບບເຮືອນ
+                        ຕັ້ງຄ່າແບບບ້ານຍອດນິຍົມ
                     </h3>
                 </div>
             </div>
@@ -89,7 +89,7 @@
                 <div class="col-md-12">
                     <div class="x_panel">
                         <div>
-                            <h2>ແບບເຮືອນທັງໝົດ</h2>
+                            <h2>ແບບບ້ານຍອດນິຍົມທັງໝົດ</h2>
                         </div>
                         <div class="x_content">
                             <div class="table-responsive">

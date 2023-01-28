@@ -7,7 +7,7 @@
         <div class="">
             <div class="page-title">
                 <div class="title_left">
-                    <h3>ຕັ້ງຄ່າແບບເຮືອນ</h3>
+                    <h3>ຕັ້ງຄ່າຜົນງານໃນອະນາຄົດ</h3>
                 </div>
             </div>
             <div class="clearfix"></div>
@@ -43,7 +43,7 @@
                 <div class="col-md-12">
                     <div class="x_panel">
                         <div>
-                            <h2>ເພີ່ມແບບເຮືອນ</h2>
+                            <h2>ເພີ່ມຜົນງານໃນອະນາຄົດ</h2>
                         </div>
                         <div class="x_content">
                             <form method="POST" action="/addFutureWork">
@@ -92,7 +92,7 @@
                 <div class="col-md-12">
                     <div class="x_panel">
                         <div>
-                            <h2>ແບບເຮືອນທັງໝົດ</h2>
+                            <h2>ຜົນງານໃນອະນາຄົດ</h2>
                         </div>
                         <div class="x_content">
                             <div class="table-responsive">
