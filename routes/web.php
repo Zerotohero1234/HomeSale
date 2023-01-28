@@ -127,4 +127,6 @@ Route::get('/plansByCategory/{id}', [TestDesignController::class, 'plansByCatego
 
 Route::get('/detail/{id}', [TestDesignController::class, 'detail'])->name('detail');
 
+Route::get('/pastWorkDetail/{id}', [TestDesignController::class, 'pastWorkDetail'])->name('pastWorkDetail');
+
 Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);

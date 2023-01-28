@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Categories;
 use App\Models\FloorPlanSlideImages;
 use App\Models\HomeSlideImages;
+use App\Models\PastWorkImages;
 use App\Models\PastWorks;
 use App\Models\Plans;
 use App\Models\Floors;
@@ -176,6 +177,19 @@ class TestDesignController extends Controller
         $categories = Categories::all();
 
         return view('testdesign.pastWorks', compact('pastWorks', 'categories', 'pagination'));
+    }
+
+
+    public function pastWorkDetail($id)
+    {
+        $categories = Categories::all();
+        $pastWork = PastWorks::where('id', $id)->first();
+
+        $pastWorkImages = PastWorkImages::join('pastWorks', 'pastWorkImages.pastwork_id', 'pastWorks.id')
+            ->where('pastWorks.id', $id)
+            ->get();
+
+        return view('testdesign.pastWorkDetail', compact('pastWork', 'categories', 'pastWorkImages'));
     }
 
     public function detail($id)

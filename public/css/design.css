@@ -81,3 +81,43 @@ a p.Text-secondary:hover {
 .bg-dark.page-link {
     border-color: #252525 !important;
 }
+
+.img-gallery {
+    height: 80px;
+    width: auto;
+}
+
+@media (min-width: 375px) {
+    .img-gallery {
+        height: 100px;
+        width: auto;
+    }
+}
+
+@media (min-width: 576px) {
+    .img-gallery {
+        height: 150px;
+        width: auto;
+    }
+}
+
+@media (min-width: 768px) {
+    .img-gallery {
+        height: 200px;
+        width: auto;
+    }
+}
+
+@media (min-width: 992px) {
+    .img-gallery {
+        height: 250px;
+        width: auto;
+    }
+}
+
+@media (min-width: 1200px) {
+    .img-gallery {
+        height: 300px;
+        width: auto;
+    }
+}

@@ -10,7 +10,7 @@
             </div>
             @foreach ($pastWorks as $pastWorks)
                 <div class="col-12 col-lg-4 col-md-6 pt-3">
-                    <a href="/detail/{{ $pastWorks->id }}">
+                    <a href="/pastWorkDetail/{{ $pastWorks->id }}">
                         <div class="card bg-dark card-shadow plan-card">
                             <img class="card-img-top plan-card-image" src="/img/design/{{ $pastWorks->thumbnail }}"
                                 alt="Card image cap">

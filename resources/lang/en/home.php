@@ -10,5 +10,5 @@ return [
     'show_all' => 'Show All',
     'address' => 'Address',
     'search' => 'Search',
-    'work' => 'Work',
+    'project' => 'Project',
 ];
