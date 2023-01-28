@@ -2,7 +2,7 @@
 
 @section('body')
     <div class="container">
-        @if (empty($plans))
+        @if (sizeOf($plans) == 0)
             <div class="row pt-5 mt-5 mt-lg-1 justify-content-center">
                 <div class="col-12 col-lg-6">
                     <img src="/img/design/not_found.jpg" class="img-fluid d-block" style="margin-inline: auto">
