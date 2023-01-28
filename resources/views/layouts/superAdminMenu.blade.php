@@ -21,6 +21,14 @@
             <a href="/pastWorks">ຜົນງານທີ່ຜ່ານມາ</a>
         </li>
         <li
+            class="{{ Request::is('presentWorks') || Request::is('editPresentWork/*') || Request::is('presentWorksImages/*') ? 'current-page' : '' }}">
+            <a href="/presentWorks">ຜົນງານປະຈຸບັນ</a>
+        </li>
+        <li
+            class="{{ Request::is('futureWorks') || Request::is('editFutureWork/*') || Request::is('futureWorksImages/*') ? 'current-page' : '' }}">
+            <a href="/futureWorks">ຜົນງານໃນອະນາຄົດ</a>
+        </li>
+        <li
             class="{{ Request::is('users') || Request::is('users/*') || Request::is('editUser/*') ? 'current-page' : '' }}">
             <a href="/users">Users</a>
         </li>

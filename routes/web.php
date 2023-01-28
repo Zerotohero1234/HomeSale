@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\FutureWorksController;
 use App\Http\Controllers\HomeSlideImagesController;
 use App\Http\Controllers\PastWorksController;
 use App\Http\Controllers\PlanController;
+use App\Http\Controllers\PresentWorksController;
 use App\Http\Controllers\TopSellingSlideImagesController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -114,6 +116,43 @@ Route::get('/pastWorkThumbnail/{id}', [PastWorksController::class, 'thumbnail'])
 
 Route::post('/updatePastWorkThumbnail', [PastWorksController::class, 'updateThumbnail'])->middleware('auth')->name('updatePastWorkThumbnail');
 
+
+Route::get('/presentWorks', [PresentWorksController::class, 'index'])->middleware('auth')->name('presentWorks');
+
+Route::post('/addPresentWork', [PresentWorksController::class, 'insert'])->middleware('auth')->name('addPresentWork');
+
+Route::get('/editPresentWork/{id}', [PresentWorksController::class, 'edit'])->middleware('auth')->name('editPresentWork');
+
+Route::post('/updatePresentWork', [PresentWorksController::class, 'update'])->middleware('auth')->name('updatePresentWork');
+
+Route::get('/presentWorkImages/{id}', [PresentWorksController::class, 'presentWorkImages'])->middleware('auth')->name('presentWorkImages');
+
+Route::post('/addPresentWorkImage', [PresentWorksController::class, 'addPresentWorkImage'])->middleware('auth')->name('addPresentWorkImage');
+
+Route::get('/deletePresentWorkImage/{id}/pastwork_id/{pastwork_id}', [PresentWorksController::class, 'deletePresentWorkImage'])->middleware('auth')->name('deletePresentWorkImage');
+
+Route::get('/presentWorkThumbnail/{id}', [PresentWorksController::class, 'thumbnail'])->middleware('auth')->name('presentWorkThumbnail');
+
+Route::post('/updatePresentWorkThumbnail', [PresentWorksController::class, 'updateThumbnail'])->middleware('auth')->name('updatePresentWorkThumbnail');
+
+Route::get('/futureWorks', [FutureWorksController::class, 'index'])->middleware('auth')->name('futureWorks');
+
+Route::post('/addFutureWork', [FutureWorksController::class, 'insert'])->middleware('auth')->name('addFutureWork');
+
+Route::get('/editFutureWork/{id}', [FutureWorksController::class, 'edit'])->middleware('auth')->name('editFutureWork');
+
+Route::post('/updateFutureWork', [FutureWorksController::class, 'update'])->middleware('auth')->name('updateFutureWork');
+
+Route::get('/futureWorkImages/{id}', [FutureWorksController::class, 'futureWorkImages'])->middleware('auth')->name('futureWorkImages');
+
+Route::post('/addFutureWorkImage', [FutureWorksController::class, 'addFutureWorkImage'])->middleware('auth')->name('addFutureWorkImage');
+
+Route::get('/deleteFutureWorkImage/{id}/futurework_id/{futurework_id}', [FutureWorksController::class, 'deleteFutureWorkImage'])->middleware('auth')->name('deleteFutureWorkImage');
+
+Route::get('/futureWorkThumbnail/{id}', [FutureWorksController::class, 'thumbnail'])->middleware('auth')->name('futureWorkThumbnail');
+
+Route::post('/updateFutureWorkThumbnail', [FutureWorksController::class, 'updateThumbnail'])->middleware('auth')->name('updateFutureWorkThumbnail');
+
 //test design
 Route::get('/', [TestDesignController::class, 'index'])->name('index');
 
@@ -121,12 +160,20 @@ Route::get('/home', [TestDesignController::class, 'index'])->name('index');
 
 Route::get('/search', [TestDesignController::class, 'search'])->name('search');
 
-Route::get('/showPastWorks', [TestDesignController::class, 'showPastWorks'])->name('showPastWorks');
-
 Route::get('/plansByCategory/{id}', [TestDesignController::class, 'plansByCategory'])->name('plansByCategory');
 
 Route::get('/detail/{id}', [TestDesignController::class, 'detail'])->name('detail');
 
+Route::get('/showPastWorks', [TestDesignController::class, 'showPastWorks'])->name('showPastWorks');
+
 Route::get('/pastWorkDetail/{id}', [TestDesignController::class, 'pastWorkDetail'])->name('pastWorkDetail');
+
+Route::get('/showPresentWorks', [TestDesignController::class, 'showPresentWorks'])->name('showPresentWorks');
+
+Route::get('/presentWorkDetail/{id}', [TestDesignController::class, 'presentWorkDetail'])->name('presentWorkDetail');
+
+Route::get('/showFutureWorks', [TestDesignController::class, 'showFutureWorks'])->name('showFutureWorks');
+
+Route::get('/futureWorkDetail/{id}', [TestDesignController::class, 'futureWorkDetail'])->name('futureWorkDetail');
 
 Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);

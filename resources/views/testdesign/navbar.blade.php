@@ -59,10 +59,10 @@
                             <a class="dropdown-item" href="/showPastWorks">
                                 ຜົນງານທີ່ຜ່ານມາ
                             </a>
-                            <a class="dropdown-item" href="/presentWorks">
+                            <a class="dropdown-item" href="/showPresentWorks">
                                 ຜົນງານປະຈຸບັນ
                             </a>
-                            <a class="dropdown-item" href="/futureWorks">
+                            <a class="dropdown-item" href="/showFutureWorks">
                                 ອະນາຄົດ
                             </a>
                         </div>

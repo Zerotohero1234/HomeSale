@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\Categories;
 use App\Models\FloorPlanSlideImages;
+use App\Models\FutureWorkImages;
+use App\Models\FutureWorks;
 use App\Models\HomeSlideImages;
 use App\Models\PastWorkImages;
 use App\Models\PastWorks;
 use App\Models\Plans;
 use App\Models\Floors;
 use App\Models\PlanSlideImages;
+use App\Models\PresentWorkImages;
+use App\Models\PresentWorks;
 use App\Models\Rooms;
 use App\Models\TopSellingSlideImages;
 use Illuminate\Http\Request;
@@ -154,44 +158,6 @@ class TestDesignController extends Controller
         return view('testdesign.plansByCategory', compact('plans', 'category', 'categories', 'pagination', 'category_id'));
     }
 
-    public function showPastWorks(Request $request)
-    {
-        $pastWorksQuery = PastWorks::select('pastWorks.*')
-            ->orderBy('pastWorks.id', 'desc');
-
-        $allPastWorks = $pastWorksQuery->count();
-
-        if ($request->page) {
-            $pastWorksQuery->offset(($request->page - 1) * 15);
-        }
-
-        $pastWorks = $pastWorksQuery->limit(15)
-            ->get();
-
-        $pagination = [
-            'offsets' => ceil($allPastWorks / 15),
-            'offset' => $request->page ? $request->page : 1,
-            'all' => $allPastWorks
-        ];
-
-        $categories = Categories::all();
-
-        return view('testdesign.pastWorks', compact('pastWorks', 'categories', 'pagination'));
-    }
-
-
-    public function pastWorkDetail($id)
-    {
-        $categories = Categories::all();
-        $pastWork = PastWorks::where('id', $id)->first();
-
-        $pastWorkImages = PastWorkImages::join('pastWorks', 'pastWorkImages.pastwork_id', 'pastWorks.id')
-            ->where('pastWorks.id', $id)
-            ->get();
-
-        return view('testdesign.pastWorkDetail', compact('pastWork', 'categories', 'pastWorkImages'));
-    }
-
     public function detail($id)
     {
         $categories = Categories::all();
@@ -234,6 +200,117 @@ class TestDesignController extends Controller
             ->get();
 
         return view('testdesign.detail', compact('plan', 'floor_with_rooms', 'recommendeds', 'planSlideImages', 'floorPlanSlideImages', 'categories'));
+    }
+
+    public function showPastWorks(Request $request)
+    {
+        $pastWorksQuery = PastWorks::select('pastWorks.*')
+            ->orderBy('pastWorks.id', 'desc');
+
+        $allPastWorks = $pastWorksQuery->count();
+
+        if ($request->page) {
+            $pastWorksQuery->offset(($request->page - 1) * 15);
+        }
+
+        $pastWorks = $pastWorksQuery->limit(15)
+            ->get();
+
+        $pagination = [
+            'offsets' => ceil($allPastWorks / 15),
+            'offset' => $request->page ? $request->page : 1,
+            'all' => $allPastWorks
+        ];
+
+        $categories = Categories::all();
+
+        return view('testdesign.pastWorks', compact('pastWorks', 'categories', 'pagination'));
+    }
+
+    public function pastWorkDetail($id)
+    {
+        $categories = Categories::all();
+        $pastWork = PastWorks::where('id', $id)->first();
+
+        $pastWorkImages = PastWorkImages::join('pastWorks', 'pastWorkImages.pastwork_id', 'pastWorks.id')
+            ->where('pastWorks.id', $id)
+            ->get();
+
+        return view('testdesign.pastWorkDetail', compact('pastWork', 'categories', 'pastWorkImages'));
+    }
+
+    public function showPresentWorks(Request $request)
+    {
+        $presentWorksQuery = PresentWorks::select('presentWorks.*')
+            ->orderBy('presentWorks.id', 'desc');
+
+        $allPresentWorks = $presentWorksQuery->count();
+
+        if ($request->page) {
+            $presentWorksQuery->offset(($request->page - 1) * 15);
+        }
+
+        $presentWorks = $presentWorksQuery->limit(15)
+            ->get();
+
+        $pagination = [
+            'offsets' => ceil($allPresentWorks / 15),
+            'offset' => $request->page ? $request->page : 1,
+            'all' => $allPresentWorks
+        ];
+
+        $categories = Categories::all();
+
+        return view('testdesign.presentWorks', compact('presentWorks', 'categories', 'pagination'));
+    }
+
+    public function presentWorkDetail($id)
+    {
+        $categories = Categories::all();
+        $presentWork = PresentWorks::where('id', $id)->first();
+
+        $presentWorkImages = PresentWorkImages::join('presentWorks', 'presentWorkImages.presentWork_id', 'presentWorks.id')
+            ->where('presentWorks.id', $id)
+            ->get();
+
+        return view('testdesign.presentWorkDetail', compact('presentWork', 'categories', 'presentWorkImages'));
+    }
+
+    public function showFutureWorks(Request $request)
+    {
+        $futureWorksQuery = FutureWorks::select('futureWorks.*')
+            ->orderBy('futureWorks.id', 'desc');
+
+        $allFutureWorks = $futureWorksQuery->count();
+
+        if ($request->page) {
+            $futureWorksQuery->offset(($request->page - 1) * 15);
+        }
+
+        $futureWorks = $futureWorksQuery->limit(15)
+            ->get();
+
+        $pagination = [
+            'offsets' => ceil($allFutureWorks / 15),
+            'offset' => $request->page ? $request->page : 1,
+            'all' => $allFutureWorks
+        ];
+
+        $categories = Categories::all();
+
+        return view('testdesign.futureWorks', compact('futureWorks', 'categories', 'pagination'));
+    }
+
+    public function futureWorkDetail($id)
+    {
+        $categories = Categories::all();
+        $futureWork = FutureWorks::where('id', $id)->first();
+
+        $futureWorkImages = FutureWorkImages::join('futureWorks', 'futureWorkImages.futureWork_id', 'futureWorks.id')
+            ->where('futureWorks.id', $id)
+            ->get();
+
+        return view('testdesign.futureWorkDetail', compact('futureWork', 'categories', 'futureWorkImages'));
     }
 
     public function access_denied()
