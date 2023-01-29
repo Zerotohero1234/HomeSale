@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Categories;
 use App\Models\FloorPlanSlideImages;
 use App\Models\Floors;
+use App\Models\PlanPackages;
 use App\Models\Plans;
 use App\Models\PlanSlideImages;
 use App\Models\Rooms;
@@ -237,6 +238,9 @@ class PlanController extends Controller
     {
         $floor = new Floors;
         $floor->floor_name = $request->floor_name;
+        $floor->floor_en_name = $request->floor_en_name;
+        $floor->floor_cn_name = $request->floor_cn_name;
+        $floor->floor_th_name = $request->floor_th_name;
         $floor->plan_id = $request->plan_id;
 
         if ($floor->save()) {
@@ -257,12 +261,15 @@ class PlanController extends Controller
     {
         $floor = [
             'floor_name' => $request->floor_name,
+            'floor_en_name' => $request->floor_en_name,
+            'floor_cn_name' => $request->floor_cn_name,
+            'floor_th_name' => $request->floor_th_name,
         ];
 
         if (Floors::where('id', $request->id)->update($floor)) {
-            return redirect('floors/' . $request->id)->with(['error' => 'edit_success']);
+            return redirect('floors/' . $request->plan_id)->with(['error' => 'edit_success']);
         } else {
-            return redirect('floors/' . $request->id)->with(['error' => 'not_insert']);
+            return redirect('floors/' . $request->plan_id)->with(['error' => 'not_insert']);
         }
     }
 
@@ -280,6 +287,9 @@ class PlanController extends Controller
     {
         $room = new rooms;
         $room->room_name = $request->room_name;
+        $room->room_en_name = $request->room_en_name;
+        $room->room_cn_name = $request->room_cn_name;
+        $room->room_th_name = $request->room_th_name;
         $room->size = $request->size;
         $room->ceiling = $request->ceiling;
         $room->floor_id = $request->floor_id;
@@ -302,17 +312,70 @@ class PlanController extends Controller
     {
         $room = [
             'room_name' => $request->room_name,
+            'room_en_name' => $request->room_en_name,
+            'room_cn_name' => $request->room_cn_name,
+            'room_th_name' => $request->room_th_name,
             'size' => $request->size,
             'ceiling' => $request->ceiling,
         ];
 
         if (Rooms::where('id', $request->id)->update($room)) {
-            return redirect('rooms/' . $request->id)->with(['error' => 'edit_success']);
+            return redirect('rooms/' . $request->floor_id)->with(['error' => 'edit_success']);
         } else {
-            return redirect('rooms/' . $request->id)->with(['error' => 'not_insert']);
+            return redirect('rooms/' . $request->floor_id)->with(['error' => 'not_insert']);
         }
     }
 
+    public function planPackages($id)
+    {
+        $planPackages = PlanPackages::select('planPackages.*')
+            ->join('plans', 'planPackages.plan_id', 'plans.id')
+            ->where('plans.id', $id)
+            ->orderBy('planPackages.id', 'desc')
+            ->get();
+        return view('planPackages', compact('planPackages', 'id'));
+    }
+
+    public function addPlanPackage(Request $request)
+    {
+        $planPackage = new PlanPackages;
+        $planPackage->name = $request->name;
+        $planPackage->en_name = $request->en_name;
+        $planPackage->cn_name = $request->cn_name;
+        $planPackage->th_name = $request->th_name;
+        $planPackage->price = $request->price;
+        $planPackage->plan_id = $request->plan_id;
+
+        if ($planPackage->save()) {
+            return redirect('planPackages/' . $request->plan_id)->with(['error' => 'insert_success']);
+        } else {
+            return redirect('planPackages/' . $request->plan_id)->with(['error' => 'not_insert']);
+        }
+    }
+
+    public function editPlanPackage($id)
+    {
+        $planPackage = PlanPackages::where('id', $id)->first();
+
+        return view('editPlanPackage', compact('planPackage'));
+    }
+
+    public function updatePlanPackage(Request $request)
+    {
+        $planPackage = [
+            'name' => $request->name,
+            'en_name' => $request->en_name,
+            'cn_name' => $request->cn_name,
+            'th_name' => $request->th_name,
+            'price' => $request->price,
+        ];
+
+        if (PlanPackages::where('id', $request->id)->update($planPackage)) {
+            return redirect('planPackages/' . $request->plan_id)->with(['error' => 'edit_success']);
+        } else {
+            return redirect('planPackages/' . $request->plan_id)->with(['error' => 'not_insert']);
+        }
+    }
 
     public function delete($id)
     {

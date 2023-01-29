@@ -230,6 +230,9 @@
                                             ຈຳນວນຊັ້ນ
                                         </th>
                                         <th>
+                                            ຮູບແບບການຂາຍ
+                                        </th>
+                                        <th>
                                             ຮູບໜ້າປົກ
                                         </th>
                                         <th>
@@ -274,6 +277,11 @@
                                                 </td>
                                                 <td>
                                                     {{ $plan->floor }}
+                                                </td>
+                                                <td>
+                                                    <a href="/planPackages/{{ $plan->id }}">
+                                                        ຮູບແບບການຂາຍ
+                                                    </a>
                                                 </td>
                                                 <td>
                                                     <a href="/planThumbnail/{{ $plan->id }}">

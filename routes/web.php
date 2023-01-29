@@ -84,6 +84,14 @@ Route::get('/editRoom/{id}', [PlanController::class, 'editRoom'])->middleware('a
 
 Route::post('/updateRoom', [PlanController::class, 'updateRoom'])->middleware('auth')->name('updateRoom');
 
+Route::get('/planPackages/{id}', [PlanController::class, 'planPackages'])->middleware('auth')->name('planPackages');
+
+Route::post('/addPlanPackage', [PlanController::class, 'addPlanPackage'])->middleware('auth')->name('addPlanPackage');
+
+Route::get('/editPlanPackage/{id}', [PlanController::class, 'editPlanPackage'])->middleware('auth')->name('editPlanPackage');
+
+Route::post('/updatePlanPackage', [PlanController::class, 'updatePlanPackage'])->middleware('auth')->name('updatePlanPackage');
+
 Route::get('/access_denied', [UsersController::class, 'access_denied'])->middleware('auth')->name('access_denied');
 
 Route::post('/addHomeSlideImage', [HomeSlideImagesController::class, 'addHomeSlideImage'])->middleware('auth')->name('addHomeSlideImage');
