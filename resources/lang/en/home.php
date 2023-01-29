@@ -26,4 +26,5 @@ return [
     'present_project' => 'Present Project',
     'future_project' => 'Future Project',
     'contact' => 'Contact',
+    'contact_us' => 'Contact Us',
 ];

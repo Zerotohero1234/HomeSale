@@ -14,6 +14,10 @@ a p.Text-secondary:hover {
     color: #fff;
 }
 
+a p.text-white:hover {
+    color: #F0A600 !important;
+}
+
 #social-float-div {
     z-index: 10000;
     position: fixed;

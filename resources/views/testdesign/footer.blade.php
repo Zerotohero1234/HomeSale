@@ -2,31 +2,46 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-6 col-lg-6">
-                <p class="Text-secondary text-uppercase">
+                <p class="Text-secondary h4 text-uppercase">
                     {{ __('home.address') }} :
                 </p>
-                <p>
-                    ບ້ານ ໄຊສະຫວ່າງ ເມືອງໄຊທານີ ນະຄອນຫຼວງວຽງຈັນ,ແຄມທາງໃຫຍ່ເລກທີ 13 ໃຕ້.
+                <p class="mb-0">
+                    ບ້ານ ໄຊສະຫວ່າງ
+                </p>
+                <p class="mb-0">
+                    ເມືອງໄຊທານີ
+                </p>
+                <p class="mb-0">
+                    ນະຄອນຫຼວງວຽງຈັນ
                 </p>
                 <p>
-                    020 97899656 : 020 55966596
+                    ແຄມທາງໃຫຍ່ເລກທີ 13 ໃຕ້.
                 </p>
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d482.84351911217055!2d102.6634084175457!3d18.056284850914924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sth!2sla!4v1674569870006!5m2!1sth!2sla"
-                    width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-            <div class="col-12 col-md-3 col-lg-3">
-                <a href="/">
-                    <p class="Text-secondary text-uppercase">
-                        work
+                <a href="https://goo.gl/maps/oeGSPNLZLpe5MnWX6" target="_blank">
+                    <p class="text-white mb-0 text-uppercase h5">
+                        <span class="fa fa-map-marker"> <i class="sr-only">MapMarker</i></span> ສະແດງແຜນທີ່
                     </p>
                 </a>
             </div>
-            <div class="col-12 col-md-3 col-lg-3">
-                <a href="/">
-                    <p class="Text-secondary text-uppercase">
-                        Contact
+            <div class="col-12 col-md-6 col-lg-6">
+                <p class="Text-secondary h4 text-uppercase">
+                    {{ __('home.contact_us') }} :
+                </p>
+                <a href="https://wa.me/8562055966596" target="_blank">
+                    <p class="text-white mb-0 text-uppercase">
+                        <span class="fa fa-whatsapp"> <i class="sr-only">Whatsapp</i></span> : +856 20
+                        55 966 596
+                    </p>
+                </a>
+                <a href="https://wa.me/8562097899656" target="_blank">
+                    <p class="text-white mb-0 text-uppercase">
+                        <span class="fa fa-whatsapp"> <i class="sr-only">Whatsapp</i></span> : +856 20
+                        97 899 656
+                    </p>
+                </a>
+                <a href="https://www.facebook.com/Jskgroup.lao" target="_blank">
+                    <p class="text-white mb-0 text-uppercase">
+                        <span class="fa fa-facebook"><i class="sr-only">Facebook</i></span> : JSK Construction & Design
                     </p>
                 </a>
             </div>
