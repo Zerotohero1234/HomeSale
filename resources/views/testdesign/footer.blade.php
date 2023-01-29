@@ -19,7 +19,8 @@
                 </p>
                 <a href="https://goo.gl/maps/oeGSPNLZLpe5MnWX6" target="_blank">
                     <p class="text-white mb-0 text-uppercase h5">
-                        <span class="fa fa-map-marker"> <i class="sr-only">MapMarker</i></span> ສະແດງແຜນທີ່
+                        <span class="fa fa-map-marker"> <i class="sr-only">MapMarker</i></span>
+                        {{ __('home.show_location') }}
                     </p>
                 </a>
             </div>

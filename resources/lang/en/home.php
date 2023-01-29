@@ -27,4 +27,5 @@ return [
     'future_project' => 'Future Project',
     'contact' => 'Contact',
     'contact_us' => 'Contact Us',
+    'show_location' => 'Show Location',
 ];
