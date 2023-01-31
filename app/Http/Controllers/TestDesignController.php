@@ -9,6 +9,7 @@ use App\Models\FutureWorks;
 use App\Models\HomeSlideImages;
 use App\Models\PastWorkImages;
 use App\Models\PastWorks;
+use App\Models\PlanPackages;
 use App\Models\Plans;
 use App\Models\Floors;
 use App\Models\PlanSlideImages;
@@ -195,11 +196,15 @@ class TestDesignController extends Controller
             ->where('plans.id', $id)
             ->get();
 
+        $planPackages = PlanPackages::join('plans', 'planPackages.plan_id', 'plans.id')
+            ->where('plans.id', $id)
+            ->get();
+
         $floorPlanSlideImages = FloorPlanSlideImages::join('plans', 'floorPlanSlideImages.plan_id', 'plans.id')
             ->where('plans.id', $id)
             ->get();
 
-        return view('testdesign.detail', compact('plan', 'floor_with_rooms', 'recommendeds', 'planSlideImages', 'floorPlanSlideImages', 'categories'));
+        return view('testdesign.detail', compact('plan', 'floor_with_rooms', 'recommendeds', 'planSlideImages', 'floorPlanSlideImages', 'categories', 'planPackages'));
     }
 
     public function showPastWorks(Request $request)

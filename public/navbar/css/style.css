@@ -11514,7 +11514,7 @@ h1, h2, h3, h4, h5,
 }
 
 .ftco-navbar-light .navbar-nav>.nav-item>.nav-link {
-  font-size: 11px;
+  font-size: 0.85rem;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
   padding-left: 20px;
@@ -11522,7 +11522,7 @@ h1, h2, h3, h4, h5,
   font-weight: 500;
   color: #fff;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  /* letter-spacing: 2px; */
   position: relative;
   opacity: 1 !important;
 }
@@ -11587,7 +11587,7 @@ h1, h2, h3, h4, h5,
 }
 
 .ftco-navbar-light .navbar-nav>.nav-item .dropdown-menu .dropdown-item {
-  font-size: 14px;
+  font-size: 0.85rem;
   color: #000;
 }
 

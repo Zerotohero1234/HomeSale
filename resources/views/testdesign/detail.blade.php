@@ -128,24 +128,19 @@
             <div class="col-lg-4 mt-5 mt-lg-1">
                 <div class="card bg-dark card-shadow"card-shadow>
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-lg-6 col-6">
-                                <p class="text-white mb-0 text-uppercase">5 Copy Set :</p>
+                        @foreach ($planPackages as $planPackage)
+                            <div class="row">
+                                <div class="col-lg-6 col-6">
+                                    <p class="text-white mb-0 text-uppercase">
+                                        {{ App::getLocale() == 'la' ? $planPackage->name : (App::getLocale() == 'en' ? ($planPackage->en_name ? $planPackage->en_name : $planPackage->name) : ($planPackage->cn_name ? $planPackage->cn_name : $planPackage->name)) }}
+                                    </p>
+                                </div>
+                                <div class="col-lg-6 col-6">
+                                    <p class="text-white mb-0">{{ number_format($planPackage->price) }} ກີບ</p>
+                                </div>
                             </div>
-                            <div class="col-lg-6 col-6">
-                                <p class="text-white mb-0">{{ number_format(10000000) }} ກີບ</p>
-                            </div>
-                        </div>
-                        <hr />
-                        <div class="row">
-                            <div class="col-lg-6 col-6">
-                                <p class="text-white mb-0 text-uppercase">10 Copy Set :</p>
-                            </div>
-                            <div class="col-lg-6 col-6">
-                                <p class="text-white mb-0">{{ number_format(20000000) }} ກີບ</p>
-                            </div>
-                        </div>
-                        <hr />
+                            <hr />
+                        @endforeach
                         <div class="row">
                             <div class="col-12">
                                 <p class="Text-secondary mb-0 text-uppercase">
