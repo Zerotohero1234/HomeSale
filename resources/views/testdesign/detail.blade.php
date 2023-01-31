@@ -4,34 +4,38 @@
     <div class="container">
         <div class="row pt-5 mt-5 mt-lg-1">
             <div class="col-lg-8">
-                <div id="carouselInteriorPlanIndicators" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-indicators">
-                        @foreach ($planSlideImages as $key => $planSlideImage)
-                            <button type="button" data-bs-target="#carouselInteriorPlanIndicators"
-                                data-bs-slide-to={{ $key }} class="{{ $key == 0 ? 'active' : '' }}"
-                                aria-current="true">
-                            </button>
-                        @endforeach
+                @if (sizeOf($planSlideImages) == 0)
+                    <img src="/img/design/no_image.jpeg" class="img-fluid d-block" style="margin-inline: auto">
+                @else
+                    <div id="carouselInteriorPlanIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            @foreach ($planSlideImages as $key => $planSlideImage)
+                                <button type="button" data-bs-target="#carouselInteriorPlanIndicators"
+                                    data-bs-slide-to={{ $key }} class="{{ $key == 0 ? 'active' : '' }}"
+                                    aria-current="true">
+                                </button>
+                            @endforeach
+                        </div>
+                        <div class="carousel-inner">
+                            @foreach ($planSlideImages as $key => $planSlideImage)
+                                <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                                    <img src="/img/design/slide/{{ $planSlideImage->img_src }}" class="d-block w-100"
+                                        alt="...">
+                                </div>
+                            @endforeach
+                        </div>
+                        <button class="carousel-control-prev" type="button"
+                            data-bs-target="#carouselInteriorPlanIndicators" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button"
+                            data-bs-target="#carouselInteriorPlanIndicators" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                     </div>
-                    <div class="carousel-inner">
-                        @foreach ($planSlideImages as $key => $planSlideImage)
-                            <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
-                                <img src="/img/design/slide/{{ $planSlideImage->img_src }}" class="d-block w-100"
-                                    alt="...">
-                            </div>
-                        @endforeach
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselInteriorPlanIndicators"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselInteriorPlanIndicators"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
+                @endif
             </div>
             <div class="col-lg-4 mt-5 mt-lg-1">
                 <div class="card bg-dark card-shadow"card-shadow>
@@ -96,34 +100,38 @@
 
         <div class="row pt-5">
             <div class="col-lg-8">
-                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-indicators">
-                        @foreach ($floorPlanSlideImages as $key => $floorPlanSlideImage)
-                            <button type="button" data-bs-target="#carouselExampleIndicators"
-                                data-bs-slide-to={{ $key }} class="{{ $key == 0 ? 'active' : '' }}"
-                                aria-current="true">
-                            </button>
-                        @endforeach
+                @if (sizeOf($floorPlanSlideImages) == 0)
+                    <img src="/img/design/no_image.jpeg" class="img-fluid d-block" style="margin-inline: auto">
+                @else
+                    <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            @foreach ($floorPlanSlideImages as $key => $floorPlanSlideImage)
+                                <button type="button" data-bs-target="#carouselExampleIndicators"
+                                    data-bs-slide-to={{ $key }} class="{{ $key == 0 ? 'active' : '' }}"
+                                    aria-current="true">
+                                </button>
+                            @endforeach
+                        </div>
+                        <div class="carousel-inner">
+                            @foreach ($floorPlanSlideImages as $key => $floorPlanSlideImage)
+                                <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                                    <img src="/img/design/slide/{{ $floorPlanSlideImage->img_src }}" class="d-block w-100"
+                                        alt="...">
+                                </div>
+                            @endforeach
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                     </div>
-                    <div class="carousel-inner">
-                        @foreach ($floorPlanSlideImages as $key => $floorPlanSlideImage)
-                            <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
-                                <img src="/img/design/slide/{{ $floorPlanSlideImage->img_src }}" class="d-block w-100"
-                                    alt="...">
-                            </div>
-                        @endforeach
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
+                @endif
             </div>
             <div class="col-lg-4 mt-5 mt-lg-1">
                 <div class="card bg-dark card-shadow"card-shadow>

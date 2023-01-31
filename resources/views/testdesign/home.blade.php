@@ -6,7 +6,7 @@
             <div class="col-lg-3 col-12 order-2 order-lg-1 mt-lg-0 mt-3">
                 <div class="card bg-dark card-shadow">
                     <div class="card-header">
-                        <p class="h5 Text-secondary">{{ __('home.search_plans') }}</p>
+                        <p class="h5 Text-secondary text-uppercase">{{ __('home.search_plans') }}</p>
                     </div>
                     <form method="GET" action="search">
                         <div class="card-body">
@@ -61,35 +61,39 @@
                 </div>
             </div>
             <div class="col-lg-9 col-12 order-1 order-lg-2">
-                <div id="carouselBanner" class="carousel slide carousel-fade" data-bs-ride="carousel">
-                    <div class="carousel-indicators">
-                        @foreach ($homeSlideImages as $key => $homeSlideImage)
-                            <button type="button" data-bs-target="#carouselBanner" data-bs-slide-to={{ $key }}
-                                class="{{ $key == 0 ? 'active' : '' }}" aria-current="true">
-                            </button>
-                        @endforeach
+                @if (sizeOf($homeSlideImages) == 0)
+                    <img src="/img/design/no_image.jpeg" class="img-fluid d-block" style="margin-inline: auto">
+                @else
+                    <div id="carouselBanner" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            @foreach ($homeSlideImages as $key => $homeSlideImage)
+                                <button type="button" data-bs-target="#carouselBanner" data-bs-slide-to={{ $key }}
+                                    class="{{ $key == 0 ? 'active' : '' }}" aria-current="true">
+                                </button>
+                            @endforeach
+                        </div>
+                        <div class="carousel-inner">
+                            @foreach ($homeSlideImages as $key => $homeSlideImage)
+                                <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                                    <a href="{{ $homeSlideImage->link }}">
+                                        <img src="/img/design/slide/{{ $homeSlideImage->img_src }}" class="d-block w-100"
+                                            alt="...">
+                                    </a>
+                                </div>
+                            @endforeach
+                        </div>
+                        <button class="carousel-control-prev Text-secondary" type="button" data-bs-target="#carouselBanner"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselBanner"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                     </div>
-                    <div class="carousel-inner">
-                        @foreach ($homeSlideImages as $key => $homeSlideImage)
-                            <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
-                                <a href="{{ $homeSlideImage->link }}">
-                                    <img src="/img/design/slide/{{ $homeSlideImage->img_src }}" class="d-block w-100"
-                                        alt="...">
-                                </a>
-                            </div>
-                        @endforeach
-                    </div>
-                    <button class="carousel-control-prev Text-secondary" type="button" data-bs-target="#carouselBanner"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselBanner"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
+                @endif
             </div>
         </div>
 
@@ -100,36 +104,40 @@
                 </p>
             </div>
             <div class="col-12">
-                <div id="carouselRecommended" class="carousel slide carousel-fade" data-bs-ride="carousel">
-                    <div class="carousel-indicators">
-                        @foreach ($topSellingSlideImages as $key => $topSellingSlideImage)
-                            <button type="button" data-bs-target="#carouselRecommended"
-                                data-bs-slide-to={{ $key }} class="{{ $key == 0 ? 'active' : '' }}"
-                                aria-current="true">
-                            </button>
-                        @endforeach
+                @if (sizeOf($topSellingSlideImages) == 0)
+                    <img src="/img/design/no_image.jpeg" class="img-fluid d-block" style="margin-inline: auto">
+                @else
+                    <div id="carouselRecommended" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            @foreach ($topSellingSlideImages as $key => $topSellingSlideImage)
+                                <button type="button" data-bs-target="#carouselRecommended"
+                                    data-bs-slide-to={{ $key }} class="{{ $key == 0 ? 'active' : '' }}"
+                                    aria-current="true">
+                                </button>
+                            @endforeach
+                        </div>
+                        <div class="carousel-inner">
+                            @foreach ($topSellingSlideImages as $key => $topSellingSlideImage)
+                                <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                                    <a href="{{ $topSellingSlideImage->link }}">
+                                        <img src="/img/design/slide/{{ $topSellingSlideImage->img_src }}"
+                                            class="d-block w-100" alt="...">
+                                    </a>
+                                </div>
+                            @endforeach
+                        </div>
+                        <button class="carousel-control-prev Text-secondary" type="button"
+                            data-bs-target="#carouselRecommended" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselRecommended"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                     </div>
-                    <div class="carousel-inner">
-                        @foreach ($topSellingSlideImages as $key => $topSellingSlideImage)
-                            <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
-                                <a href="{{ $topSellingSlideImage->link }}">
-                                    <img src="/img/design/slide/{{ $topSellingSlideImage->img_src }}" class="d-block w-100"
-                                        alt="...">
-                                </a>
-                            </div>
-                        @endforeach
-                    </div>
-                    <button class="carousel-control-prev Text-secondary" type="button"
-                        data-bs-target="#carouselRecommended" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselRecommended"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
+                @endif
             </div>
         </div>
 

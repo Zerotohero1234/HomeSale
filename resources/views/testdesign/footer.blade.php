@@ -18,7 +18,7 @@
                     ແຄມທາງໃຫຍ່ເລກທີ 13 ໃຕ້.
                 </p>
                 <a href="https://goo.gl/maps/oeGSPNLZLpe5MnWX6" target="_blank">
-                    <p class="text-white mb-0 text-uppercase h5">
+                    <p class="text-white mb-0 h5">
                         <span class="fa fa-map-marker"> <i class="sr-only">MapMarker</i></span>
                         {{ __('home.show_location') }}
                     </p>
@@ -29,19 +29,19 @@
                     {{ __('home.contact_us') }} :
                 </p>
                 <a href="https://wa.me/8562055966596" target="_blank">
-                    <p class="text-white mb-0 text-uppercase">
+                    <p class="text-white mb-0">
                         <span class="fa fa-whatsapp"> <i class="sr-only">Whatsapp</i></span> : +856 20
                         55 966 596
                     </p>
                 </a>
                 <a href="https://wa.me/8562097899656" target="_blank">
-                    <p class="text-white mb-0 text-uppercase">
+                    <p class="text-white mb-0">
                         <span class="fa fa-whatsapp"> <i class="sr-only">Whatsapp</i></span> : +856 20
                         97 899 656
                     </p>
                 </a>
                 <a href="https://www.facebook.com/Jskgroup.lao" target="_blank">
-                    <p class="text-white mb-0 text-uppercase">
+                    <p class="text-white mb-0">
                         <span class="fa fa-facebook"><i class="sr-only">Facebook</i></span> : JSK Construction & Design
                     </p>
                 </a>
