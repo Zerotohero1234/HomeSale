@@ -190,7 +190,9 @@ class TestDesignController extends Controller
         }
 
         $recommendeds = Plans::join('categories', 'plans.category', 'categories.id')
-            ->join('recommendeds', 'plans.id', 'recommendeds.plan_id')->get();
+            ->inRandomOrder()
+            ->limit(3)
+            ->get();
 
         $planSlideImages = PlanSlideImages::join('plans', 'planSlideImages.plan_id', 'plans.id')
             ->where('plans.id', $id)

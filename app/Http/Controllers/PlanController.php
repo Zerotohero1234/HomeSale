@@ -33,6 +33,13 @@ class PlanController extends Controller
             ->join('categories', 'plans.category', 'categories.id')
             ->orderBy('plans.id', 'desc');
 
+        if ($request->plan_name != '') {
+            $plansQuery->where('plan_name', $request->plan_name);
+        }
+        if ($request->category != '') {
+            $plansQuery->where('category', $request->category);
+        }
+
         $all_plans = $plansQuery->count();
 
         if ($request->page) {

@@ -44,153 +44,158 @@
                     <div class="x_panel">
                         <div>
                             <h2>ເພີ່ມແບບເຮືອນ</h2>
+                            <a class="" type="button" data-toggle="collapse" data-target="#addPlansCollapse"
+                                aria-expanded="false" aria-controls="addPlansCollapse">
+                                <i class="material-icons">expand_more</i>
+                            </a>
                         </div>
-                        <div class="x_content">
-                            <form method="POST" action="/addPlan">
-                                @csrf
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label class="bmd-label-floating">ຊື່</label>
-                                            <input type="text" name="plan_name" class="form-control" required>
+                        <div class="collapse" id="addPlansCollapse">
+                            <div class="x_content">
+                                <form method="POST" action="/addPlan">
+                                    @csrf
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label class="bmd-label-floating">ຊື່</label>
+                                                <input type="text" name="plan_name" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label class="bmd-label-floating">ຊື່ພາສາອັງກິດ</label>
+                                                <input type="text" name="plan_en_name" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label class="bmd-label-floating">ຊື່ພາສາຈີນ</label>
+                                                <input type="text" name="plan_cn_name" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label class="bmd-label-floating">ຊື່ພາສາໄທ</label>
+                                                <input type="text" name="plan_th_name" class="form-control">
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label class="bmd-label-floating">ຊື່ພາສາອັງກິດ</label>
-                                            <input type="text" name="plan_en_name" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label class="bmd-label-floating">ຊື່ພາສາຈີນ</label>
-                                            <input type="text" name="plan_cn_name" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label class="bmd-label-floating">ຊື່ພາສາໄທ</label>
-                                            <input type="text" name="plan_th_name" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label class="bmd-label-floating">ໝວດໝູ່</label>
-                                            <select class="form-control" name="category" required>
-                                                <option value="">
-                                                    ເລືອກ
-                                                </option>
-                                                @foreach ($categories as $category)
-                                                    <option value="{{ $category->id }}">
-                                                        {{ $category->cate_name }}
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label class="bmd-label-floating">ໝວດໝູ່</label>
+                                                <select class="form-control" name="category" required>
+                                                    <option value="">
+                                                        ເລືອກ
                                                     </option>
-                                                @endforeach
-                                            </select>
+                                                    @foreach ($categories as $category)
+                                                        <option value="{{ $category->id }}">
+                                                            {{ $category->cate_name }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label class="bmd-label-floating">ກວ້າງ</label>
+                                                <input type="text" name="width" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label class="bmd-label-floating">ຍາວ</label>
+                                                <input type="text" name="depth" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label class="bmd-label-floating">ພື້ນທີ່ໃຊ້ສອຍ</label>
+                                                <input type="text" name="leaving_area" class="form-control">
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label class="bmd-label-floating">ກວ້າງ</label>
-                                            <input type="text" name="width" class="form-control">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label class="bmd-label-floating">ຫ້ອງນອນ</label>
+                                                <input type="text" name="bedroom" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label class="bmd-label-floating">ຫ້ອງນ້ຳ</label>
+                                                <input type="text" name="bath" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label class="bmd-label-floating">ຈຳນວນຊັ້ນ</label>
+                                                <input type="text" name="floor" class="form-control">
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label class="bmd-label-floating">ຍາວ</label>
-                                            <input type="text" name="depth" class="form-control">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <label class="bmd-label-floating">ລາຍລະອຽດ</label>
+                                            <textarea name="description" id="myeditorinstance"></textarea>
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label class="bmd-label-floating">ພື້ນທີ່ໃຊ້ສອຍ</label>
-                                            <input type="text" name="leaving_area" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label class="bmd-label-floating">ຫ້ອງນອນ</label>
-                                            <input type="text" name="bedroom" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label class="bmd-label-floating">ຫ້ອງນ້ຳ</label>
-                                            <input type="text" name="bath" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label class="bmd-label-floating">ຈຳນວນຊັ້ນ</label>
-                                            <input type="text" name="floor" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <label class="bmd-label-floating">ລາຍລະອຽດ</label>
-                                        <textarea name="description" id="myeditorinstance"></textarea>
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn btn-primary px-5">ເພີ່ມ</button>
-                                <div class="clearfix"></div>
-                            </form>
+                                    <button type="submit" class="btn btn-primary px-5">ເພີ່ມ</button>
+                                    <div class="clearfix"></div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-
-            {{-- <div class="row">
-                <div class="col">
+            <div class="row">
+                <div class="col-md-12">
                     <div class="x_panel">
                         <div>
                             <h2>ຄົ້ນຫາ</h2>
+                            <a class="" type="button" data-toggle="collapse" data-target="#searchPlansCollapse"
+                                aria-expanded="true" aria-controls="searchPlansCollapse">
+                                <i class="material-icons">expand_more</i>
+                            </a>
                         </div>
-                        <div class="x_content">
-                            <form method="GET" action="/plans">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label class="bmd-label-floating">ຊື່</label>
-                                            <input class="form-control" value="{{ Request::input('name') }}" name="name">
+                        <div class="collapse show" id="searchPlansCollapse">
+                            <div class="x_content">
+                                <form method="GET" action="/plans">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label class="bmd-label-floating">ຊື່</label>
+                                                <input type="text" value="{{ Request::input('plan_name') }}"
+                                                    name="plan_name" class="form-control">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label class="bmd-label-floating">ສາຂາ</label>
-                                            <select class="form-control" id="select_branch" name="branch_id">
-                                                <option value="">
-                                                    ທັງໝົດ
-                                                </option>
-                                                @foreach ($branchs as $branch)
-                                                    <option {{ Request::input('branch') == $branch->id ? 'selected' : '' }}
-                                                        value="{{ $branch->id }}">
-                                                        {{ $branch->branch_name }}
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label class="bmd-label-floating">ໝວດໝູ່</label>
+                                                <select class="form-control" name="category">
+                                                    <option value="">
+                                                        ເລືອກ
                                                     </option>
-                                                @endforeach
-                                            </select>
+                                                    @foreach ($categories as $category)
+                                                        <option
+                                                            {{ Request::input('category') == $category->id ? 'selected' : '' }}
+                                                            value="{{ $category->id }}">
+                                                            {{ $category->cate_name }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
-
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label class="bmd-label-floating">ອີເມວ</label>
-                                            <input class="form-control" type="email"
-                                                value="{{ Request::input('email') }}" name="email">
-                                        </div>
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn btn-primary pull-right px-5">ຄົ້ນຫາ</button>
-                                <div class="clearfix"></div>
-                            </form>
+                                    <button type="submit" class="btn btn-primary px-5">ຄົ້ນຫາ</button>
+                                    <div class="clearfix"></div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div> --}}
+            </div>
 
             <div class="row">
                 <div class="col-md-12">
