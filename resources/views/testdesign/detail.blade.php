@@ -138,13 +138,13 @@
                     <div class="card-body">
                         @foreach ($planPackages as $planPackage)
                             <div class="row">
-                                <div class="col-lg-6 col-6">
+                                <div class="col-lg-7 col-7">
                                     <p class="text-white mb-0 text-uppercase">
                                         {{ App::getLocale() == 'la' ? $planPackage->name : (App::getLocale() == 'en' ? ($planPackage->en_name ? $planPackage->en_name : $planPackage->name) : ($planPackage->cn_name ? $planPackage->cn_name : $planPackage->name)) }}
                                     </p>
                                 </div>
-                                <div class="col-lg-6 col-6">
-                                    <p class="text-white mb-0">{{ number_format($planPackage->price) }} ກີບ</p>
+                                <div class="col-lg-5 col-5">
+                                    <p class="text-white mb-0">{{ number_format($planPackage->price) }} &#x24;</p>
                                 </div>
                             </div>
                             <hr />
@@ -173,7 +173,7 @@
         </div>
 
         <div class="row mt-5">
-            <div class="col-12 col-lg-8">
+            {{-- <div class="col-12 col-lg-8">
                 @foreach ($floor_with_rooms as $floor_with_room)
                     <div class="row mt-3">
                         <div class="col-12">
@@ -218,7 +218,7 @@
                                     @foreach ($floor_with_room->rooms as $room)
                                         <div class="row">
                                             <div class="col-6">
-                                                <p class="text-white mb-0 font-weight-bolder">{{ __('home.room') }}</p>
+                                                <p class="text-white mb-0 h5 font-weight-bolder">{{ __('home.room') }} :</p>
                                             </div>
                                             <div class="col-6">
                                                 <p class="text-white font-weight-lighter mb-0 ">
@@ -228,7 +228,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-6">
-                                                <p class="text-white mb-0 font-weight-bolder">{{ __('home.size') }}</p>
+                                                <p class="text-white mb-0 h5 font-weight-bolder">{{ __('home.size') }} :</p>
                                             </div>
                                             <div class="col-6">
                                                 <p class="text-white font-weight-lighter mb-0 ">{{ $room->size }}</p>
@@ -236,7 +236,8 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-6">
-                                                <p class="text-white mb-0 font-weight-bolder">{{ __('home.ceiling') }}</p>
+                                                <p class="text-white mb-0 h5 font-weight-bolder">{{ __('home.ceiling') }} :
+                                                </p>
                                             </div>
                                             <div class="col-6">
                                                 <p class="text-white font-weight-lighter mb-0 ">{{ $room->ceiling }}</p>
@@ -249,8 +250,8 @@
                         </div>
                     </div>
                 @endforeach
-            </div>
-            <div class="col-12 col-lg-4">
+            </div> --}}
+            <div class="col-12 col-lg-12">
                 <div class="row">
                     <div class="col-12">
                         <p class="h4 font-weight-bolder text-uppercase headertext-symbol Text-secondary">
