@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\TestDesignController;
+use App\Http\Controllers\LampController;
 
 /*
 |--------------------------------------------------------------------------
@@ -161,6 +162,18 @@ Route::get('/futureWorkThumbnail/{id}', [FutureWorksController::class, 'thumbnai
 
 Route::post('/updateFutureWorkThumbnail', [FutureWorksController::class, 'updateThumbnail'])->middleware('auth')->name('updateFutureWorkThumbnail');
 
+Route::get('/manageLamps', [LampController::class, 'index'])->middleware('auth')->name('manageLamps');
+
+Route::get('/editLamp/{id}', [LampController::class, 'edit'])->middleware('auth')->name('editLamp');
+
+Route::post('/updateLamp', [LampController::class, 'update'])->middleware('auth')->name('updateLamp');
+
+Route::post('/addLamp', [LampController::class, 'insert'])->middleware('auth')->name('addLamp');
+
+Route::get('/lampThumbnail/{id}', [LampController::class, 'thumbnail'])->middleware('auth')->name('lampThumbnail');
+
+Route::post('/updateLampThumbnail', [LampController::class, 'updateThumbnail'])->middleware('auth')->name('updateLampThumbnail');
+
 //test design
 Route::get('/', [TestDesignController::class, 'index'])->name('index');
 
@@ -185,3 +198,5 @@ Route::get('/showFutureWorks', [TestDesignController::class, 'showFutureWorks'])
 Route::get('/futureWorkDetail/{id}', [TestDesignController::class, 'futureWorkDetail'])->name('futureWorkDetail');
 
 Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);
+
+Route::get('/lamps', [TestDesignController::class, 'lamps'])->name('lamps');

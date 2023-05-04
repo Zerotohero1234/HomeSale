@@ -32,5 +32,10 @@
             class="{{ Request::is('users') || Request::is('users/*') || Request::is('editUser/*') ? 'current-page' : '' }}">
             <a href="/users">Users</a>
         </li>
+
+        <li
+            class="{{ Request::is('manageLamps') || Request::is('editLamp/*') || Request::is('lampThumbnail/*') ? 'current-page' : '' }}">
+            <a href="/manageLamps">ໂຄມໄຟ</a>
+        </li>
     </ul>
 </li>

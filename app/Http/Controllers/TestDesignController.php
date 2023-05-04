@@ -19,6 +19,7 @@ use App\Models\Rooms;
 use App\Models\TopSellingSlideImages;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use App\Models\Lamps;
 
 class TestDesignController extends Controller
 {
@@ -40,7 +41,7 @@ class TestDesignController extends Controller
         $topSellingSlideImages = TopSellingSlideImages::all();
         $recommendeds = Plans::join('categories', 'plans.category', 'categories.id')
             ->join('recommendeds', 'plans.id', 'recommendeds.plan_id')->get();
-            
+
         $category_plans = array();
         foreach ($categories as $category) {
             $category_plan = array();
@@ -295,5 +296,31 @@ class TestDesignController extends Controller
     public function access_denied()
     {
         return view('accessDenied');
+    }
+
+    public function lamps(Request $request)
+    {
+        $lampsQuery = Lamps::select('lamps.*', 'categories.cate_name')
+            ->join('categories', 'lamps.category_id', 'categories.id')
+            ->orderBy('lamps.id', 'desc');
+
+        $all_lamps = $lampsQuery->count();
+
+        if ($request->page) {
+            $lampsQuery->offset(($request->page - 1) * 15);
+        }
+
+        $lamps = $lampsQuery->limit(15)
+            ->get();
+
+        $pagination = [
+            'offsets' => ceil($all_lamps / 15),
+            'offset' => $request->page ? $request->page : 1,
+            'all' => $all_lamps
+        ];
+
+        $categories = Categories::all();
+
+        return view('testdesign.lamps', compact('lamps', 'categories', 'pagination'));
     }
 }
