@@ -7,7 +7,10 @@
         <div class="">
             <div class="page-title">
                 <div class="title_left">
-                    <h3>ແກ້ໄຂໝວດໝູ່ໂຄມໄຟ</h3>
+                    <a href="/lampCategories">
+                        <i class="material-icons">keyboard_backspace</i>
+                    </a>
+                    <h3 class="d-inline pl-3">ແກ້ໄຂໝວດໝູ່ໂຄມໄຟ</h3>
                 </div>
             </div>
             <div class="clearfix"></div>
