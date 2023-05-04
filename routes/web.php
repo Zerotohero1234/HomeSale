@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\TestDesignController;
 use App\Http\Controllers\LampController;
+use App\Http\Controllers\LampCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -173,6 +174,14 @@ Route::post('/addLamp', [LampController::class, 'insert'])->middleware('auth')->
 Route::get('/lampThumbnail/{id}', [LampController::class, 'thumbnail'])->middleware('auth')->name('lampThumbnail');
 
 Route::post('/updateLampThumbnail', [LampController::class, 'updateThumbnail'])->middleware('auth')->name('updateLampThumbnail');
+
+Route::get('/lampCategories', [LampCategoryController::class, 'index'])->middleware('auth')->name('lampCategories');
+
+Route::get('/editLampCategory/{id}', [LampCategoryController::class, 'edit'])->middleware('auth')->name('editLampCategory');
+
+Route::post('/updateLampCategory', [LampCategoryController::class, 'update'])->middleware('auth')->name('updateLampCategory');
+
+Route::post('/addLampCategory', [LampCategoryController::class, 'insert'])->middleware('auth')->name('addLampCategory');
 
 //test design
 Route::get('/', [TestDesignController::class, 'index'])->name('index');

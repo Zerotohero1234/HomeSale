@@ -13,11 +13,11 @@
             </div>
         @else
             <div class="row pt-5 mt-5 mt-lg-1">
-                {{-- <div class="col-12">
+                <div class="col-12">
                     <p class="h4 font-weight-bolder text-uppercase headertext-symbol Text-secondary">
-                        dd
+                        JA Lighting :
                     </p>
-                </div> --}}
+                </div>
                 @foreach ($lamps as $lamp)
                     <div class="col-4 col-lg-4 col-md-4 pt-3 px-1">
                         <a type="button" data-toggle="modal" data-target="#lampModal-{{ $lamp->id }}">
@@ -45,6 +45,9 @@
                                             </p>
                                             <p class="text-white font-weight-lighter mb-0">
                                                 {{ App::getLocale() == 'la' ? $lamp->cate_name : (App::getLocale() == 'en' ? ($lamp->cate_en_name ? $lamp->cate_en_name : $lamp->cate_name) : ($lamp->cate_cn_name ? $lamp->cate_cn_name : $lamp->cate_name)) }}
+                                            </p>
+                                            <p class="text-white font-weight-lighter">
+                                                {{ number_format($lamp->price) }} ກີບ
                                             </p>
                                             <p class="text-white font-weight-lighter">
                                                 <?php echo html_entity_decode($lamp->desc); ?>

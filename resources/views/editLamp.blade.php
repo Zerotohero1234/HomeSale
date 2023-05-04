@@ -73,11 +73,18 @@
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="form-group">
+                                            <label class="bmd-label-floating">ລາຄາ</label>
+                                            <input type="text" name="price" value="{{ $lamp->price }}"
+                                                class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
                                             <label class="bmd-label-floating">ໝວດໝູ່</label>
                                             <select class="form-control" name="category_id" required>
                                                 @foreach ($categories as $category)
                                                     <option value="{{ $category->id }}">
-                                                        {{ $category->cate_name }}
+                                                        {{ $category->name }}
                                                     </option>
                                                 @endforeach
                                             </select>

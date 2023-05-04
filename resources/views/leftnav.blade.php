@@ -13,7 +13,11 @@
             <div class="menu_section">
                 {{-- <h3>General</h3> --}}
                 <ul class="nav side-menu">
-                    @include('layouts.superAdminMenu')
+                    @if (Auth::user()->lamp == 1)
+                        @include('layouts.lighting')
+                    @else
+                        @include('layouts.superAdminMenu')
+                    @endif
                 </ul>
             </div>
 

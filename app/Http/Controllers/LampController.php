@@ -2,16 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Categories;
-use App\Models\FloorLampSlideImages;
-use App\Models\Floors;
-use App\Models\LampPackages;
+use App\Models\LampCategories;
 use App\Models\Lamps;
-use App\Models\LampSlideImages;
-use App\Models\Rooms;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use phpDocumentor\Reflection\Types\Null_;
 
 class LampController extends Controller
 {
@@ -29,8 +23,8 @@ class LampController extends Controller
             return redirect('access_denied');
         }
 
-        $lampsQuery = Lamps::select('lamps.*', 'categories.cate_name')
-            ->join('categories', 'lamps.category_id', 'categories.id')
+        $lampsQuery = Lamps::select('lamps.*', 'lamp_categories.name as cate_name')
+            ->join('lamp_categories', 'lamps.category_id', 'lamp_categories.id')
             ->orderBy('lamps.id', 'desc');
 
         if ($request->name != '') {
@@ -55,7 +49,7 @@ class LampController extends Controller
             'all' => $all_lamps
         ];
 
-        $categories = Categories::all();
+        $categories = LampCategories::all();
 
         return view('lamps', compact('lamps', 'categories', 'pagination'));
     }
@@ -67,6 +61,7 @@ class LampController extends Controller
         $lamp->en_name = $request->en_name;
         $lamp->cn_name = $request->cn_name;
         $lamp->th_name = $request->th_name;
+        $lamp->price = $request->price;
         $lamp->category_id = $request->category_id;
         $lamp->desc = htmlentities($request->desc);
 
@@ -80,7 +75,7 @@ class LampController extends Controller
     public function edit($id)
     {
         $lamp = Lamps::where('id', $id)->first();
-        $categories = Categories::all();
+        $categories = LampCategories::all();
 
         return view('editLamp', compact('lamp', 'categories'));
     }
@@ -92,6 +87,7 @@ class LampController extends Controller
             'en_name' => $request->en_name,
             'cn_name' => $request->cn_name,
             'th_name' => $request->th_name,
+            'price' => $request->price,
             'category_id' => $request->category_id,
             'desc' => htmlentities($request->desc),
         ];

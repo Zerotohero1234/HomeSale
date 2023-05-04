@@ -67,6 +67,9 @@
                             </a>
                         </div>
                     </li>
+                    <li class="nav-item active">
+                        <a href="/lamps" class="nav-link">JA Lighting</a>
+                    </li>
                 </ul>
             </div>
         </div>

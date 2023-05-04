@@ -82,6 +82,13 @@
                                     <div class="row">
                                         <div class="col-md-3">
                                             <div class="form-group">
+                                                <label class="bmd-label-floating">ລາຄາ</label>
+                                                <input type="text" name="price"
+                                                    class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
                                                 <label class="bmd-label-floating">ໝວດໝູ່</label>
                                                 <select class="form-control" name="category_id" required>
                                                     <option value="">
@@ -143,7 +150,7 @@
                                                         <option
                                                             {{ Request::input('category') == $category->id ? 'selected' : '' }}
                                                             value="{{ $category->id }}">
-                                                            {{ $category->cate_name }}
+                                                            {{ $category->name }}
                                                         </option>
                                                     @endforeach
                                                 </select>
@@ -185,6 +192,9 @@
                                             ຊື່ພາສາໄທ
                                         </th>
                                         <th>
+                                            ລາຄາ
+                                        </th>
+                                        <th>
                                             ໝວດໝູ່
                                         </th>
                                         <th>
@@ -211,6 +221,9 @@
                                                 </td>
                                                 <td>
                                                     {{ $lamp->th_name }}
+                                                </td>
+                                                <td>
+                                                    {{ number_format($lamp->price) }}
                                                 </td>
                                                 <td>
                                                     {{ $lamp->cate_name }}
