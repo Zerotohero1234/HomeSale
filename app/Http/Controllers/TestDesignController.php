@@ -300,8 +300,8 @@ class TestDesignController extends Controller
 
     public function lamps(Request $request)
     {
-        $lampsQuery = Lamps::select('lamps.*', 'categories.cate_name')
-            ->join('categories', 'lamps.category_id', 'categories.id')
+        $lampsQuery = Lamps::select('lamps.*', 'lamp_categories.name')
+            ->join('lamp_categories', 'lamps.category_id', 'lamp_categories.id')
             ->orderBy('lamps.id', 'desc');
 
         $all_lamps = $lampsQuery->count();
