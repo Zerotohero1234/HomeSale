@@ -12,6 +12,7 @@ use App\Models\PastWorks;
 use App\Models\PlanPackages;
 use App\Models\Plans;
 use App\Models\Floors;
+use App\Models\LampCategories;
 use App\Models\PlanSlideImages;
 use App\Models\PresentWorkImages;
 use App\Models\PresentWorks;
@@ -300,9 +301,13 @@ class TestDesignController extends Controller
 
     public function lamps(Request $request)
     {
-        $lampsQuery = Lamps::select('lamps.*', 'lamp_categories.name')
+        $lampsQuery = Lamps::select('lamps.*', 'lamp_categories.name as cate_name', 'lamp_categories.en_name as cate_en_name', 'lamp_categories.cn_name as cate_cn_name', 'lamp_categories.th_name as cate_th_name')
             ->join('lamp_categories', 'lamps.category_id', 'lamp_categories.id')
             ->orderBy('lamps.id', 'desc');
+
+        if ($request->category_id != '') {
+            $lampsQuery->where('category_id', $request->category_id);
+        }
 
         $all_lamps = $lampsQuery->count();
 
@@ -321,6 +326,8 @@ class TestDesignController extends Controller
 
         $categories = Categories::all();
 
-        return view('testdesign.lamps', compact('lamps', 'categories', 'pagination'));
+        $lamp_categories = LampCategories::all();
+
+        return view('testdesign.lamps', compact('lamps', 'categories', 'lamp_categories', 'pagination'));
     }
 }

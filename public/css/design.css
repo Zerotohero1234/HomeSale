@@ -133,3 +133,12 @@ a p.text-white:hover {
         width: auto;
     }
 }
+
+.modal-content.bg-dark .modal-header {
+    border-bottom: 0px;
+}
+
+.modal-header span {
+    color: #fff;
+    font-size: larger;
+}

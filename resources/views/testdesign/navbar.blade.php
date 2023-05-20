@@ -38,10 +38,10 @@
             </button>
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav m-auto">
-                    <li class="nav-item active">
+                    <li class="nav-item {{ Request::is('home') ? 'active' : '' }}">
                         <a href="/home" class="nav-link">{{ __('home.home') }}</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown {{ Request::is('plansByCategory/*') ? 'active' : '' }}">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown04111" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">{{ __('home.categories') }}</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown04111">
@@ -52,7 +52,7 @@
                             @endforeach
                         </div>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown {{ Request::is('showPastWorks') || Request::is('showPresentWorks') || Request::is('showFutureWorks') ? 'active' : '' }}">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown04111" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">{{ __('home.project') }}</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown04111">
@@ -67,7 +67,7 @@
                             </a>
                         </div>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item {{ Request::is('lamps') ? 'active' : '' }}">
                         <a href="/lamps" class="nav-link">JA Lighting</a>
                     </li>
                 </ul>

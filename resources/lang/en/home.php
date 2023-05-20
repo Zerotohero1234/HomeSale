@@ -28,4 +28,5 @@ return [
     'contact' => 'Contact',
     'contact_us' => 'Contact Us',
     'show_location' => 'Show Location',
+    'all_lamp' => 'All Lighting'
 ];

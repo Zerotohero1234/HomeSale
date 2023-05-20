@@ -28,4 +28,5 @@ return [
     'contact' => 'ສົນໃຈຕິດຕໍ່',
     'contact_us' => 'ຕິດຕໍ່ພວກເຮົາ',
     'show_location' => 'ສະແດງແຜນທີ່',
+    'all_lamp' => 'ໂຄມໄຟທັງໝົດ'
 ];
