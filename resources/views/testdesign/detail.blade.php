@@ -98,7 +98,7 @@
             </div>
         </div>
 
-        <div class="row pt-5">
+        <!-- <div class="row pt-5">
             <div class="col-lg-8">
                 @if (sizeOf($floorPlanSlideImages) == 0)
                     <img src="/img/design/no_image.jpeg" class="img-fluid d-block" style="margin-inline: auto">
@@ -167,7 +167,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <div class="mt-2">
         </div>

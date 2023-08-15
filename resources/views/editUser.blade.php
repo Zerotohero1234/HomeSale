@@ -57,7 +57,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">ສາຂາ</label>
-                                        <select class="form-control" id="select_branch" name="branch_id" required>
+                                        <select class="form-control" id="select_branch" name="branch_id">
                                             <option value="">
                                                 ເລືອກ
                                             </option>

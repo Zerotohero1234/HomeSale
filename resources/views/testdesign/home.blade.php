@@ -105,7 +105,7 @@
             </div>
             <div class="col-12">
                 @if (sizeOf($topSellingSlideImages) == 0)
-                    <img src="/img/design/no_image.jpeg" class="img-fluid d-block" style="margin-inline: auto">
+                    <img src="https://cutewallpaper.org/24/real-estate-logo-png/real-estate-logo-real-estate-logo-real-estate-slogans-real-estate-logo-design.png" class="img-fluid d-block" style="margin-inline: auto">
                 @else
                     <div id="carouselRecommended" class="carousel slide carousel-fade" data-bs-ride="carousel">
                         <div class="carousel-indicators">

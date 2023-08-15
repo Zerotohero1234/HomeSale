@@ -14,18 +14,18 @@ class Branchs extends Model
      *
      * @var string
      */
-    protected $table = 'branchs';
+    protected $table = 'users';
 
     protected $fillable = [
-        'id',
-        'created_at',
-        'updated_at',
-        'district_id',
-        'branch_name',
-        'is_owner',
-        'first_name',
+        'name',
         'last_name',
-        'phone'
+        'email',
+        'password',
+        'enabled',
+        'phone_no',
+        'is_owner',
+        'percent',
+        'is_thai_admin'
     ];
 
     /**

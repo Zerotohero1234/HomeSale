@@ -244,9 +244,6 @@
                                             Slide
                                         </th>
                                         <th>
-                                            ຜັງ
-                                        </th>
-                                        <th>
                                             ຊັ້ນທັງໝົດ
                                         </th>
                                         <th>
@@ -298,11 +295,11 @@
                                                         <i class="material-icons">image</i>
                                                     </a>
                                                 </td>
-                                                <td>
+                                                <!-- <td>
                                                     <a href="/floorPlanSlideImages/{{ $plan->id }}">
                                                         <i class="material-icons">image</i>
                                                     </a>
-                                                </td>
+                                                </td> -->
                                                 <td>
                                                     <a href="/floors/{{ $plan->id }}">
                                                         <i class="material-icons">clear_all</i>

@@ -29,9 +29,18 @@
                         <b> Success - </b>ບັນທຶກຂໍ້ມູນສຳເລັດ</span>
                 </div>
             @endif
+            @if(session()->get( 'success' )=='Delete_Success')
+                <div class="alert alert-success">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <i class="material-icons">close</i>
+                    </button>
+                    <span>
+                        <b> Success - </b>ລົບຂໍ້ມູນຜູ້ໃຊ້ນີ້ເປັນທີ່ຮຽບຮ້ອຍແລ້ວ</span>
+                </div>
+            @endif
             <div class="clearfix"></div>
 
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-md-12">
                     <div class="x_panel">
                         <div>
@@ -52,8 +61,8 @@
                                             <label class="bmd-label-floating">ນາມສະກຸນ</label>
                                             <input type="text" name="last_name" class="form-control">
                                         </div>
-                                    </div>
-                                    <div class="col-md-4">
+                                    </div> -->
+                                    <!-- <div class="col-md-4">
                                         {{-- <div class="form-group">
                                             <label class="bmd-label-floating">ສາຂາ</label>
                                             <select class="form-control" id="select_branch" name="branch_id" required>
@@ -67,8 +76,8 @@
                                                 @endforeach
                                             </select>
                                         </div> --}}
-                                    </div>
-                                </div>
+                                    </div> -->
+                                <!-- </div>
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
@@ -95,7 +104,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
 
             <div class="row">
@@ -114,7 +123,7 @@
                                             <input class="form-control" value="{{ Request::input('name') }}" name="name">
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
+                                    <!-- <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">ສາຂາ</label>
                                             <select class="form-control" id="select_branch" name="branch_id">
@@ -129,8 +138,8 @@
                                                 @endforeach --}}
                                             </select>
                                         </div>
-                                    </div>
-                                    <div class="col-md-3">
+                                    </div> -->
+                                    <!-- <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">ສະຖານະ</label>
                                             <select class="form-control" name="enabled">
@@ -145,7 +154,7 @@
                                                 </option>
                                             </select>
                                         </div>
-                                    </div>
+                                    </div> -->
 
                                     <div class="col-md-3">
                                         <div class="form-group">
@@ -182,9 +191,9 @@
                                         <th>
                                             ເບີໂທ
                                         </th>
-                                        <th>
+                                        <!-- <th>
                                             ສາຂາ
-                                        </th>
+                                        </th> -->
                                         <th>
 
                                         </th>
@@ -204,9 +213,9 @@
                                                 <td>
                                                     {{ $user->phone_no }}
                                                 </td>
-                                                <td>
+                                                <!-- <td>
                                                     {{ $user->branch_name }}
-                                                </td>
+                                                </td> -->
                                                 <td>
                                                     <a href="/editUser/{{ $user->id }}">
                                                         <i class="material-icons">create</i>
@@ -214,7 +223,7 @@
                                                 </td>
                                                 <td>
                                                     <a href="/deleteUser/{{ $user->id }}">
-                                                        {{ $user->enabled == '1' ? 'ປິດໃຊ້ງານ' : 'ເປີດໃຊ້ງານ' }}
+                                                    <i class="material-icons">delete</i>
                                                     </a>
                                                 </td>
                                             </tr>

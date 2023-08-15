@@ -5,10 +5,38 @@
             <div class="container order-md-last">
                 <div class="row">
                     <div class="col-md-6" id="nav-logo">
-                        <a class="navbar-brand" href="/"><img src="{{ URL::asset('/img/design/JSK-logo.jpeg') }}"
+                        <a class="navbar-brand" href="/"><img src="https://cutewallpaper.org/24/real-estate-logo-png/real-estate-logo-real-estate-logo-real-estate-slogans-real-estate-logo-design.png"
                                 class="img-fluid" style="max-height: 50px"></a>
                     </div>
-                    <div class="col-md-6 d-none d-md-flex justify-content-end mb-md-0 mb-3 align-items-center">
+                    @if(Auth::check())
+                        <div class="col-md-4 d-none d-md-flex justify-content-end mb-md-0 mb-3 align-items-center">
+                            <div class="dropdown" style="margin: 0;">
+                                <ul class=" navbar-right"  style="list-style: none; margin: 0;">
+                                    <li class="nav-item dropdown open" style="padding-right: 15px; margin: 0;">
+                                        <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown"
+                                            data-toggle="dropdown" aria-expanded="false">{{ Auth::user()->name }}
+                                        </a>
+                                        <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
+                                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();" {{ __('Logout') }}><i
+                                                    class="fa fa-sign-out pull-right"></i>
+                                                ອອກຈາກລະບົບ</a>
+
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                @csrf
+                                            </form>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    @else
+                        <div class="col-md-5 d-none d-md-flex justify-content-end mb-md-0 mb-3 align-items-center">
+                            <a href="{{ route('login') }}" class="btn btn-warning mr-2">ເຂົ້າສູ່ລະບົບ</a>
+                            <a href="{{ route('register') }}" class="btn btn-secondary">ສະໝັກສະມາຊິກ</a>
+                        </div>
+                    @endif
+                    <div class="col-md-1 d-none d-md-flex justify-content-end mb-md-0 mb-3 align-items-center">
                         <div class="dropdown">
                             <a class="nav-link dropdown-toggle Text-secondary" href="#"
                                 id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
@@ -31,7 +59,7 @@
     </div>
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light mt-0 mt-lg-5 pt-lg-2"
         id="ftco-navbar">
-        <div class="container-fluid">
+        <!-- <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
                 aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="fa fa-bars text-white"></span>
@@ -72,9 +100,9 @@
                     </li>
                 </ul>
             </div>
-        </div>
+        </div> -->
     </nav>
-    <div id="social-float-div" class="card card-body p-2 bg-dark rounded-0">
+    <!-- <div id="social-float-div" class="card card-body p-2 bg-dark rounded-0">
         <div class="social-media mb-2">
             <p class="mb-0 d-flex">
                 <a href="https://www.facebook.com/Jskgroup.lao" target="_blank"
@@ -89,7 +117,7 @@
                             class="sr-only">Whatsapp</i></span></a>
             </p>
         </div>
-    </div>
+    </div> -->
     <!-- END nav -->
 
 </section>

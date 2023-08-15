@@ -21,7 +21,7 @@ class UsersController extends Controller
     {
 
         if(Auth::user()->is_admin != 1){
-            return redirect('access_denied');
+            return redirect('home');
         }
 
         $result = User::query();
@@ -92,7 +92,7 @@ class UsersController extends Controller
     public function edit($id)
     {
         $user = User::where('id', $id)->first();
-        $branchs = Branchs::where('branchs.enabled', '1')->get();
+        $branchs = Branchs::where('users.enabled', '1')->get();
 
         return view('editUser', compact('user', 'branchs'));
     }
@@ -119,24 +119,28 @@ class UsersController extends Controller
 
     public function delete($id)
     {
-        $user_data = User::where('id', $id)->first();
+        $user = User::find($id);
+    $user->delete();
 
-        $user = [
-            'enabled' => $user_data->enabled == "1" ? "0" : "1"
-        ];
+    return redirect('users')->with(['success' => 'Delete_Success']);
+        // $user_data = User::where('id', $id)->first();
 
-        if (User::where('id', $id)->update($user)) {
-            return redirect('users')->with(['error' => 'insert_success']);
-        } else {
-            return redirect('users')->with(['error' => 'not_insert']);
-        }
+        // $user = [
+        //     'enabled' => $user_data->enabled == "1" ? "0" : "1"
+        // ];
+
+        // if (User::where('id', $id)->update($user)) {
+        //     return redirect('users')->with(['error' => 'insert_success']);
+        // } else {
+        //     return redirect('users')->with(['error' => 'not_insert']);
+        // }
     }
 
     public function partner(Request $request)
     {
 
         if(Auth::user()->is_admin != 1){
-            return redirect('access_denied');
+            return redirect('home');
         }
 
         $result = User::query();
@@ -251,7 +255,7 @@ class UsersController extends Controller
     {
 
         if(Auth::user()->is_owner != 1){
-            return redirect('access_denied');
+            return redirect('home');
         }
 
         $result = User::query();
@@ -346,6 +350,30 @@ class UsersController extends Controller
     }
 
     public function access_denied(){
-        return view('accessDenied');
+        return redirect('home');
     }
+
+    public function register(Request $request)
+    {
+        $user = new User;
+        $user->name = $request->name;
+        $user->last_name = $request->last_name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->is_admin = '0';
+        $user->enabled = '1';
+        $user->phone_no = $request->phone_no;
+        $user->is_owner = '0';
+
+        try {
+            if ($user->save()) {
+                return redirect('admin')->with(['error' => 'insert_success']);
+            } else {
+                return redirect('admin')->with(['error' => 'not_insert']);
+            }
+        } catch (\Throwable $th) {
+            return redirect('admin')->with(['error' => 'not_insert']);
+        }
+    }
+
 }

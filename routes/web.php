@@ -30,7 +30,7 @@ Auth::routes();
 
 Route::get('/users', [UsersController::class, 'index'])->middleware('auth')->name('users');
 
-Route::post('/addUser', [UsersController::class, 'insert'])->middleware('auth')->name('addUser');
+Route::post('/addUser', [UsersController::class, 'insert'])->name('addUser');
 
 Route::get('/editUser/{id}', [UsersController::class, 'edit'])->middleware('auth')->name('editUser');
 

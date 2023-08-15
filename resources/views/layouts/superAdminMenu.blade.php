@@ -16,7 +16,7 @@
         <li class="{{ Request::is('topSellingSlideImages') ? 'current-page' : '' }}">
             <a href="/topSellingSlideImages">ແບບບ້ານຍອດນິຍົມ</a>
         </li>
-        <li
+        <!-- <li
             class="{{ Request::is('pastWorks') || Request::is('editPastWork/*') || Request::is('pastWorksImages/*') ? 'current-page' : '' }}">
             <a href="/pastWorks">ຜົນງານທີ່ຜ່ານມາ</a>
         </li>
@@ -27,7 +27,7 @@
         <li
             class="{{ Request::is('futureWorks') || Request::is('editFutureWork/*') || Request::is('futureWorksImages/*') ? 'current-page' : '' }}">
             <a href="/futureWorks">ຜົນງານໃນອະນາຄົດ</a>
-        </li>
+        </li> -->
         <li
             class="{{ Request::is('users') || Request::is('users/*') || Request::is('editUser/*') ? 'current-page' : '' }}">
             <a href="/users">Users</a>
