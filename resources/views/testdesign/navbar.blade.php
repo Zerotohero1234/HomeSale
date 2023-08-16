@@ -9,7 +9,7 @@
                                 class="img-fluid" style="max-height: 50px"></a>
                     </div>
                     @if(Auth::check())
-                        <div class="col-md-4 d-none d-md-flex justify-content-end mb-md-0 mb-3 align-items-center">
+                        <div class="col-md-5 d-none d-md-flex justify-content-end mb-md-0 mb-3 align-items-center">
                             <div class="dropdown" style="margin: 0;">
                                 <ul class=" navbar-right"  style="list-style: none; margin: 0;">
                                     <li class="nav-item dropdown open" style="padding-right: 15px; margin: 0;">

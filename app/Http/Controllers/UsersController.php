@@ -7,6 +7,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Plans;
+use App\Models\Categories;
 
 class UsersController extends Controller
 {
@@ -64,6 +66,52 @@ class UsersController extends Controller
         return view('users', compact('users', 'pagination'));
     }
 
+    //     @php
+//     $count = count($all_plans);
+// @endphp
+
+// <p>There are {{ $count }} plans.</p>
+
+public function admindashboard(Request $request)
+{
+    if (Auth::user()->is_admin != 1) {
+        return redirect('access_denied');
+    }
+
+    $plansQuery = Plans::select('plans.*', 'categories.cate_name')
+        ->join('categories', 'plans.category', 'categories.id')
+        ->orderBy('plans.id', 'desc');
+
+    if ($request->plan_name != '') {
+        $plansQuery->where('plan_name', $request->plan_name);
+    }
+
+    if ($request->category != '') {
+        $plansQuery->where('category', $request->category);
+    }
+
+    $all_plans = $plansQuery->get();
+    
+    // Get the count of plans with category 15
+    $countCategory15 = Plans::where('category', 15)->count();
+
+    // Get the count of plans with category 14
+    $countCategory14 = Plans::where('category', 14)->count();
+
+    $categories = Categories::all();
+    $total_categories = $categories->count();
+
+    $users = User::all();
+    $total_users = $users->count();
+
+    $plans12 = Plans::select('category', \DB::raw('COUNT(*) as plan_count'))
+            ->groupBy('category')
+            ->havingRaw('COUNT(*) > 1')
+            ->orderBy('plan_count', 'desc')
+            ->get();
+
+    return view('adminDashBoard', compact('all_plans', 'categories', 'total_categories', 'total_users', 'countCategory15', 'countCategory14','plans12'));
+}
 
     public function insert(Request $request)
     {
@@ -103,19 +151,25 @@ class UsersController extends Controller
             'name' => $request->name,
             'last_name' => $request->last_name,
             'email' => $request->email,
-            'password' => Hash::make($request->password),
             'branch_id' => $request->branch_id,
             'is_admin' => Auth::user()->id == $request->id ? '1' : '0',
             'enabled' => '1',
             'phone_no' => $request->phone_no
         ];
-
+    
+        $current_password = User::where('id', $request->id)->value('password');
+    
+        if (!empty($request->password) && $request->password !== $current_password) {
+            $user['password'] = Hash::make($request->password);
+        }
+    
         if (User::where('id', $request->id)->update($user)) {
             return redirect('users')->with(['error' => 'insert_success']);
         } else {
             return redirect('users')->with(['error' => 'not_insert']);
         }
     }
+    
 
     public function delete($id)
     {

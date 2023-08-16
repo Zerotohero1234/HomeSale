@@ -60,6 +60,43 @@ class PlanController extends Controller
         return view('plans', compact('plans', 'categories', 'pagination'));
     }
 
+//     @php
+//     $count = count($all_plans);
+// @endphp
+
+// <p>There are {{ $count }} plans.</p>
+
+// public function index(Request $request)
+// {
+//     if (Auth::user()->is_admin != 1) {
+//         return redirect('access_denied');
+//     }
+
+//     $plansQuery = Plans::select('plans.*', 'categories.cate_name')
+//         ->join('categories', 'plans.category', 'categories.id')
+//         ->orderBy('plans.id', 'desc');
+
+//     if ($request->plan_name != '') {
+//         $plansQuery->where('plan_name', $request->plan_name);
+//     }
+
+//     if ($request->category != '') {
+//         $plansQuery->where('category', $request->category);
+//     }
+
+//     $all_plans = $plansQuery->get();
+
+//     $pagination = [
+//         'offsets' => ceil($all_plans->count() / 10),
+//         'offset' => $request->page ? $request->page : 1,
+//         'all' => $all_plans->count()
+//     ];
+
+//     $categories = Categories::all();
+
+//     return view('plans', compact('all_plans', 'categories', 'pagination'));
+// }
+
     public function insert(Request $request)
     {
         $plan = new Plans;

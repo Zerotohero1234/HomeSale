@@ -28,6 +28,8 @@ use App\Http\Controllers\LampCategoryController;
 
 Auth::routes();
 
+Route::get('/adminDashBoard', [UsersController::class, 'admindashboard'])->middleware('auth')->name('adminDashBoard');
+
 Route::get('/users', [UsersController::class, 'index'])->middleware('auth')->name('users');
 
 Route::post('/addUser', [UsersController::class, 'insert'])->name('addUser');

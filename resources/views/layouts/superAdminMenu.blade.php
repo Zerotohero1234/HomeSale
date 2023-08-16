@@ -32,5 +32,9 @@
             class="{{ Request::is('users') || Request::is('users/*') || Request::is('editUser/*') ? 'current-page' : '' }}">
             <a href="/users">Users</a>
         </li>
+        <li
+            class="{{ Request::is('adminDashBoard') }}">
+            <a href="/adminDashBoard">ລາຍງານ</a>
+        </li>
     </ul>
 </li>

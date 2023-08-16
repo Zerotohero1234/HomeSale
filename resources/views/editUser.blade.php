@@ -54,22 +54,6 @@
                                             class="form-control">
                                     </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="bmd-label-floating">ສາຂາ</label>
-                                        <select class="form-control" id="select_branch" name="branch_id">
-                                            <option value="">
-                                                ເລືອກ
-                                            </option>
-                                            @foreach ($branchs as $branch)
-                                            <option {{ $branch->id == $user->branch_id ? 'selected' : '' }}
-                                                value="{{ $branch->id }}">
-                                                {{ $branch->branch_name }}
-                                            </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-4">
@@ -82,7 +66,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">ລະຫັດຜ່ານ</label>
-                                        <input type="password" name="password" class="form-control" required>
+                                        <input type="password" name="password" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
